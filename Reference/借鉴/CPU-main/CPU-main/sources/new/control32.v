@@ -8,28 +8,30 @@
 /////////////////////////////////////////////////////////////////////////////
 
 module control32(Opcode, Function_opcode, Jr, RegDST, ALUSrc, MemtoReg, RegWrite, MemWrite, Branch, nBranch, Jmp, Jal, I_format, Sftmd, ALUOp,MemorIOtoReg,MemRead,IORead,IOWrite,Alu_resultHigh);
-    input[5:0]   Opcode;            // À´×ÔIFetchÄ£¿éµÄÖ¸Áî¸ß6bit, instruction[31..26]
-    input[5:0]   Function_opcode;  	// À´×ÔIFetchÄ£¿éµÄÖ¸ÁîµÍ6bit, ÓÃÓÚÇø·Ör-ÀàĞÍÖĞµÄÖ¸Áî, instructions[5..0]
-    output       Jr;         	 // Îª1±íÃ÷µ±Ç°Ö¸ÁîÊÇjr, Îª0±íÊ¾µ±Ç°Ö¸Áî²»ÊÇjr
-    output       RegDST;          // Îª1±íÃ÷Ä¿µÄ¼Ä´æÆ÷ÊÇrd, ·ñÔòÄ¿µÄ¼Ä´æÆ÷ÊÇrt
-    output       ALUSrc;          // Îª1±íÃ÷µÚ¶ş¸ö²Ù×÷Êı£¨ALUÖĞµÄBinput£©ÊÇÁ¢¼´Êı£¨beq, bne³ıÍâ£©, Îª0Ê±±íÊ¾µÚ¶ş¸ö²Ù×÷ÊıÀ´×Ô¼Ä´æÆ÷
-    output       MemtoReg;       // Îª1±íÃ÷ĞèÒª´Ó´æ´¢Æ÷»òI/O¶ÁÊı¾İµ½¼Ä´æÆ÷
-    output       RegWrite;   	  // Îª1±íÃ÷¸ÃÖ¸ÁîĞèÒªĞ´¼Ä´æÆ÷
-    output       MemWrite;       // Îª1±íÃ÷¸ÃÖ¸ÁîĞèÒªĞ´´æ´¢Æ÷
-    output       Branch;        // Îª1±íÃ÷ÊÇbeqÖ¸Áî, Îª0Ê±±íÊ¾²»ÊÇbeqÖ¸Áî
-    output       nBranch;       // Îª1±íÃ÷ÊÇBneÖ¸Áî, Îª0Ê±±íÊ¾²»ÊÇbneÖ¸Áî
-    output       Jmp;            // Îª1±íÃ÷ÊÇJÖ¸Áî, Îª0Ê±±íÊ¾²»ÊÇJÖ¸Áî
-    output       Jal;            // Îª1±íÃ÷ÊÇJalÖ¸Áî, Îª0Ê±±íÊ¾²»ÊÇJalÖ¸Áî
-    output       I_format;      // Îª1±íÃ÷¸ÃÖ¸ÁîÊÇ³ıbeq, bne, LW, SWÖ®ÍâµÄÆäËûI-ÀàĞÍÖ¸Áî
-    output       Sftmd;         // Îª1±íÃ÷ÊÇÒÆÎ»Ö¸Áî, Îª0±íÃ÷²»ÊÇÒÆÎ»Ö¸Áî
-    output[1:0]  ALUOp;        // ÊÇR-ÀàĞÍ»òI_format=1Ê±Î»1£¨¸ßbitÎ»£©Îª1,  beq¡¢bneÖ¸ÁîÔòÎ»0£¨µÍbitÎ»£©Îª1
+    input[5:0]   Opcode;            // æ¥è‡ªIFetchæ¨¡å—çš„æŒ‡ä»¤é«˜6bit, instruction[31..26]
+    input[5:0]   Function_opcode;  	// æ¥è‡ªIFetchæ¨¡å—çš„æŒ‡ä»¤ä½6bit, ç”¨äºåŒºåˆ†r-ç±»å‹ä¸­çš„æŒ‡ä»¤, instructions[5..0]
+    output       Jr;         	 // ä¸º1è¡¨æ˜å½“å‰æŒ‡ä»¤æ˜¯jr, ä¸º0è¡¨ç¤ºå½“å‰æŒ‡ä»¤ä¸æ˜¯jr
+    output       RegDST;          // ä¸º1è¡¨æ˜ç›®çš„å¯„å­˜å™¨æ˜¯rd, å¦åˆ™ç›®çš„å¯„å­˜å™¨æ˜¯rt
+    output       ALUSrc;          // ä¸º1è¡¨æ˜ç¬¬äºŒä¸ªæ“ä½œæ•°ï¼ˆALUä¸­çš„Binputï¼‰æ˜¯ç«‹å³æ•°ï¼ˆbeq, bneé™¤å¤–ï¼‰, ä¸º0æ—¶è¡¨ç¤ºç¬¬äºŒä¸ªæ“ä½œæ•°æ¥è‡ªå¯„å­˜å™¨
+    output       MemtoReg;       // ä¸º1è¡¨æ˜éœ€è¦ä»å­˜å‚¨å™¨æˆ–I/Oè¯»æ•°æ®åˆ°å¯„å­˜å™¨
+    output       RegWrite;   	  // ä¸º1è¡¨æ˜è¯¥æŒ‡ä»¤éœ€è¦å†™å¯„å­˜å™¨
+    output       MemWrite;       // ä¸º1è¡¨æ˜è¯¥æŒ‡ä»¤éœ€è¦å†™å­˜å‚¨å™¨
+    output       Branch;        // ä¸º1è¡¨æ˜æ˜¯beqæŒ‡ä»¤, ä¸º0æ—¶è¡¨ç¤ºä¸æ˜¯beqæŒ‡ä»¤
+    output       nBranch;       // ä¸º1è¡¨æ˜æ˜¯BneæŒ‡ä»¤, ä¸º0æ—¶è¡¨ç¤ºä¸æ˜¯bneæŒ‡ä»¤
+    output       Jmp;            // ä¸º1è¡¨æ˜æ˜¯JæŒ‡ä»¤, ä¸º0æ—¶è¡¨ç¤ºä¸æ˜¯JæŒ‡ä»¤
+    output       Jal;            // ä¸º1è¡¨æ˜æ˜¯JalæŒ‡ä»¤, ä¸º0æ—¶è¡¨ç¤ºä¸æ˜¯JalæŒ‡ä»¤
+    output       I_format;      // ä¸º1è¡¨æ˜è¯¥æŒ‡ä»¤æ˜¯é™¤beq, bne, LW, SWä¹‹å¤–çš„å…¶ä»–I-ç±»å‹æŒ‡ä»¤
+    output       Sftmd;         // ä¸º1è¡¨æ˜æ˜¯ç§»ä½æŒ‡ä»¤, ä¸º0è¡¨æ˜ä¸æ˜¯ç§»ä½æŒ‡ä»¤
+    output[1:0]  ALUOp;        // æ˜¯R-ç±»å‹æˆ–I_format=1æ—¶ä½1ï¼ˆé«˜bitä½ï¼‰ä¸º1,  beqã€bneæŒ‡ä»¤åˆ™ä½0ï¼ˆä½bitä½ï¼‰ä¸º1
     output MemorIOtoReg;    // 1 indicates that data needs to be read from memory or I/O to the register
     output MemRead;     // 1 indicates that the instruction needs to read from the memory
     output IORead ;     // 1 indicates I/O read
     output IOWrite;    // 1 indicates I/O write
     input [21:0] Alu_resultHigh;    // From the execution unit Alu_Result[31..10]
         
-    wire R_format;wire Lw;wire Sw;
+    wire R_format;
+    wire Lw;
+    wire Sw;
     assign Lw=(Opcode==6'b100011)? 1'b1:1'b0;
     assign Sw=(Opcode==6'b101011)?1'b1:1'b0;
     assign Jr =((Opcode==6'b000000)&&(Function_opcode==6'b001000)) ? 1'b1 : 1'b0;
