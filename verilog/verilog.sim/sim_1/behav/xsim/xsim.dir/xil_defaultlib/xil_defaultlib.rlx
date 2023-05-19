@@ -1,0 +1,18 @@
+0.6
+2017.4
+Dec 15 2017
+21:07:18
+P:/CS214-Computer-Organization/Project/verilog/verilog.sim/sim_1/behav/xsim/glbl.v,1513215259,verilog,,,,glbl,,,,,,,,
+P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/ip/RAM/sim/RAM.v,1684508247,verilog,,P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/ip/prgrom/sim/prgrom.v,,RAM,,,,,,,,
+P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/ip/prgrom/sim/prgrom.v,1684508247,verilog,,P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Dmem32.v,,prgrom,,,,,,,,
+P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Dmem32.v,1684508247,verilog,,P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Ifetch32.v,,dmemory32,,,,,,,,
+P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Ifetch32.v,1684508247,verilog,,P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/clkout.v,,Ifetc32,,,,,,,,
+P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/clkout.v,1684508246,verilog,,P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/control32.v,,clkout,,,,,,,,
+P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/control32.v,1684508247,verilog,,P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/decode32.v,,control32,,,,,,,,
+P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v,1684511430,verilog,,,,cpu,,,,,,,,
+P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/decode32.v,1684508247,verilog,,P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/executs32.v,,decode32,,,,,,,,
+P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/executs32.v,1684508247,verilog,,P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/leds.v,,executs32,,,,,,,,
+P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/leds.v,1684508472,verilog,,P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/memOrIO.v,,leds,,,,,,,,
+P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/memOrIO.v,1684508247,verilog,,P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v,,MemOrIO,,,,,,,,
+P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v,1684508246,verilog,,P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/switchs.v,,show,,,,,,,,
+P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/switchs.v,1684508449,verilog,,P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v,,switchs,,,,,,,,
