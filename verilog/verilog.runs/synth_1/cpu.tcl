@@ -16,6 +16,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a100tfgg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -29,6 +30,10 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo p:/CS214-Computer-Organization/Project/verilog/verilog.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
+add_files p:/CS214-Computer-Organization/Project/mips/test1/prgmip32.coe
+add_files p:/CS214-Computer-Organization/Project/mips/test1/dmem32.coe
+add_files p:/CS214-Computer-Organization/Project/mips/test1/prgmip32_scene1.coe
+add_files p:/CS214-Computer-Organization/Project/mips/test1/dmem32_scene1.coe
 read_verilog -library xil_defaultlib {
   P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Dmem32.v
   P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Ifetch32.v

@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Sat May 20 00:16:29 2023
+| Date             : Sat May 20 16:51:21 2023
 | Host             : Bill running 64-bit major release  (build 9200)
 | Command          : report_power -file cpu_power_routed.rpt -pb cpu_power_summary_routed.pb -rpx cpu_power_routed.rpx
 | Design           : cpu
@@ -29,20 +29,20 @@ Table of Contents
 1. Summary
 ----------
 
-+--------------------------+--------------+
-| Total On-Chip Power (W)  | 10.947       |
-| Design Power Budget (W)  | Unspecified* |
-| Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 10.811       |
-| Device Static (W)        | 0.137        |
-| Effective TJA (C/W)      | 2.7          |
-| Max Ambient (C)          | 55.7         |
-| Junction Temperature (C) | 54.3         |
-| Confidence Level         | Low          |
-| Setting File             | ---          |
-| Simulation Activity File | ---          |
-| Design Nets Matched      | NA           |
-+--------------------------+--------------+
++--------------------------+----------------------------------+
+| Total On-Chip Power (W)  | 71.640 (Junction temp exceeded!) |
+| Design Power Budget (W)  | Unspecified*                     |
+| Power Budget Margin (W)  | NA                               |
+| Dynamic (W)              | 70.825                           |
+| Device Static (W)        | 0.815                            |
+| Effective TJA (C/W)      | 2.7                              |
+| Max Ambient (C)          | 0.0                              |
+| Junction Temperature (C) | 125.0                            |
+| Confidence Level         | Low                              |
+| Setting File             | ---                              |
+| Simulation Activity File | ---                              |
+| Design Nets Matched      | NA                               |
++--------------------------+----------------------------------+
 * Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
 
 
@@ -52,16 +52,18 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.314 |      171 |       --- |             --- |
-|   LUT as Logic |     0.246 |       57 |     63400 |            0.09 |
-|   CARRY4       |     0.033 |       13 |     15850 |            0.08 |
-|   Register     |     0.029 |       81 |    126800 |            0.06 |
-|   BUFG         |     0.006 |        1 |        32 |            3.13 |
-|   Others       |     0.000 |        9 |       --- |             --- |
-| Signals        |     0.351 |      151 |       --- |             --- |
-| I/O            |    10.146 |       50 |       285 |           17.54 |
-| Static Power   |     0.137 |          |           |                 |
-| Total          |    10.947 |          |           |                 |
+| Slice Logic    |    24.487 |     3556 |       --- |             --- |
+|   LUT as Logic |    23.861 |     1745 |     63400 |            2.75 |
+|   F7/F8 Muxes  |     0.401 |      308 |     63400 |            0.49 |
+|   CARRY4       |     0.158 |       32 |     15850 |            0.20 |
+|   Register     |     0.045 |     1168 |    126800 |            0.92 |
+|   BUFG         |     0.021 |        3 |        32 |            9.38 |
+|   Others       |     0.000 |       91 |       --- |             --- |
+| Signals        |    31.909 |     3169 |       --- |             --- |
+| Block RAM      |     1.284 |       29 |       135 |           21.48 |
+| I/O            |    13.145 |       70 |       285 |           24.56 |
+| Static Power   |     0.815 |          |           |                 |
+| Total          |    71.640 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,16 +73,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.732 |       0.685 |      0.047 |
-| Vccaux    |       1.800 |     0.393 |       0.371 |      0.022 |
-| Vcco33    |       3.300 |     2.870 |       2.866 |      0.004 |
+| Vccint    |       1.000 |    58.242 |      57.670 |      0.572 |
+| Vccaux    |       1.800 |     0.571 |       0.478 |      0.093 |
+| Vcco33    |       3.300 |     3.696 |       3.692 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.001 |       0.000 |      0.001 |
+| Vccbram   |       1.000 |     0.137 |       0.110 |      0.027 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -135,12 +137,91 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+--------------+-----------+
-| Name         | Power (W) |
-+--------------+-----------+
-| cpu          |    10.811 |
-|   S_SEG_TUBE |     0.240 |
-|   co         |     0.301 |
-+--------------+-----------+
++------------------------------------------------+-----------+
+| Name                                           | Power (W) |
++------------------------------------------------+-----------+
+| cpu                                            |    70.825 |
+|   cf                                           |     0.420 |
+|   idecode                                      |    16.043 |
+|   ifetch                                       |    38.950 |
+|     instmem                                    |     5.810 |
+|       U0                                       |     5.810 |
+|         inst_blk_mem_gen                       |     5.810 |
+|           gnbram.gnativebmg.native_blk_mem_gen |     5.810 |
+|             valid.cstr                         |     5.810 |
+|               bindec_a.bindec_inst_a           |     0.036 |
+|               has_mux_a.A                      |     4.200 |
+|               ramloop[0].ram.r                 |     0.287 |
+|                 prim_init.ram                  |     0.287 |
+|               ramloop[10].ram.r                |     0.038 |
+|                 prim_init.ram                  |     0.038 |
+|               ramloop[11].ram.r                |     0.056 |
+|                 prim_init.ram                  |     0.056 |
+|               ramloop[12].ram.r                |     0.056 |
+|                 prim_init.ram                  |     0.056 |
+|               ramloop[13].ram.r                |     0.031 |
+|                 prim_init.ram                  |     0.031 |
+|               ramloop[14].ram.r                |     0.033 |
+|                 prim_init.ram                  |     0.033 |
+|               ramloop[1].ram.r                 |     0.546 |
+|                 prim_init.ram                  |     0.546 |
+|               ramloop[2].ram.r                 |     0.172 |
+|                 prim_init.ram                  |     0.172 |
+|               ramloop[3].ram.r                 |     0.058 |
+|                 prim_init.ram                  |     0.058 |
+|               ramloop[4].ram.r                 |     0.070 |
+|                 prim_init.ram                  |     0.070 |
+|               ramloop[5].ram.r                 |     0.049 |
+|                 prim_init.ram                  |     0.049 |
+|               ramloop[6].ram.r                 |     0.037 |
+|                 prim_init.ram                  |     0.037 |
+|               ramloop[7].ram.r                 |     0.057 |
+|                 prim_init.ram                  |     0.057 |
+|               ramloop[8].ram.r                 |     0.052 |
+|                 prim_init.ram                  |     0.052 |
+|               ramloop[9].ram.r                 |     0.032 |
+|                 prim_init.ram                  |     0.032 |
+|   ledoutput                                    |     0.047 |
+|   memory                                       |     1.726 |
+|     ram                                        |     1.726 |
+|       U0                                       |     1.726 |
+|         inst_blk_mem_gen                       |     1.726 |
+|           gnbram.gnativebmg.native_blk_mem_gen |     1.726 |
+|             valid.cstr                         |     1.726 |
+|               bindec_a.bindec_inst_a           |     0.065 |
+|               has_mux_a.A                      |     0.696 |
+|               ramloop[0].ram.r                 |     0.065 |
+|                 prim_init.ram                  |     0.065 |
+|               ramloop[10].ram.r                |     0.038 |
+|                 prim_init.ram                  |     0.038 |
+|               ramloop[11].ram.r                |     0.046 |
+|                 prim_init.ram                  |     0.046 |
+|               ramloop[12].ram.r                |     0.054 |
+|                 prim_init.ram                  |     0.054 |
+|               ramloop[13].ram.r                |     0.045 |
+|                 prim_init.ram                  |     0.045 |
+|               ramloop[14].ram.r                |     0.045 |
+|                 prim_init.ram                  |     0.045 |
+|               ramloop[1].ram.r                 |     0.133 |
+|                 prim_init.ram                  |     0.133 |
+|               ramloop[2].ram.r                 |     0.132 |
+|                 prim_init.ram                  |     0.132 |
+|               ramloop[3].ram.r                 |     0.055 |
+|                 prim_init.ram                  |     0.055 |
+|               ramloop[4].ram.r                 |     0.087 |
+|                 prim_init.ram                  |     0.087 |
+|               ramloop[5].ram.r                 |     0.080 |
+|                 prim_init.ram                  |     0.080 |
+|               ramloop[6].ram.r                 |     0.038 |
+|                 prim_init.ram                  |     0.038 |
+|               ramloop[7].ram.r                 |     0.048 |
+|                 prim_init.ram                  |     0.048 |
+|               ramloop[8].ram.r                 |     0.054 |
+|                 prim_init.ram                  |     0.054 |
+|               ramloop[9].ram.r                 |     0.046 |
+|                 prim_init.ram                  |     0.046 |
+|   sst                                          |     0.353 |
+|   switchinput                                  |     0.000 |
++------------------------------------------------+-----------+
 
 

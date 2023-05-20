@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Sat May 20 00:16:29 2023
+| Date         : Sat May 20 16:51:21 2023
 | Host         : Bill running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file cpu_timing_summary_routed.rpt -rpx cpu_timing_summary_routed.rpx -warn_on_violation
 | Design       : cpu
@@ -52,25 +52,81 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 53 register/latch pins with no clock driven by root clock pin: clock (HIGH)
+ There are 33 register/latch pins with no clock driven by root clock pin: clock (HIGH)
 
- There are 8 register/latch pins with no clock driven by root clock pin: S_SEG_TUBE/scan_cnt_reg[3]/Q (HIGH)
+ There are 1148 register/latch pins with no clock driven by root clock pin: cf/clk_out_reg/Q (HIGH)
 
- There are 10 register/latch pins with no clock driven by root clock pin: cnt_reg[19]/Q (HIGH)
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[0]/Q (HIGH)
 
- There are 4 register/latch pins with no clock driven by root clock pin: co/clk_out_reg/Q (HIGH)
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/no_softecc_sel_reg.ce_pri.sel_pipe_reg[1]/Q (HIGH)
 
- There are 6 register/latch pins with no clock driven by root clock pin: current_state_reg[0]/Q (HIGH)
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/DOADO[0] (HIGH)
 
- There are 6 register/latch pins with no clock driven by root clock pin: current_state_reg[1]/Q (HIGH)
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[3] (HIGH)
 
- There are 6 register/latch pins with no clock driven by root clock pin: current_state_reg[2]/Q (HIGH)
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[4] (HIGH)
 
- There are 6 register/latch pins with no clock driven by root clock pin: current_state_reg[3]/Q (HIGH)
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[5] (HIGH)
 
- There are 6 register/latch pins with no clock driven by root clock pin: current_state_reg[4]/Q (HIGH)
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[6] (HIGH)
 
- There are 6 register/latch pins with no clock driven by root clock pin: current_state_reg[5]/Q (HIGH)
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[7] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOPADOP[0] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[3] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[4] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[5] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[6] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[7] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOPADOP[0] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[3] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[4] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[5] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[6] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[7] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOPADOP[0] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[3] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[4] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[5] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[6] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[7] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOPADOP[0] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[0] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[1] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[0] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[1] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[0] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[0] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[0] (HIGH)
+
+ There are 5 register/latch pins with no clock driven by root clock pin: ifetch/instmem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[0] (HIGH)
+
+ There are 12 register/latch pins with no clock driven by root clock pin: sst/scan_cnt_reg[3]/Q (HIGH)
 
 
 2. checking constant_clock
@@ -85,21 +141,21 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 151 pins that are not constrained for maximum delay. (HIGH)
+ There are 3888 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
 5. checking no_input_delay
 --------------------------
- There are 5 input ports with no input delay specified. (HIGH)
+ There are 25 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
 6. checking no_output_delay
 ---------------------------
- There are 12 ports with no output delay specified. (HIGH)
+ There are 39 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sat May 20 13:55:00 2023
+# Process ID: 5036
+# Current directory: P:/CS214-Computer-Organization/Project/verilog/verilog.runs/impl_1
+# Command line: vivado.exe -log cpu.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source cpu.tcl -notrace
+# Log file: P:/CS214-Computer-Organization/Project/verilog/verilog.runs/impl_1/cpu.vdi
+# Journal file: P:/CS214-Computer-Organization/Project/verilog/verilog.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source cpu.tcl -notrace

@@ -14,58 +14,46 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 5220 
+INFO: Helper process launched with PID 22984 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 404.184 ; gain = 99.914
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 404.094 ; gain = 100.094
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'cpu' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:23]
-	Parameter NO_KEY_PRESSED bound to: 6'b000001 
-	Parameter SCAN_COL0 bound to: 6'b000010 
-	Parameter SCAN_COL1 bound to: 6'b000100 
-	Parameter SCAN_COL2 bound to: 6'b001000 
-	Parameter SCAN_COL3 bound to: 6'b010000 
-	Parameter KEY_PRESSED bound to: 6'b100000 
-INFO: [Synth 8-638] synthesizing module 'Ifetc32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Ifetch32.v:3]
-INFO: [Synth 8-638] synthesizing module 'prgrom' [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-2020-Bill/realtime/prgrom_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'prgrom' (1#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-2020-Bill/realtime/prgrom_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'Ifetc32' (2#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Ifetch32.v:3]
-INFO: [Synth 8-638] synthesizing module 'decode32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/decode32.v:9]
-INFO: [Synth 8-256] done synthesizing module 'decode32' (3#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/decode32.v:9]
-INFO: [Synth 8-638] synthesizing module 'control32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/control32.v:10]
-INFO: [Synth 8-256] done synthesizing module 'control32' (4#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/control32.v:10]
-INFO: [Synth 8-638] synthesizing module 'executs32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/executs32.v:4]
-INFO: [Synth 8-226] default block is never used [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/executs32.v:44]
-INFO: [Synth 8-256] done synthesizing module 'executs32' (5#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/executs32.v:4]
-INFO: [Synth 8-638] synthesizing module 'dmemory32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Dmem32.v:3]
-INFO: [Synth 8-638] synthesizing module 'RAM' [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-2020-Bill/realtime/RAM_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'RAM' (6#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-2020-Bill/realtime/RAM_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'dmemory32' (7#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Dmem32.v:3]
-INFO: [Synth 8-638] synthesizing module 'MemOrIO' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/memOrIO.v:3]
-INFO: [Synth 8-256] done synthesizing module 'MemOrIO' (8#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/memOrIO.v:3]
-INFO: [Synth 8-638] synthesizing module 'leds' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/leds.v:9]
-INFO: [Synth 8-256] done synthesizing module 'leds' (9#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/leds.v:9]
-INFO: [Synth 8-638] synthesizing module 'switchs' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/switchs.v:8]
-INFO: [Synth 8-256] done synthesizing module 'switchs' (10#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/switchs.v:8]
-WARNING: [Synth 8-689] width (16) of port connection 'switchrdata' does not match port width (24) of module 'switchs' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:220]
+INFO: [Synth 8-638] synthesizing module 'cpu' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:3]
 INFO: [Synth 8-638] synthesizing module 'clkout' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/clkout.v:23]
 	Parameter period bound to: 200000 - type: integer 
 WARNING: [Synth 8-5788] Register clk_out_reg in module clkout is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/clkout.v:39]
-INFO: [Synth 8-256] done synthesizing module 'clkout' (11#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/clkout.v:23]
+INFO: [Synth 8-256] done synthesizing module 'clkout' (1#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/clkout.v:23]
+INFO: [Synth 8-638] synthesizing module 'Ifetc32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Ifetch32.v:3]
+INFO: [Synth 8-638] synthesizing module 'prgrom' [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/realtime/prgrom_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'prgrom' (2#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/realtime/prgrom_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'Ifetc32' (3#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Ifetch32.v:3]
+WARNING: [Synth 8-689] width (32) of port connection 'Zero' does not match port width (1) of module 'Ifetc32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:40]
+INFO: [Synth 8-638] synthesizing module 'decode32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/decode32.v:9]
+INFO: [Synth 8-256] done synthesizing module 'decode32' (4#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/decode32.v:9]
+INFO: [Synth 8-638] synthesizing module 'control32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/control32.v:10]
+INFO: [Synth 8-256] done synthesizing module 'control32' (5#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/control32.v:10]
+INFO: [Synth 8-638] synthesizing module 'executs32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/executs32.v:4]
+INFO: [Synth 8-226] default block is never used [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/executs32.v:44]
+INFO: [Synth 8-256] done synthesizing module 'executs32' (6#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/executs32.v:4]
+WARNING: [Synth 8-689] width (32) of port connection 'Zero' does not match port width (1) of module 'executs32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:139]
+INFO: [Synth 8-638] synthesizing module 'dmemory32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Dmem32.v:3]
+INFO: [Synth 8-638] synthesizing module 'RAM' [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/realtime/RAM_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'RAM' (7#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/realtime/RAM_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'dmemory32' (8#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Dmem32.v:3]
+INFO: [Synth 8-638] synthesizing module 'MemOrIO' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/memOrIO.v:3]
+INFO: [Synth 8-256] done synthesizing module 'MemOrIO' (9#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/memOrIO.v:3]
+INFO: [Synth 8-638] synthesizing module 'leds' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/leds.v:9]
+INFO: [Synth 8-256] done synthesizing module 'leds' (10#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/leds.v:9]
+INFO: [Synth 8-638] synthesizing module 'switchs' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/switchs.v:8]
+INFO: [Synth 8-256] done synthesizing module 'switchs' (11#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/switchs.v:8]
 INFO: [Synth 8-638] synthesizing module 'show' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v:23]
 INFO: [Synth 8-155] case statement is not full and has no default [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v:50]
 INFO: [Synth 8-155] case statement is not full and has no default [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v:88]
 WARNING: [Synth 8-567] referenced signal 'ledwdata' should be on the sensitivity list [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v:86]
 INFO: [Synth 8-256] done synthesizing module 'show' (12#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v:23]
-INFO: [Synth 8-155] case statement is not full and has no default [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:282]
-INFO: [Synth 8-155] case statement is not full and has no default [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:336]
-WARNING: [Synth 8-6014] Unused sequential element key_pressed_flag_reg was removed.  [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:333]
-WARNING: [Synth 8-6014] Unused sequential element row_val_reg was removed.  [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:340]
-WARNING: [Synth 8-6014] Unused sequential element col_val_reg was removed.  [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:365]
-WARNING: [Synth 8-6014] Unused sequential element keybd_i_low_reg was removed.  [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:377]
-WARNING: [Synth 8-6014] Unused sequential element modeCtrl_reg was removed.  [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:378]
-WARNING: [Synth 8-3848] Net clk in module/entity cpu does not have driver. [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:33]
-WARNING: [Synth 8-3848] Net Read_data_1 in module/entity cpu does not have driver. [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:44]
-INFO: [Synth 8-256] done synthesizing module 'cpu' (13#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:23]
+WARNING: [Synth 8-3848] Net col in module/entity cpu does not have driver. [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:9]
+WARNING: [Synth 8-3848] Net Read_data_1 in module/entity cpu does not have driver. [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:24]
+INFO: [Synth 8-256] done synthesizing module 'cpu' (13#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:3]
 WARNING: [Synth 8-3331] design MemOrIO has unconnected port mRead
 WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[31]
 WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[30]
@@ -88,8 +76,16 @@ WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[0]
 WARNING: [Synth 8-3331] design executs32 has unconnected port Function_opcode[5]
 WARNING: [Synth 8-3331] design executs32 has unconnected port Function_opcode[4]
 WARNING: [Synth 8-3331] design executs32 has unconnected port Jr
+WARNING: [Synth 8-3331] design cpu has unconnected port col[3]
+WARNING: [Synth 8-3331] design cpu has unconnected port col[2]
+WARNING: [Synth 8-3331] design cpu has unconnected port col[1]
+WARNING: [Synth 8-3331] design cpu has unconnected port col[0]
+WARNING: [Synth 8-3331] design cpu has unconnected port row[3]
+WARNING: [Synth 8-3331] design cpu has unconnected port row[2]
+WARNING: [Synth 8-3331] design cpu has unconnected port row[1]
+WARNING: [Synth 8-3331] design cpu has unconnected port row[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 456.676 ; gain = 152.406
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 455.848 ; gain = 151.848
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -98,55 +94,50 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[31] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[30] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[29] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[28] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[27] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[26] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[25] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[24] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[23] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[22] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[21] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[20] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[19] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[18] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[17] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[16] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[15] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[14] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[13] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[12] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[11] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[10] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[9] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[8] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[7] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[6] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[5] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[4] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[3] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[2] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[1] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[0] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:clock to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:51]
-WARNING: [Synth 8-3295] tying undriven pin idecode:clock to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:79]
-WARNING: [Synth 8-3295] tying undriven pin memory:clock to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:161]
-WARNING: [Synth 8-3295] tying undriven pin ledoutput:led_clk to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:202]
-WARNING: [Synth 8-3295] tying undriven pin switchinput:switclk to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:214]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[31] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[30] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[29] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[28] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[27] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[26] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[25] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[24] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[23] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[22] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[21] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[20] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[19] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[18] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[17] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[16] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[15] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[14] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[13] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[12] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[11] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[10] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[9] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[8] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[7] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[6] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[5] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[4] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[3] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[2] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[1] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[0] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 456.676 ; gain = 152.406
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 455.848 ; gain = 151.848
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tfgg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-2020-Bill/dcp2/RAM_in_context.xdc] for cell 'memory/ram'
-Finished Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-2020-Bill/dcp2/RAM_in_context.xdc] for cell 'memory/ram'
-Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-2020-Bill/dcp3/prgrom_in_context.xdc] for cell 'ifetch/instmem'
-Finished Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-2020-Bill/dcp3/prgrom_in_context.xdc] for cell 'ifetch/instmem'
+Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/dcp2/RAM_in_context.xdc] for cell 'memory/ram'
+Finished Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/dcp2/RAM_in_context.xdc] for cell 'memory/ram'
+Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/dcp3/prgrom_in_context.xdc] for cell 'ifetch/instmem'
+Finished Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/dcp3/prgrom_in_context.xdc] for cell 'ifetch/instmem'
 Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/constrs_1/new/cpu.xdc]
 Finished Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/constrs_1/new/cpu.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/constrs_1/new/cpu.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/cpu_propImpl.xdc].
@@ -156,16 +147,16 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 807.961 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 807.844 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:16 . Memory (MB): peak = 807.961 ; gain = 503.691
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 807.844 ; gain = 503.844
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tfgg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:16 . Memory (MB): peak = 807.961 ; gain = 503.691
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 807.844 ; gain = 503.844
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -173,8 +164,10 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property DONT_TOUCH = true for ifetch/instmem. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for memory/ram. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:06 ; elapsed = 00:00:16 . Memory (MB): peak = 807.961 ; gain = 503.691
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 807.844 ; gain = 503.844
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-5545] ROM "cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "clk_out" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5544] ROM "PC" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "PC" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "register_reg[31]" won't be mapped to RAM because it is too sparse
@@ -219,18 +212,11 @@ INFO: [Synth 8-5546] ROM "nBranch" won't be mapped to RAM because it is too spar
 INFO: [Synth 8-5546] ROM "Jmp" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/executs32.v:44]
 INFO: [Synth 8-5545] ROM "Zero" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "clk_out" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-3898] No Re-encoding of one hot register 'current_state_reg' in module 'cpu'
-INFO: [Synth 8-5546] ROM "next_state" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "col" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element cnt_reg was removed.  [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:259]
 WARNING: [Synth 8-327] inferring latch for variable 'write_register_reg' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/decode32.v:68]
 WARNING: [Synth 8-327] inferring latch for variable 'seg_en_reg' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v:51]
 WARNING: [Synth 8-327] inferring latch for variable 'num_reg' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v:89]
-WARNING: [Synth 8-327] inferring latch for variable 'next_state_reg' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:286]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:17 . Memory (MB): peak = 807.961 ; gain = 503.691
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:24 . Memory (MB): peak = 807.844 ; gain = 503.844
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -251,26 +237,22 @@ Detailed RTL Component Info :
 +---Registers : 
 	               32 Bit    Registers := 33    
 	               24 Bit    Registers := 1     
-	                6 Bit    Registers := 1     
-	                4 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
 	                1 Bit    Registers := 1     
 +---Muxes : 
-	   3 Input     32 Bit        Muxes := 1     
 	   2 Input     32 Bit        Muxes := 11    
+	   3 Input     32 Bit        Muxes := 1     
 	   8 Input     32 Bit        Muxes := 2     
 	   4 Input     24 Bit        Muxes := 1     
 	   2 Input     16 Bit        Muxes := 1     
-	   4 Input     16 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 1     
 	   8 Input      8 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 5     
 	   2 Input      5 Bit        Muxes := 2     
 	   2 Input      4 Bit        Muxes := 2     
-	   7 Input      4 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 4     
+	   2 Input      2 Bit        Muxes := 3     
 	   2 Input      1 Bit        Muxes := 44    
+	   3 Input      1 Bit        Muxes := 1     
 	   8 Input      1 Bit        Muxes := 1     
-	   7 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -278,16 +260,16 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module cpu 
+Module clkout 
 Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
 +---Registers : 
-	                6 Bit    Registers := 1     
-	                4 Bit    Registers := 1     
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input      6 Bit        Muxes := 5     
-	   7 Input      4 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
-	   7 Input      1 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
 Module Ifetc32 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -334,17 +316,7 @@ Module switchs
 Detailed RTL Component Info : 
 +---Muxes : 
 	   2 Input     16 Bit        Muxes := 1     
-	   4 Input     16 Bit        Muxes := 1     
-Module clkout 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     32 Bit       Adders := 1     
-+---Registers : 
-	               32 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input     32 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
 Module show 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -373,26 +345,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "Zero" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "co/cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "co/clk_out" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-WARNING: [Synth 8-6014] Unused sequential element cnt_reg was removed.  [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:259]
+INFO: [Synth 8-5545] ROM "cf/cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "cf/clk_out" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 WARNING: [Synth 8-3917] design cpu has port seg_out[7] driven by constant 1
 WARNING: [Synth 8-3331] design executs32 has unconnected port Function_opcode[5]
 WARNING: [Synth 8-3331] design executs32 has unconnected port Function_opcode[4]
 WARNING: [Synth 8-3331] design executs32 has unconnected port Jr
+WARNING: [Synth 8-3331] design cpu has unconnected port col[3]
+WARNING: [Synth 8-3331] design cpu has unconnected port col[2]
+WARNING: [Synth 8-3331] design cpu has unconnected port col[1]
+WARNING: [Synth 8-3331] design cpu has unconnected port col[0]
+WARNING: [Synth 8-3331] design cpu has unconnected port row[3]
+WARNING: [Synth 8-3331] design cpu has unconnected port row[2]
+WARNING: [Synth 8-3331] design cpu has unconnected port row[1]
+WARNING: [Synth 8-3331] design cpu has unconnected port row[0]
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ifetch/link_addr_reg[0] )
 WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[0]) is unused and will be removed from module cpu.
 WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[0]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (switchinput/switchrdata_reg[23]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (switchinput/switchrdata_reg[22]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (switchinput/switchrdata_reg[21]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (switchinput/switchrdata_reg[20]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (switchinput/switchrdata_reg[19]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (switchinput/switchrdata_reg[18]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (switchinput/switchrdata_reg[17]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (switchinput/switchrdata_reg[16]) is unused and will be removed from module cpu.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:01:15 . Memory (MB): peak = 807.961 ; gain = 503.691
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:17 ; elapsed = 00:02:01 . Memory (MB): peak = 807.844 ; gain = 503.844
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -404,13 +375,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:01:22 . Memory (MB): peak = 854.453 ; gain = 550.184
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:25 ; elapsed = 00:02:11 . Memory (MB): peak = 855.730 ; gain = 551.730
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:01:33 . Memory (MB): peak = 857.262 ; gain = 552.992
+Finished Timing Optimization : Time (s): cpu = 00:01:38 ; elapsed = 00:02:30 . Memory (MB): peak = 858.613 ; gain = 554.613
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -421,99 +392,72 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[31]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[30]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[29]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[28]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[27]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[26]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[25]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[24]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[23]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[22]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[21]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[20]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[19]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[18]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[17]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[16]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[15]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[14]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[13]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[12]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[11]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[10]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[9]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[8]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[7]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[6]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[5]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[4]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[3]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[2]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[1]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[31]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[30]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[29]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[28]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[27]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[26]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[25]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[24]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[23]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[22]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[21]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[20]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[19]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[18]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[17]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[16]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[15]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[14]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[13]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[12]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[11]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[10]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[9]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[8]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[7]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[6]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[5]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[4]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[3]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[2]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[1]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/write_register_reg[4]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/write_register_reg[3]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/write_register_reg[2]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/write_register_reg[1]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/write_register_reg[0]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][31]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][30]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][29]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][28]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][27]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][26]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][25]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][24]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][23]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][22]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][21]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][20]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][19]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][18]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][17]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][16]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][15]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][14]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][13]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][12]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][11]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][10]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[31][9]) is unused and will be removed from module cpu.
-INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][7] )
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][31]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][30]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][29]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][28]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][27]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][26]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][25]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][24]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][23]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][22]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][21]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][20]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][19]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][18]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][17]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][16]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][15]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][14]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][13]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][12]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][11]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][10]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][9]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][8]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][7]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][6]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][5]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][4]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][3]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][2]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][1]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][0]) is unused and will be removed from module cpu.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:01:34 . Memory (MB): peak = 887.887 ; gain = 583.617
+Finished Technology Mapping : Time (s): cpu = 00:01:45 ; elapsed = 00:02:39 . Memory (MB): peak = 928.113 ; gain = 624.113
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -537,7 +481,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:01:34 . Memory (MB): peak = 887.887 ; gain = 583.617
+Finished IO Insertion : Time (s): cpu = 00:01:45 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -550,7 +494,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:01:34 . Memory (MB): peak = 887.887 ; gain = 583.617
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:45 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -562,25 +506,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:01:34 . Memory (MB): peak = 887.887 ; gain = 583.617
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:45 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:35 ; elapsed = 00:01:34 . Memory (MB): peak = 887.887 ; gain = 583.617
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:46 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:01:34 . Memory (MB): peak = 887.887 ; gain = 583.617
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:46 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:35 ; elapsed = 00:01:34 . Memory (MB): peak = 887.887 ; gain = 583.617
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:46 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -600,53 +544,58 @@ Report Cell Usage:
 +------+-------+------+
 |1     |RAM    |     1|
 |2     |prgrom |     1|
-|3     |BUFG   |     1|
-|4     |CARRY4 |    17|
-|5     |LUT1   |     4|
-|6     |LUT2   |    20|
-|7     |LUT3   |    30|
-|8     |LUT4   |    29|
-|9     |LUT5   |    71|
-|10    |LUT6   |   158|
-|11    |FDCE   |    65|
-|12    |FDPE   |     1|
-|13    |FDRE   |     1|
-|14    |LD     |    14|
-|15    |IBUF   |     6|
-|16    |OBUF   |    44|
+|3     |BUFG   |     3|
+|4     |CARRY4 |    32|
+|5     |LUT1   |     5|
+|6     |LUT2   |   133|
+|7     |LUT3   |   203|
+|8     |LUT4   |   147|
+|9     |LUT5   |   319|
+|10    |LUT6   |  1087|
+|11    |MUXF7  |   260|
+|12    |MUXF8  |    48|
+|13    |FDCE   |    76|
+|14    |FDRE   |  1055|
+|15    |LD     |    17|
+|16    |IBUF   |    26|
+|17    |OBUF   |    40|
+|18    |OBUFT  |     4|
 +------+-------+------+
 
 Report Instance Areas: 
-+------+-------------+----------+------+
-|      |Instance     |Module    |Cells |
-+------+-------------+----------+------+
-|1     |top          |          |   525|
-|2     |  S_SEG_TUBE |show      |    25|
-|3     |  co         |clkout    |    82|
-|4     |  ifetch     |Ifetc32   |   280|
-|5     |  memory     |dmemory32 |    32|
-+------+-------------+----------+------+
++------+--------------+----------+------+
+|      |Instance      |Module    |Cells |
++------+--------------+----------+------+
+|1     |top           |          |  3519|
+|2     |  cf          |clkout    |    83|
+|3     |  idecode     |decode32  |  2159|
+|4     |  ifetch      |Ifetc32   |  1087|
+|5     |  ledoutput   |leds      |    32|
+|6     |  memory      |dmemory32 |    32|
+|7     |  sst         |show      |    37|
+|8     |  switchinput |switchs   |    16|
++------+--------------+----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:01:34 . Memory (MB): peak = 887.887 ; gain = 583.617
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:46 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1155 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:01:29 . Memory (MB): peak = 887.887 ; gain = 232.332
-Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:01:35 . Memory (MB): peak = 887.887 ; gain = 583.617
+Synthesis finished with 0 errors, 0 critical warnings and 49 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:37 ; elapsed = 00:02:32 . Memory (MB): peak = 928.113 ; gain = 272.117
+Synthesis Optimization Complete : Time (s): cpu = 00:01:46 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 37 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 383 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 1 inverter(s) to 8 load pin(s).
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 12 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 14 instances were transformed.
-  LD => LDCE: 6 instances
-  LD => LDCE (inverted pins: G): 8 instances
+  A total of 17 instances were transformed.
+  LD => LDCE: 5 instances
+  LD => LDCE (inverted pins: G): 12 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-97 Infos, 179 Warnings, 0 Critical Warnings and 0 Errors encountered.
+123 Infos, 117 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:01:38 . Memory (MB): peak = 887.887 ; gain = 595.094
+synth_design: Time (s): cpu = 00:01:48 ; elapsed = 00:02:46 . Memory (MB): peak = 928.113 ; gain = 635.621
 INFO: [Common 17-1381] The checkpoint 'P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/cpu.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file cpu_utilization_synth.rpt -pb cpu_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 887.887 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat May 20 00:15:14 2023...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.083 . Memory (MB): peak = 928.113 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat May 20 16:49:28 2023...
