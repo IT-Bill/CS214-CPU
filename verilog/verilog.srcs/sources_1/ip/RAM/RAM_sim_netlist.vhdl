@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Sat May 20 16:46:20 2023
--- Host        : Bill running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/ip/RAM/RAM_sim_netlist.vhdl
+-- Date        : Sun May 21 03:24:50 2023
+-- Host        : LAPTOP-D384KT3B running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode funcsim {F:/Computer
+--               Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/ip/RAM/RAM_sim_netlist.vhdl}
 -- Design      : RAM
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -5323,11 +5323,11 @@ entity RAM_blk_mem_gen_v8_4_1 is
   attribute C_INIT_FILE : string;
   attribute C_INIT_FILE of RAM_blk_mem_gen_v8_4_1 : entity is "RAM.mem";
   attribute C_INIT_FILE_NAME : string;
-  attribute C_INIT_FILE_NAME of RAM_blk_mem_gen_v8_4_1 : entity is "RAM.mif";
+  attribute C_INIT_FILE_NAME of RAM_blk_mem_gen_v8_4_1 : entity is "no_coe_file_loaded";
   attribute C_INTERFACE_TYPE : integer;
   attribute C_INTERFACE_TYPE of RAM_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_LOAD_INIT_FILE : integer;
-  attribute C_LOAD_INIT_FILE of RAM_blk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_LOAD_INIT_FILE of RAM_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_MEM_TYPE : integer;
   attribute C_MEM_TYPE of RAM_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_MUX_PIPELINE_STAGES : integer;
@@ -5359,7 +5359,7 @@ entity RAM_blk_mem_gen_v8_4_1 is
   attribute C_USE_BYTE_WEB : integer;
   attribute C_USE_BYTE_WEB of RAM_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_USE_DEFAULT_DATA : integer;
-  attribute C_USE_DEFAULT_DATA of RAM_blk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_USE_DEFAULT_DATA of RAM_blk_mem_gen_v8_4_1 : entity is 1;
   attribute C_USE_ECC : integer;
   attribute C_USE_ECC of RAM_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_USE_SOFTECC : integer;
@@ -5650,11 +5650,11 @@ architecture STRUCTURE of RAM is
   attribute C_INIT_FILE : string;
   attribute C_INIT_FILE of U0 : label is "RAM.mem";
   attribute C_INIT_FILE_NAME : string;
-  attribute C_INIT_FILE_NAME of U0 : label is "RAM.mif";
+  attribute C_INIT_FILE_NAME of U0 : label is "no_coe_file_loaded";
   attribute C_INTERFACE_TYPE : integer;
   attribute C_INTERFACE_TYPE of U0 : label is 0;
   attribute C_LOAD_INIT_FILE : integer;
-  attribute C_LOAD_INIT_FILE of U0 : label is 1;
+  attribute C_LOAD_INIT_FILE of U0 : label is 0;
   attribute C_MEM_TYPE : integer;
   attribute C_MEM_TYPE of U0 : label is 0;
   attribute C_MUX_PIPELINE_STAGES : integer;
@@ -5686,7 +5686,7 @@ architecture STRUCTURE of RAM is
   attribute C_USE_BYTE_WEB : integer;
   attribute C_USE_BYTE_WEB of U0 : label is 0;
   attribute C_USE_DEFAULT_DATA : integer;
-  attribute C_USE_DEFAULT_DATA of U0 : label is 0;
+  attribute C_USE_DEFAULT_DATA of U0 : label is 1;
   attribute C_USE_ECC : integer;
   attribute C_USE_ECC of U0 : label is 0;
   attribute C_USE_SOFTECC : integer;

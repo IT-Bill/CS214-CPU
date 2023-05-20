@@ -2,11 +2,11 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Sat May 20 16:46:38 2023
-# Process ID: 26188
-# Current directory: P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1
+# Start of session at: Sun May 21 03:25:14 2023
+# Process ID: 21308
+# Current directory: F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1
 # Command line: vivado.exe -log cpu.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cpu.tcl
-# Log file: P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/cpu.vds
-# Journal file: P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1\vivado.jou
+# Log file: F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/cpu.vds
+# Journal file: F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source cpu.tcl -notrace

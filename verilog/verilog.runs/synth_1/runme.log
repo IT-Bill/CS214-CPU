@@ -14,65 +14,59 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 22984 
+INFO: Helper process launched with PID 52820 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 404.094 ; gain = 100.094
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 341.867 ; gain = 101.180
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'cpu' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:3]
-INFO: [Synth 8-638] synthesizing module 'clkout' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/clkout.v:23]
+INFO: [Synth 8-638] synthesizing module 'cpu' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:3]
+INFO: [Synth 8-638] synthesizing module 'clkout_cpu' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/clkout.v:23]
 	Parameter period bound to: 200000 - type: integer 
-WARNING: [Synth 8-5788] Register clk_out_reg in module clkout is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/clkout.v:39]
-INFO: [Synth 8-256] done synthesizing module 'clkout' (1#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/clkout.v:23]
-INFO: [Synth 8-638] synthesizing module 'Ifetc32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Ifetch32.v:3]
-INFO: [Synth 8-638] synthesizing module 'prgrom' [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/realtime/prgrom_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'prgrom' (2#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/realtime/prgrom_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'Ifetc32' (3#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Ifetch32.v:3]
-WARNING: [Synth 8-689] width (32) of port connection 'Zero' does not match port width (1) of module 'Ifetc32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:40]
-INFO: [Synth 8-638] synthesizing module 'decode32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/decode32.v:9]
-INFO: [Synth 8-256] done synthesizing module 'decode32' (4#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/decode32.v:9]
-INFO: [Synth 8-638] synthesizing module 'control32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/control32.v:10]
-INFO: [Synth 8-256] done synthesizing module 'control32' (5#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/control32.v:10]
-INFO: [Synth 8-638] synthesizing module 'executs32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/executs32.v:4]
-INFO: [Synth 8-226] default block is never used [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/executs32.v:44]
-INFO: [Synth 8-256] done synthesizing module 'executs32' (6#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/executs32.v:4]
-WARNING: [Synth 8-689] width (32) of port connection 'Zero' does not match port width (1) of module 'executs32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:139]
-INFO: [Synth 8-638] synthesizing module 'dmemory32' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Dmem32.v:3]
-INFO: [Synth 8-638] synthesizing module 'RAM' [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/realtime/RAM_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'RAM' (7#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/realtime/RAM_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'dmemory32' (8#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Dmem32.v:3]
-INFO: [Synth 8-638] synthesizing module 'MemOrIO' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/memOrIO.v:3]
-INFO: [Synth 8-256] done synthesizing module 'MemOrIO' (9#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/memOrIO.v:3]
-INFO: [Synth 8-638] synthesizing module 'leds' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/leds.v:9]
-INFO: [Synth 8-256] done synthesizing module 'leds' (10#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/leds.v:9]
-INFO: [Synth 8-638] synthesizing module 'switchs' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/switchs.v:8]
-INFO: [Synth 8-256] done synthesizing module 'switchs' (11#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/switchs.v:8]
-INFO: [Synth 8-638] synthesizing module 'show' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v:23]
-INFO: [Synth 8-155] case statement is not full and has no default [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v:50]
-INFO: [Synth 8-155] case statement is not full and has no default [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v:88]
-WARNING: [Synth 8-567] referenced signal 'ledwdata' should be on the sensitivity list [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v:86]
-INFO: [Synth 8-256] done synthesizing module 'show' (12#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v:23]
-WARNING: [Synth 8-3848] Net col in module/entity cpu does not have driver. [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:9]
-WARNING: [Synth 8-3848] Net Read_data_1 in module/entity cpu does not have driver. [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:24]
-INFO: [Synth 8-256] done synthesizing module 'cpu' (13#1) [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:3]
+WARNING: [Synth 8-5788] Register clk_out_reg in module clkout_cpu is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/clkout.v:39]
+INFO: [Synth 8-256] done synthesizing module 'clkout_cpu' (1#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/clkout.v:23]
+INFO: [Synth 8-638] synthesizing module 'clkout_upg' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/clkout_upg.v:2]
+	Parameter period bound to: 500000 - type: integer 
+WARNING: [Synth 8-5788] Register clk_out_reg in module clkout_upg is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/clkout_upg.v:18]
+INFO: [Synth 8-256] done synthesizing module 'clkout_upg' (2#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/clkout_upg.v:2]
+INFO: [Synth 8-638] synthesizing module 'BUFG' [E:/Xilinx/Vivado/2017.4/scripts/rt/data/unisim_comp.v:607]
+INFO: [Synth 8-256] done synthesizing module 'BUFG' (3#1) [E:/Xilinx/Vivado/2017.4/scripts/rt/data/unisim_comp.v:607]
+INFO: [Synth 8-638] synthesizing module 'uart_bmpg_0' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/.Xil/Vivado-21308-LAPTOP-D384KT3B/realtime/uart_bmpg_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'uart_bmpg_0' (4#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/.Xil/Vivado-21308-LAPTOP-D384KT3B/realtime/uart_bmpg_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'ProgramROM_UART' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/ProgramROM_UART.v:23]
+INFO: [Synth 8-638] synthesizing module 'prgrom' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/.Xil/Vivado-21308-LAPTOP-D384KT3B/realtime/prgrom_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'prgrom' (5#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/.Xil/Vivado-21308-LAPTOP-D384KT3B/realtime/prgrom_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'ProgramROM_UART' (6#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/ProgramROM_UART.v:23]
+WARNING: [Synth 8-689] width (15) of port connection 'upg_adr_i' does not match port width (14) of module 'ProgramROM_UART' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:81]
+INFO: [Synth 8-638] synthesizing module 'decode32' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/decode32.v:9]
+INFO: [Synth 8-256] done synthesizing module 'decode32' (7#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/decode32.v:9]
+INFO: [Synth 8-638] synthesizing module 'control32' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/control32.v:10]
+INFO: [Synth 8-256] done synthesizing module 'control32' (8#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/control32.v:10]
+INFO: [Synth 8-638] synthesizing module 'Ifetc32_Uart' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/Ifetc32_Uart.v:7]
+INFO: [Synth 8-256] done synthesizing module 'Ifetc32_Uart' (9#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/Ifetc32_Uart.v:7]
+WARNING: [Synth 8-689] width (32) of port connection 'Zero' does not match port width (1) of module 'Ifetc32_Uart' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:166]
+INFO: [Synth 8-638] synthesizing module 'executs32' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/executs32.v:4]
+INFO: [Synth 8-226] default block is never used [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/executs32.v:44]
+INFO: [Synth 8-256] done synthesizing module 'executs32' (10#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/executs32.v:4]
+WARNING: [Synth 8-689] width (32) of port connection 'Zero' does not match port width (1) of module 'executs32' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:191]
+INFO: [Synth 8-638] synthesizing module 'dmem32_uart' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/dmem32_uart.v:23]
+INFO: [Synth 8-638] synthesizing module 'RAM' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/.Xil/Vivado-21308-LAPTOP-D384KT3B/realtime/RAM_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'RAM' (11#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/.Xil/Vivado-21308-LAPTOP-D384KT3B/realtime/RAM_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'dmem32_uart' (12#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/dmem32_uart.v:23]
+WARNING: [Synth 8-689] width (32) of port connection 'ram_adr_i' does not match port width (14) of module 'dmem32_uart' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:203]
+INFO: [Synth 8-638] synthesizing module 'MemOrIO' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/memOrIO.v:3]
+INFO: [Synth 8-256] done synthesizing module 'MemOrIO' (13#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/memOrIO.v:3]
+INFO: [Synth 8-638] synthesizing module 'leds' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/leds.v:9]
+INFO: [Synth 8-256] done synthesizing module 'leds' (14#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/leds.v:9]
+INFO: [Synth 8-638] synthesizing module 'switchs' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/switchs.v:8]
+INFO: [Synth 8-256] done synthesizing module 'switchs' (15#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/switchs.v:8]
+INFO: [Synth 8-638] synthesizing module 'show' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/show.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/show.v:50]
+INFO: [Synth 8-155] case statement is not full and has no default [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/show.v:88]
+WARNING: [Synth 8-567] referenced signal 'ledwdata' should be on the sensitivity list [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/show.v:86]
+INFO: [Synth 8-256] done synthesizing module 'show' (16#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/show.v:23]
+WARNING: [Synth 8-3848] Net col in module/entity cpu does not have driver. [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:9]
+WARNING: [Synth 8-3848] Net Read_data_1 in module/entity cpu does not have driver. [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:62]
+INFO: [Synth 8-256] done synthesizing module 'cpu' (17#1) [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:3]
 WARNING: [Synth 8-3331] design MemOrIO has unconnected port mRead
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[31]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[30]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[29]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[28]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[27]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[26]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[25]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[24]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[23]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[22]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[21]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[20]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[19]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[18]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[17]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[16]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[1]
-WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[0]
 WARNING: [Synth 8-3331] design executs32 has unconnected port Function_opcode[5]
 WARNING: [Synth 8-3331] design executs32 has unconnected port Function_opcode[4]
 WARNING: [Synth 8-3331] design executs32 has unconnected port Jr
@@ -85,7 +79,7 @@ WARNING: [Synth 8-3331] design cpu has unconnected port row[2]
 WARNING: [Synth 8-3331] design cpu has unconnected port row[1]
 WARNING: [Synth 8-3331] design cpu has unconnected port row[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 455.848 ; gain = 151.848
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 394.129 ; gain = 153.441
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -94,82 +88,87 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[31] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[30] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[29] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[28] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[27] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[26] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[25] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[24] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[23] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[22] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[21] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[20] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[19] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[18] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[17] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[16] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[15] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[14] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[13] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[12] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[11] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[10] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[9] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[8] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[7] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[6] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[5] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[4] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[3] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[2] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[1] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
-WARNING: [Synth 8-3295] tying undriven pin ifetch:Read_data_1[0] to constant 0 [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:36]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[31] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[30] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[29] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[28] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[27] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[26] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[25] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[24] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[23] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[22] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[21] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[20] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[19] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[18] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[17] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[16] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[15] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[14] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[13] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[12] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[11] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[10] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[9] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[8] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[7] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[6] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[5] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[4] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[3] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[2] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[1] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
+WARNING: [Synth 8-3295] tying undriven pin Uifetc32:Read_data_1[0] to constant 0 [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/cpu.v:156]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 455.848 ; gain = 151.848
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 394.129 ; gain = 153.441
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tfgg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/dcp2/RAM_in_context.xdc] for cell 'memory/ram'
-Finished Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/dcp2/RAM_in_context.xdc] for cell 'memory/ram'
-Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/dcp3/prgrom_in_context.xdc] for cell 'ifetch/instmem'
-Finished Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/.Xil/Vivado-26188-Bill/dcp3/prgrom_in_context.xdc] for cell 'ifetch/instmem'
-Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/constrs_1/new/cpu.xdc]
-Finished Parsing XDC File [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/constrs_1/new/cpu.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/constrs_1/new/cpu.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/cpu_propImpl.xdc].
+Parsing XDC File [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/.Xil/Vivado-21308-LAPTOP-D384KT3B/dcp3/uart_bmpg_0_in_context.xdc] for cell 'uart'
+Finished Parsing XDC File [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/.Xil/Vivado-21308-LAPTOP-D384KT3B/dcp3/uart_bmpg_0_in_context.xdc] for cell 'uart'
+Parsing XDC File [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/.Xil/Vivado-21308-LAPTOP-D384KT3B/dcp4/RAM_in_context.xdc] for cell 'udmem/ram'
+Finished Parsing XDC File [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/.Xil/Vivado-21308-LAPTOP-D384KT3B/dcp4/RAM_in_context.xdc] for cell 'udmem/ram'
+Parsing XDC File [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/.Xil/Vivado-21308-LAPTOP-D384KT3B/dcp5/prgrom_in_context.xdc] for cell 'Uprogramrom_0/Uprgrom'
+Finished Parsing XDC File [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/.Xil/Vivado-21308-LAPTOP-D384KT3B/dcp5/prgrom_in_context.xdc] for cell 'Uprogramrom_0/Uprgrom'
+Parsing XDC File [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/constrs_1/new/cpu.xdc]
+Finished Parsing XDC File [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/constrs_1/new/cpu.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/constrs_1/new/cpu.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/cpu_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/cpu_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 807.844 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 743.387 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 807.844 ; gain = 503.844
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 743.387 ; gain = 502.699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tfgg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 807.844 ; gain = 503.844
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 743.387 ; gain = 502.699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for ifetch/instmem. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for memory/ram. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Uprogramrom_0/Uprgrom. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for uart. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for udmem/ram. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 807.844 ; gain = 503.844
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 743.387 ; gain = 502.699
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "clk_out" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5544] ROM "PC" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "PC" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "clk_out" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "register_reg[31]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "register_reg[30]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "register_reg[29]" won't be mapped to RAM because it is too sparse
@@ -210,13 +209,15 @@ INFO: [Synth 8-5546] ROM "Sw" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "Branch" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "nBranch" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "Jmp" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/executs32.v:44]
+INFO: [Synth 8-5544] ROM "PC" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "PC" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/executs32.v:44]
 INFO: [Synth 8-5545] ROM "Zero" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-WARNING: [Synth 8-327] inferring latch for variable 'write_register_reg' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/decode32.v:68]
-WARNING: [Synth 8-327] inferring latch for variable 'seg_en_reg' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v:51]
-WARNING: [Synth 8-327] inferring latch for variable 'num_reg' [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/show.v:89]
+WARNING: [Synth 8-327] inferring latch for variable 'write_register_reg' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/decode32.v:68]
+WARNING: [Synth 8-327] inferring latch for variable 'seg_en_reg' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/show.v:51]
+WARNING: [Synth 8-327] inferring latch for variable 'num_reg' [F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/new/show.v:89]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:24 . Memory (MB): peak = 807.844 ; gain = 503.844
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 743.387 ; gain = 502.699
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -229,28 +230,29 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 3     
+	   2 Input     32 Bit       Adders := 4     
 	   3 Input     32 Bit       Adders := 1     
 	   2 Input      4 Bit       Adders := 1     
 +---XORs : 
 	   2 Input     32 Bit         XORs := 1     
 +---Registers : 
-	               32 Bit    Registers := 33    
+	               32 Bit    Registers := 36    
 	               24 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 11    
+	   2 Input     32 Bit        Muxes := 14    
 	   3 Input     32 Bit        Muxes := 1     
 	   8 Input     32 Bit        Muxes := 2     
 	   4 Input     24 Bit        Muxes := 1     
 	   2 Input     16 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 1     
 	   8 Input      8 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 2     
 	   2 Input      4 Bit        Muxes := 2     
 	   2 Input      2 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 44    
+	   2 Input      1 Bit        Muxes := 48    
 	   3 Input      1 Bit        Muxes := 1     
 	   8 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
@@ -260,7 +262,11 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module clkout 
+Module cpu 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module clkout_cpu 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 1     
@@ -270,14 +276,22 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
-Module Ifetc32 
+Module clkout_upg 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
 +---Muxes : 
-	   3 Input     32 Bit        Muxes := 1     
 	   2 Input     32 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module ProgramROM_UART 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
 Module decode32 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -290,6 +304,16 @@ Module control32
 Detailed RTL Component Info : 
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 10    
+Module Ifetc32_Uart 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   3 Input     32 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
 Module executs32 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -302,6 +326,12 @@ Detailed RTL Component Info :
 	   8 Input     32 Bit        Muxes := 2     
 	   2 Input      4 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 2     
+Module dmem32_uart 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
 Module MemOrIO 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -345,8 +375,10 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "Zero" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "cf/cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "cf/clk_out" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "cc/cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "cc/clk_out" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "cu/cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "cu/clk_out" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 WARNING: [Synth 8-3917] design cpu has port seg_out[7] driven by constant 1
 WARNING: [Synth 8-3331] design executs32 has unconnected port Function_opcode[5]
 WARNING: [Synth 8-3331] design executs32 has unconnected port Function_opcode[4]
@@ -359,11 +391,11 @@ WARNING: [Synth 8-3331] design cpu has unconnected port row[3]
 WARNING: [Synth 8-3331] design cpu has unconnected port row[2]
 WARNING: [Synth 8-3331] design cpu has unconnected port row[1]
 WARNING: [Synth 8-3331] design cpu has unconnected port row[0]
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ifetch/link_addr_reg[0] )
-WARNING: [Synth 8-3332] Sequential element (ifetch/PC_reg[0]) is unused and will be removed from module cpu.
-WARNING: [Synth 8-3332] Sequential element (ifetch/link_addr_reg[0]) is unused and will be removed from module cpu.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Uifetc32/link_addr_reg[0] )
+WARNING: [Synth 8-3332] Sequential element (Uifetc32/PC_reg[0]) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (Uifetc32/link_addr_reg[0]) is unused and will be removed from module cpu.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:17 ; elapsed = 00:02:01 . Memory (MB): peak = 807.844 ; gain = 503.844
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:08 ; elapsed = 00:01:10 . Memory (MB): peak = 743.387 ; gain = 502.699
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -375,13 +407,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:25 ; elapsed = 00:02:11 . Memory (MB): peak = 855.730 ; gain = 551.730
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:14 ; elapsed = 00:01:16 . Memory (MB): peak = 793.773 ; gain = 553.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:38 ; elapsed = 00:02:30 . Memory (MB): peak = 858.613 ; gain = 554.613
+Finished Timing Optimization : Time (s): cpu = 00:01:24 ; elapsed = 00:01:26 . Memory (MB): peak = 796.625 ; gain = 555.938
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -392,21 +424,21 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][29] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][18] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][28] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][30] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][19] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][17] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][30] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][31] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\idecode/register_reg[0][8] )
@@ -457,7 +489,7 @@ WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][2]) is unuse
 WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][1]) is unused and will be removed from module cpu.
 WARNING: [Synth 8-3332] Sequential element (idecode/register_reg[0][0]) is unused and will be removed from module cpu.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:45 ; elapsed = 00:02:39 . Memory (MB): peak = 928.113 ; gain = 624.113
+Finished Technology Mapping : Time (s): cpu = 00:01:29 ; elapsed = 00:01:31 . Memory (MB): peak = 864.875 ; gain = 624.188
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -481,7 +513,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:45 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
+Finished IO Insertion : Time (s): cpu = 00:01:30 ; elapsed = 00:01:31 . Memory (MB): peak = 864.875 ; gain = 624.188
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -494,7 +526,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:45 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:30 ; elapsed = 00:01:31 . Memory (MB): peak = 864.875 ; gain = 624.188
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -506,25 +538,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:45 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:30 ; elapsed = 00:01:32 . Memory (MB): peak = 864.875 ; gain = 624.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:46 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:30 ; elapsed = 00:01:32 . Memory (MB): peak = 864.875 ; gain = 624.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:46 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:30 ; elapsed = 00:01:32 . Memory (MB): peak = 864.875 ; gain = 624.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:46 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:30 ; elapsed = 00:01:32 . Memory (MB): peak = 864.875 ; gain = 624.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -534,55 +566,59 @@ Report BlackBoxes:
 +------+--------------+----------+
 |      |BlackBox name |Instances |
 +------+--------------+----------+
-|1     |prgrom        |         1|
-|2     |RAM           |         1|
+|1     |uart_bmpg_0   |         1|
+|2     |prgrom        |         1|
+|3     |RAM           |         1|
 +------+--------------+----------+
 
 Report Cell Usage: 
-+------+-------+------+
-|      |Cell   |Count |
-+------+-------+------+
-|1     |RAM    |     1|
-|2     |prgrom |     1|
-|3     |BUFG   |     3|
-|4     |CARRY4 |    32|
-|5     |LUT1   |     5|
-|6     |LUT2   |   133|
-|7     |LUT3   |   203|
-|8     |LUT4   |   147|
-|9     |LUT5   |   319|
-|10    |LUT6   |  1087|
-|11    |MUXF7  |   260|
-|12    |MUXF8  |    48|
-|13    |FDCE   |    76|
-|14    |FDRE   |  1055|
-|15    |LD     |    17|
-|16    |IBUF   |    26|
-|17    |OBUF   |    40|
-|18    |OBUFT  |     4|
-+------+-------+------+
++------+------------+------+
+|      |Cell        |Count |
++------+------------+------+
+|1     |RAM         |     1|
+|2     |prgrom      |     1|
+|3     |uart_bmpg_0 |     1|
+|4     |BUFG        |     4|
+|5     |CARRY4      |    40|
+|6     |LUT1        |     5|
+|7     |LUT2        |    88|
+|8     |LUT3        |   224|
+|9     |LUT4        |   201|
+|10    |LUT5        |   358|
+|11    |LUT6        |  1114|
+|12    |MUXF7       |   264|
+|13    |MUXF8       |    74|
+|14    |FDCE        |   108|
+|15    |FDRE        |  1057|
+|16    |LD          |    17|
+|17    |IBUF        |    28|
+|18    |OBUF        |    41|
+|19    |OBUFT       |     4|
++------+------------+------+
 
 Report Instance Areas: 
-+------+--------------+----------+------+
-|      |Instance      |Module    |Cells |
-+------+--------------+----------+------+
-|1     |top           |          |  3519|
-|2     |  cf          |clkout    |    83|
-|3     |  idecode     |decode32  |  2159|
-|4     |  ifetch      |Ifetc32   |  1087|
-|5     |  ledoutput   |leds      |    32|
-|6     |  memory      |dmemory32 |    32|
-|7     |  sst         |show      |    37|
-|8     |  switchinput |switchs   |    16|
-+------+--------------+----------+------+
++------+----------------+----------------+------+
+|      |Instance        |Module          |Cells |
++------+----------------+----------------+------+
+|1     |top             |                |  3742|
+|2     |  Uifetc32      |Ifetc32_Uart    |   126|
+|3     |  Uprogramrom_0 |ProgramROM_UART |  1017|
+|4     |  cc            |clkout_cpu      |    84|
+|5     |  cu            |clkout_upg      |    82|
+|6     |  idecode       |decode32        |  2186|
+|7     |  ledoutput     |leds            |    32|
+|8     |  sst           |show            |    37|
+|9     |  switchinput   |switchs         |    16|
+|10    |  udmem         |dmem32_uart     |    32|
++------+----------------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:46 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:30 ; elapsed = 00:01:32 . Memory (MB): peak = 864.875 ; gain = 624.188
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 49 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:37 ; elapsed = 00:02:32 . Memory (MB): peak = 928.113 ; gain = 272.117
-Synthesis Optimization Complete : Time (s): cpu = 00:01:46 ; elapsed = 00:02:41 . Memory (MB): peak = 928.113 ; gain = 624.113
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:19 ; elapsed = 00:01:26 . Memory (MB): peak = 864.875 ; gain = 274.930
+Synthesis Optimization Complete : Time (s): cpu = 00:01:30 ; elapsed = 00:01:32 . Memory (MB): peak = 864.875 ; gain = 624.188
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 383 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 423 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 12 load pin(s).
@@ -592,10 +628,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   LD => LDCE (inverted pins: G): 12 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-123 Infos, 117 Warnings, 0 Critical Warnings and 0 Errors encountered.
+135 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:48 ; elapsed = 00:02:46 . Memory (MB): peak = 928.113 ; gain = 635.621
-INFO: [Common 17-1381] The checkpoint 'P:/CS214-Computer-Organization/Project/verilog/verilog.runs/synth_1/cpu.dcp' has been generated.
+synth_design: Time (s): cpu = 00:01:33 ; elapsed = 00:01:35 . Memory (MB): peak = 864.875 ; gain = 634.211
+INFO: [Common 17-1381] The checkpoint 'F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/cpu.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file cpu_utilization_synth.rpt -pb cpu_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.083 . Memory (MB): peak = 928.113 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat May 20 16:49:28 2023...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.043 . Memory (MB): peak = 864.875 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun May 21 03:26:54 2023...

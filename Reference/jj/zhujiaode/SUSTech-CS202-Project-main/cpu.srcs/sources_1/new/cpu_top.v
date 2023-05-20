@@ -22,9 +22,9 @@
 
 module cpu_top(
 input fpga_clk,
-input[23:0] sw_in,  //sw15...sw0, ²âÊÔ³¡¾°1, sw7...sw0²âÊÔ³¡¾°1/2£¬sw3...sw0²âÊÔ³¡¾°2/2
+input[23:0] sw_in,  //sw15...sw0, ï¿½ï¿½ï¿½Ô³ï¿½ï¿½ï¿½1, sw7...sw0ï¿½ï¿½ï¿½Ô³ï¿½ï¿½ï¿½1/2ï¿½ï¿½sw3...sw0ï¿½ï¿½ï¿½Ô³ï¿½ï¿½ï¿½2/2
 input fpga_rst,
-output[23:0] led_out, //17¸öledÊä³ö£¨²âÊÔ³¡¾°1£©
+output[23:0] led_out, //17ï¿½ï¿½ledï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô³ï¿½ï¿½ï¿½1ï¿½ï¿½
 input[3:0] row,
 output[3:0] col,
 output[7:0] seg_out,
@@ -96,9 +96,9 @@ output tx //send data by UART
     //seg outputs
     
     //IFetch outputs
-    wire[31:0] link_addr; //JALÖ¸Áî×¨ÓÃµÄPC+4   
+    wire[31:0] link_addr; //JALÖ¸ï¿½ï¿½×¨ï¿½Ãµï¿½PC+4   
     wire[31:0] Instruction_o_if;
-    wire[31:0] branch_base_addr; //¶ÔÓÚÓÐÌõ¼þÌø×ªÀàµÄÖ¸Áî¶øÑÔ£¬¸ÃÖµÎª(pc+4)ËÍÍùALU
+    wire[31:0] branch_base_addr; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ÖµÎª(pc+4)ï¿½ï¿½ï¿½ï¿½ALU
     
     //d_memory  outputs
     wire[31:0] readData;
@@ -154,7 +154,7 @@ output tx //send data by UART
        assign RegWriteTest=RegWrite;
        assign InstructionTest=Instruction_o_if;
        //!!!!!!!TODO: CONNECT DATA RAM OR IO PORT RELATED!!!!!
-       //opcplus4:À´×ÔÈ¡Ö¸µ¥Ôª£¬JALÖÐÓÃ, should be link_addr
+       //opcplus4:ï¿½ï¿½ï¿½ï¿½È¡Ö¸ï¿½ï¿½Ôªï¿½ï¿½JALï¿½ï¿½ï¿½ï¿½, should be link_addr
       decode32 decoder(read_data_1,read_data_2,Instruction_o_if,r_wdata,ALU_Result,
                         Jal,RegWrite,MemtoReg,RegDST,Sign_extend,clk_out,rst,link_addr);
         

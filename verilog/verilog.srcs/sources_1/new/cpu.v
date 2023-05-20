@@ -1,26 +1,64 @@
 `timescale 1ns / 1ps
 
 module cpu (
-    input clock,
-    input rst,
-    input [3:0] row,
+    input fpga_clk,
+    input fpga_rst,
+    input [3:0] row, // Active High
     input [23:0] switch,
     output [23:0] led,
     output reg [3:0] col,
     output [7:0] seg_en,
-    output [7:0] seg_out
+    output [7:0] seg_out,
+    
+    input start_pg, // Active High
+    input rx, // receive data by UART
+    output tx //  send data by UART
 );
 
-    wire clk;
-    clkout cf (
-        .clk(clock),
-        .rst(rst),
-        .clk_out(clk)
+    wire cpu_clk,upg_clk,upg_clk_o;
+    clkout_cpu cc (
+        .clk(fpga_clk),
+        .rst(fpga_rst),
+        .clk_out(cpu_clk)
     );
+    clkout_upg cu(
+        .clk(fpga_clk),
+        .rst(fpga_rst),
+        .clk_out(upg_clk)
+    );
+     //UART
+    wire upg_wen_o; //Uart write out enable
+    wire upg_done_o; //Uart rx data have done
+        //assign led_out[23]=upg_wen_o; //!!!!test
 
+    //data to which memory unit of program_rom/dmemory32
+    wire [14:0] upg_adr_o;
+    //data to program_rom or dmemory32
+    wire [31:0] upg_dat_o;
+        //wire clk_uart;
+    wire spg_bufg;
+    BUFG U1(.I(start_pg), .O(spg_bufg));
+    reg upg_rst;
+    
+    always @    (posedge fpga_clk) begin
+       if (spg_bufg) upg_rst = 0;
+       if (fpga_rst) upg_rst = 1;
+       end
+       
+    wire rst = fpga_rst | !upg_rst;
+    
+    uart_bmpg_0 uart  (.upg_adr_o(upg_adr_o),
+           .upg_clk_i(upg_clk),
+           .upg_clk_o(upg_clk_o),
+           .upg_dat_o(upg_dat_o),
+           .upg_done_o(upg_done_o),
+           .upg_rst_i(upg_rst),
+           .upg_rx_i(rx),
+           .upg_tx_o(tx),
+           .upg_wen_o(upg_wen_o));
     // input of ifetch
     wire [31:0] Addr_result;
-    wire [31:0] Zero;  // ????
+    wire [31:0] Zero;  
     wire [31:0] Read_data_1;
     wire Branch;
     wire nBranch;
@@ -33,22 +71,17 @@ module cpu (
     wire [31:0] branch_base_addr;
     wire [31:0] link_addr;
     
-    Ifetc32 ifetch (
-        .clock(clk),
-        .reset(rst),
-        .Addr_result(Addr_result),
-        .Zero(Zero),
-        .Read_data_1(Read_data_1),
-        .Branch(Branch),
-        .nBranch(nBranch),
-        .Jmp(Jmp),
-        .Jal(Jal),
-        .Jr(Jr),
-        
-        .Instruction(Instruction),
-        .branch_base_addr(branch_base_addr),
-        .link_addr(link_addr)
-    );
+    wire [13:0] rom_adr_o;
+    ProgramROM_UART Uprogramrom_0(
+    .rom_clk_i(cpu_clk),
+    .rom_adr_i(rom_adr_o),
+    .upg_rst_i(upg_rst),
+    .upg_clk_i(upg_clk_o),
+    .upg_wen_i(upg_wen_o),
+    .upg_adr_i(upg_adr_o),
+    .upg_dat_i(upg_dat_o),
+    .upg_done_i(upg_done_o),
+    .Instruction_o(Instruction));
 
     // input of decoder
     wire [31:0] r_wdata;  // from MemOrIO
@@ -66,7 +99,7 @@ module cpu (
         .RegWrite(RegWrite),
         .MemtoReg(MemtoReg),
         .RegDst(RegDst),
-        .clock(clk),
+        .clock(cpu_clk),
         .reset(rst),
         .opcplus4(link_addr),
 
@@ -117,6 +150,25 @@ module cpu (
         .IORead(IORead),
         .IOWrite(IOWrite)
     );
+    
+    // output of ifetch
+    wire [31:0] Instruction_o2;
+   Ifetc32_Uart Uifetc32(
+    .reset(rst),
+    .clock(cpu_clk),
+    .Addr_result(Addr_result),
+    .Read_data_1(Read_data_1),
+    .Branch(Branch),
+    .nBranch(nBranch),
+    .Jmp(Jmp),
+    .Jal(Jal),
+    .Jr(Jr),
+    .Zero(Zero),
+    .Instruction_i(Instruction),
+    .Instruction_o(Instruction_o2),
+    .link_addr(link_addr),
+    .branch_base_addr(branch_base_addr),
+    .rom_adr_o(rom_adr_o));
 
     wire [4:0] Shamt = Instruction[10:6];
     executs32 alu(
@@ -146,13 +198,17 @@ module cpu (
     wire[31:0] write_data;  //from memio
     //output
     wire[31:0] read_data;
-    dmemory32 memory(
-        .clock(clk),
-        .memWrite(MemWrite),
-        .address(addr_out),
-        .writeData(write_data),
-        .readData(read_data)   //output: to memroio
-    );
+    dmem32_uart udmem(.ram_clk_i(cpu_clk), // from CPU top
+           .ram_wen_i(MemWrite), // from controller
+           .ram_adr_i(ALU_result), // from alu_result of ALU
+           .ram_dat_i(read_data_2), // from read_data_2 of decoder
+           .ram_dat_o(read_data), // the data read from ram
+           .upg_rst_i(upg_rst), // UPG reset (Active High)
+           .upg_clk_i(upg_clk_o), // UPG ram_clk_i (10MHz)
+           .upg_wen_i((upg_wen_o & upg_adr_o[14])), // UPG write enable
+           .upg_adr_i(upg_adr_o[13:0]), // UPG write address
+           .upg_dat_i(upg_dat_o), // UPG write data
+           .upg_done_i(upg_done_o));
 
     //input
     wire[15:0] iodata;
@@ -181,7 +237,7 @@ module cpu (
     );
 
     leds ledoutput(
-        .led_clk(clk),
+        .led_clk(cpu_clk),
         .ledrst(rst),
         .ledwrite(IOWrite),   //from controller(IOWrite)
         .ledcs(LEDCtrl),
@@ -191,7 +247,7 @@ module cpu (
     );
 
     switchs switchinput(
-        .switclk(clk),
+        .switclk(cpu_clk),
         .switrst(rst),
         .switchcs(SwitchCtrl),
         .switchaddr(addr_out[1:0]), //
@@ -201,7 +257,7 @@ module cpu (
     );
 
     show sst( 
-        .clk(clk),
+        .clk(cpu_clk),
         .rst(rst),
         .ledwdata(led[16:0]),
         .seg_en(seg_en),
