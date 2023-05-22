@@ -16,16 +16,24 @@ module cpu (
 );
 
     wire cpu_clk,upg_clk,upg_clk_o;
-    clkout_cpu cc (
-        .clk(fpga_clk),
-        .rst(fpga_rst),
-        .clk_out(cpu_clk)
-    );
-    clkout_upg cu(
-        .clk(fpga_clk),
-        .rst(fpga_rst),
-        .clk_out(upg_clk)
-    );
+//    clkout co(
+//        .clk_in1(fpga_clk),
+//        .clk_out1(cpu_clk),
+//        .clk_out2(upg_clk)
+//    );
+
+     clkout_cpu cc (
+         .clk(fpga_clk),
+         .rst(fpga_rst),
+         .clk_out(cpu_clk)
+     );
+     clkout_upg cu(
+         .clk_in1(fpga_clk),
+         .reset(fpga_rst),
+         .clk_out1(upg_clk)
+     );
+
+
      //UART
     wire upg_wen_o; //Uart write out enable
     wire upg_done_o; //Uart rx data have done
@@ -38,24 +46,30 @@ module cpu (
         //wire clk_uart;
     wire spg_bufg;
     BUFG U1(.I(start_pg), .O(spg_bufg));
-    reg upg_rst;
+    reg upg_rst = 1;
     
-    always @    (posedge fpga_clk) begin
-       if (spg_bufg) upg_rst = 0;
-       if (fpga_rst) upg_rst = 1;
-       end
+    always @ (posedge fpga_clk) begin
+        if (spg_bufg) upg_rst = 0;
+
+        if (fpga_rst)
+            upg_rst = 1;
+        // else
+        //     upg_rst = 0;
+
+    end
        
     wire rst = fpga_rst | !upg_rst;
     
-    uart_bmpg_0 uart  (.upg_adr_o(upg_adr_o),
-           .upg_clk_i(upg_clk),
-           .upg_clk_o(upg_clk_o),
-           .upg_dat_o(upg_dat_o),
-           .upg_done_o(upg_done_o),
-           .upg_rst_i(upg_rst),
-           .upg_rx_i(rx),
-           .upg_tx_o(tx),
-           .upg_wen_o(upg_wen_o));
+    uart_bmpg_0 uart  (
+        .upg_adr_o(upg_adr_o),
+        .upg_clk_i(upg_clk),
+        .upg_clk_o(upg_clk_o),
+        .upg_dat_o(upg_dat_o),
+        .upg_done_o(upg_done_o),
+        .upg_rst_i(upg_rst),
+        .upg_rx_i(rx),
+        .upg_tx_o(tx),
+        .upg_wen_o(upg_wen_o));
     // input of ifetch
     wire [31:0] Addr_result;
     wire [31:0] Zero;  

@@ -22,7 +22,7 @@
 
 module show(
 input clk,
-inout rst,
+input rst,
 input [16:0] ledwdata,
 output reg [7:0] seg_en,
 output [7:0] seg_out

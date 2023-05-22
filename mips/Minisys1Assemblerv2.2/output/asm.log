@@ -1,3 +1,7 @@
 assmebling...
 
-assembling was successful - 0 error(s), 0 warning(s)
+line 28 : 'addition' : semantic error : undefined label
+line 29 : 'subtraction' : semantic error : undefined label
+line 30 : 'multiplication' : semantic error : undefined label
+line 31 : 'division' : semantic error : undefined label
+assembling was unsuccessful - 4 error(s), 0 warning(s)

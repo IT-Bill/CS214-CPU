@@ -1,17 +1,7 @@
 Vivado Simulator 2017.4
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: D:/Softwares/Vivado/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 458b95beae8e49dca08af74bec2f4b3b --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_1 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot cpu_behav xil_defaultlib.cpu xil_defaultlib.glbl -log elaborate.log 
+Running: D:/Softwares/Vivado/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 458b95beae8e49dca08af74bec2f4b3b --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot test_sim_behav xil_defaultlib.test_sim xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-ERROR: [VRFC 10-426] cannot find port pco on this module [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:62]
-ERROR: [VRFC 10-2063] Module <prgrom> not found while processing module instance <instmem> [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/Ifetch32.v:24]
-ERROR: [VRFC 10-2063] Module <decode32> not found while processing module instance <idecode> [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:79]
-ERROR: [VRFC 10-2063] Module <control32> not found while processing module instance <ctrl> [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:112]
-ERROR: [VRFC 10-2063] Module <executs32> not found while processing module instance <alu> [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:137]
-ERROR: [VRFC 10-2063] Module <dmemory32> not found while processing module instance <memory> [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:159]
-ERROR: [VRFC 10-2063] Module <MemOrIO> not found while processing module instance <memio> [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:176]
-ERROR: [VRFC 10-2063] Module <leds> not found while processing module instance <ledoutput> [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:199]
-ERROR: [VRFC 10-2063] Module <switchs> not found while processing module instance <switchinput> [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:211]
-ERROR: [VRFC 10-2063] Module <clkout> not found while processing module instance <co> [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:232]
-ERROR: [VRFC 10-2063] Module <show> not found while processing module instance <S_SEG_TUBE> [P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/new/cpu.v:238]
-ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

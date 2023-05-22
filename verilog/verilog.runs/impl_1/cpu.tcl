@@ -69,18 +69,19 @@ set rc [catch {
   create_project -in_memory -part xc7a100tfgg484-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir {F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.cache/wt} [current_project]
-  set_property parent.project_path {F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.xpr} [current_project]
-  set_property ip_repo_paths {{F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/SEU_CSE_507_user_uart_bmpg_1.3}} [current_project]
-  set_property ip_output_repo {{F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.cache/ip}} [current_project]
+  set_property webtalk.parent_dir P:/CS214-Computer-Organization/Project-uart/verilog/verilog.cache/wt [current_project]
+  set_property parent.project_path P:/CS214-Computer-Organization/Project-uart/verilog/verilog.xpr [current_project]
+  set_property ip_repo_paths P:/CS214-Computer-Organization/Project-uart/verilog/SEU_CSE_507_user_uart_bmpg_1.3 [current_project]
+  set_property ip_output_repo P:/CS214-Computer-Organization/Project-uart/verilog/verilog.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  set_property XPM_LIBRARIES XPM_MEMORY [current_project]
-  add_files -quiet {{F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/synth_1/cpu.dcp}}
-  read_ip -quiet {{f:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/ip/uart_bmpg_0_1/uart_bmpg_0.xci}}
-  read_ip -quiet {{F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/ip/RAM/RAM.xci}}
-  read_ip -quiet {{F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/ip/prgrom/prgrom.xci}}
-  read_edif {{f:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/ip/uart_bmpg_0_1/uart_bmpg.edif}}
-  read_xdc {{F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.srcs/constrs_1/new/cpu.xdc}}
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+  add_files -quiet P:/CS214-Computer-Organization/Project-uart/verilog/verilog.runs/synth_1/cpu.dcp
+  read_ip -quiet P:/CS214-Computer-Organization/Project-uart/verilog/verilog.srcs/sources_1/ip/uart_bmpg_0_1/uart_bmpg_0.xci
+  read_ip -quiet P:/CS214-Computer-Organization/Project-uart/verilog/verilog.srcs/sources_1/ip/clkout_upg/clkout_upg.xci
+  read_ip -quiet P:/CS214-Computer-Organization/Project-uart/verilog/verilog.srcs/sources_1/ip/prgrom/prgrom.xci
+  read_ip -quiet P:/CS214-Computer-Organization/Project-uart/verilog/verilog.srcs/sources_1/ip/RAM/RAM.xci
+  read_edif p:/CS214-Computer-Organization/Project-uart/verilog/verilog.srcs/sources_1/ip/uart_bmpg_0_1/uart_bmpg.edif
+  read_xdc P:/CS214-Computer-Organization/Project-uart/verilog/verilog.srcs/constrs_1/new/cpu.xdc
   link_design -top cpu -part xc7a100tfgg484-1
   close_msg_db -file init_design.pb
 } RESULT]
@@ -157,7 +158,7 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_property XPM_LIBRARIES XPM_MEMORY [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   catch { write_mem_info -force cpu.mmi }
   write_bitstream -force cpu.bit 
   catch {write_debug_probes -quiet -force cpu}
