@@ -1,6 +1,4 @@
-### Verilog文件在verilog文件夹下
-
-2023.5.17 （copy）verilog完成：（应该是）
+2023.5.17 （copy）verilog完成：
 
 - IFetch
 - control
@@ -8,7 +6,12 @@
 - executs
 - memOrIO
 
+2023.5.23 完成
 
+- 所有基本CPU模块
+- Uart通信模块
+- 测试场景1的前7项
+- 测试场景2的后4项
 
 ### 推荐工作流
 
