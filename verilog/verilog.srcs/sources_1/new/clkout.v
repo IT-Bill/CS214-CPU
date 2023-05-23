@@ -22,7 +22,7 @@
 
 module clkout_cpu(
 input clk,
-inout rst,
+input rst,
 output reg clk_out
     );
     reg [31:0]cnt;

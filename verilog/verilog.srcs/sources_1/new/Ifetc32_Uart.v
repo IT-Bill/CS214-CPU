@@ -19,7 +19,6 @@ input Jal, // while Jal is 1,it means current instruction is jal
 input Jr, // while Jr is 1,it means current instruction is jr
 input [31:0] Instruction_i,
 
-output[31:0] Instruction_o, // the instruction fetched from this module
 output[31:0] branch_base_addr, // (pc+4) to ALU which is used by branch type instruction
 output reg [31:0] link_addr, // (pc+4) to decoder which is used by jal instruction
 output [13:0] rom_adr_o
@@ -46,10 +45,10 @@ always @(posedge clock) begin
     if(reset==1)
         PC <= 32'h0000_0000;
     else if(Jmp == 1) begin  //[����]ָ����Ҫ�������л�ȡҪ��ת���ĵ�ַ��Ȼ��ֻ��26λ��������Ҫƴ��
-        PC <= {PC[31:28], Instruction_o[25:0],2'b00};
+        PC <= {PC[31:28], Instruction_i[25:0],2'b00};
     end
     else if(Jal == 1) begin
-        PC <= {PC[31:28], Instruction_o[25:0],2'b00};
+        PC <= {PC[31:28], Instruction_i[25:0],2'b00};
         link_addr <= PC + 32'h4;
     end
    else PC <= Next_PC;
@@ -57,6 +56,5 @@ always @(posedge clock) begin
 
 assign branch_base_addr = PC+32'd4;
 assign rom_adr_o = PC[15:2];
-assign Instruction_o = Instruction_i;
  
 endmodule

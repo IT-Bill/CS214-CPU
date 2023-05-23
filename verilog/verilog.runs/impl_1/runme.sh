@@ -11,9 +11,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=D:/Softwares/Vivado/Xilinx/SDK/2017.4/bin;D:/Softwares/Vivado/Xilinx/Vivado/2017.4/ids_lite/ISE/bin/nt64;D:/Softwares/Vivado/Xilinx/Vivado/2017.4/ids_lite/ISE/lib/nt64:D:/Softwares/Vivado/Xilinx/Vivado/2017.4/bin
+  PATH=E:/Xilinx/Vivado/2017.4/ids_lite/ISE/bin/nt64;E:/Xilinx/Vivado/2017.4/ids_lite/ISE/lib/nt64:E:/Xilinx/Vivado/2017.4/bin
 else
-  PATH=D:/Softwares/Vivado/Xilinx/SDK/2017.4/bin;D:/Softwares/Vivado/Xilinx/Vivado/2017.4/ids_lite/ISE/bin/nt64;D:/Softwares/Vivado/Xilinx/Vivado/2017.4/ids_lite/ISE/lib/nt64:D:/Softwares/Vivado/Xilinx/Vivado/2017.4/bin:$PATH
+  PATH=E:/Xilinx/Vivado/2017.4/ids_lite/ISE/bin/nt64;E:/Xilinx/Vivado/2017.4/ids_lite/ISE/lib/nt64:E:/Xilinx/Vivado/2017.4/bin:$PATH
 fi
 export PATH
 
@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='P:/CS214-Computer-Organization/Project-uart/verilog/verilog.runs/impl_1'
+HD_PWD='F:/Computer Organization/Project/CS214-Computer-Organization-Project/verilog/verilog.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
