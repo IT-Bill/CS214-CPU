@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Tue May 23 22:56:07 2023
+# Process ID: 5736
+# Current directory: P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/verilog
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent27964 P:\CS214-Computer-Organization\CS214-Computer-Organization-Project\verilog\verilog.xpr
+# Log file: P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/verilog/vivado.log
+# Journal file: P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/verilog\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/verilog/verilog.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/mips/Minisys1Assemblerv2.2/output/dmem32.coe] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/mips/test1/dmem32.coe] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/mips/test1/dmem32_scene1.coe] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/mips/Minisys1Assemblerv2.2/output/prgmip32.coe] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/mips/test1/prgmip32.coe] -no_script -reset -force -quiet
+remove_files  {P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/mips/Minisys1Assemblerv2.2/output/dmem32.coe P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/mips/test1/dmem32.coe P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/mips/test1/dmem32_scene1.coe P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/mips/Minisys1Assemblerv2.2/output/prgmip32.coe P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/mips/test1/prgmip32.coe}
