@@ -1,259 +1,150 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:
-//
-// Create Date: 2021/05/15 16:43:20
-// Design Name:
-// Module Name: keyboard
-// Project Name:
-// Target Devices:
-// Tool Versions:
-// Description:
-//
-// Dependencies:
-//
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-//
-//////////////////////////////////////////////////////////////////////////////////
+module keyboard(
+  input            kbcs,
+  input            clk,
+  input            rst,
+  input      [3:0] row,                 // 矩阵键盘 行
+  output reg [3:0] col,                 // 矩阵键盘 列
+  output reg [3:0] kbrdata        // 键盘值     
+);
+ 
+//++++++++++++++++++++++++++++++++++++++
+// 分频部分 开始
+//++++++++++++++++++++++++++++++++++++++
+reg [19:0] cnt;                         // 计数子
+ 
+always @ (posedge clk, posedge rst)
+  if (rst)
+    cnt <= 0;
+  else
+    cnt <= cnt + 1'b1;
+ 
+wire key_clk = cnt[19];                // (2^20/50M = 21)ms 
+//--------------------------------------
+// 分频部分 结束
+//--------------------------------------
+ 
+ 
+//++++++++++++++++++++++++++++++++++++++
+// 状态机部分 开始
+//++++++++++++++++++++++++++++++++++++++
+// 状态数较少，独热码编码
+parameter NO_KEY_PRESSED = 6'b000_001;  // 没有按键按下  
+parameter SCAN_COL0      = 6'b000_010;  // 扫描第0列 
+parameter SCAN_COL1      = 6'b000_100;  // 扫描第1列 
+parameter SCAN_COL2      = 6'b001_000;  // 扫描第2列 
+parameter SCAN_COL3      = 6'b010_000;  // 扫描第3列 
+parameter KEY_PRESSED    = 6'b100_000;  // 有按键按下
 
+reg [5:0] current_state, next_state;    // 现态、次态
+ 
+always @ (posedge key_clk, posedge rst)
+  if (rst)
+    current_state <= NO_KEY_PRESSED;
+  else
+    current_state <= next_state;
 
-module keyboard(input clk,
-                input rst,
-                input [3:0] row,
-                output reg [3:0] col,
-                output wire[23:0] keybd_i,    //the same as swtich_iin switch module
-                output reg key_pressed_flag); //show if keybd is being pressed
-
-      //select which scene to show, the same as swtich_i[23:16] in switch module but should be concat with keybd_i_low, modeCtrl[3]=1 means use keybd
-    reg [7:0] modeCtrl;   
-    reg[15:0] keybd_i_low;   // the same as swtich_i[15:0] in switch module but should be concat with modeCtrl
-    
-    
-    reg [19:0] cnt;
-    always @ (posedge clk, posedge rst)
-        if (rst)
-            cnt <= 0;
-        else
-            cnt <= cnt + 1'b1;
-    
-    wire key_clk = cnt[19];                // (2^20/50M = 21)ms
-    
-    parameter NO_KEY_PRESSED = 6'b000_001;
-    parameter SCAN_COL0      = 6'b000_010;
-    parameter SCAN_COL1      = 6'b000_100;
-    parameter SCAN_COL2      = 6'b001_000;
-    parameter SCAN_COL3      = 6'b010_000;
-    parameter KEY_PRESSED    = 6'b100_000;
-    
-    reg [5:0] current_state, next_state;
-    
-    always @ (posedge key_clk, posedge rst)
-        if (rst)
-            current_state <= NO_KEY_PRESSED;
-        else
-            current_state <= next_state;
-    
-    
-    always @ *
-    case (current_state)
-        NO_KEY_PRESSED :
-        begin
-            if (row != 4'hF)
+// 根据条件转移状态
+always @ (*)
+  case (current_state)    //若有按键按下，row != 4h'F,从col0开始一列一列扫描
+            NO_KEY_PRESSED :                    // 没有按键按下
+                if (row != 4'hF)
                 next_state = SCAN_COL0;
-            else
+                else
                 next_state = NO_KEY_PRESSED;
-        end
-        SCAN_COL0 :
-        begin
-            if (row != 4'hF)
+            SCAN_COL0 :                         // 扫描第0列 
+                if (row != 4'hF)
                 next_state = KEY_PRESSED;
-            else
+                else
                 next_state = SCAN_COL1;
-        end
-        SCAN_COL1 :
-        begin
-            if (row != 4'hF)
+            SCAN_COL1 :                         // 扫描第1列 
+                if (row != 4'hF)
                 next_state = KEY_PRESSED;
-            else
-                next_state = SCAN_COL2;
-        end
-        SCAN_COL2 :
-        begin
-            if (row != 4'hF)
+                else
+                next_state = SCAN_COL2;    
+            SCAN_COL2 :                         // 扫描第2列
+                if (row != 4'hF)
                 next_state = KEY_PRESSED;
-            else
+                else
                 next_state = SCAN_COL3;
-        end
-        SCAN_COL3 :
-        begin
-            if (row != 4'hF)
+            SCAN_COL3 :                         // 扫描第3列
+                if (row != 4'hF)
                 next_state = KEY_PRESSED;
-            else
+                else
                 next_state = NO_KEY_PRESSED;
-        end
-        KEY_PRESSED :
-        begin
-            if (row != 4'hF)
+            KEY_PRESSED :                       // 有按键按下
+                if (row != 4'hF)
                 next_state = KEY_PRESSED;
-            else
-                next_state = NO_KEY_PRESSED;
-        end
+                else
+                next_state = NO_KEY_PRESSED;                      
     endcase
-    
-    
-    reg [3:0] col_val, row_val;
-    always @ (posedge key_clk, posedge rst)
-        if (rst)
-        begin
-            col              <= 4'h0;
-            key_pressed_flag <= 0;
-        end
-        else
-            case (next_state)
-                NO_KEY_PRESSED :
-                begin
-                    col              <= 4'h0;
-                    row_val          <= 4'hf;
-                    key_pressed_flag <= 0;
-                end
-                SCAN_COL0 :
-                begin
-                    col     <= 4'b1110;
-                    row_val <= 4'hf;
-                end
-                SCAN_COL1 :
-                begin
-                    col     <= 4'b1101;
-                    row_val <= 4'hf;
-                end
-                SCAN_COL2 :
-                begin
-                    col     <= 4'b1011;
-                    row_val <= 4'hf;
-                end
-                SCAN_COL3 :
-                begin
-                    col     <= 4'b0111;
-                    row_val <= 4'hf;
-                end
-                KEY_PRESSED :
-                begin
-                    col_val          <= col;
-                    row_val          <= row;
-                    key_pressed_flag <= 1;
-                end
-            endcase
-    
-    
-    // reg [3:0] keyboard_val;     //键盘
-    always @ (posedge key_clk, posedge rst)
-        if (rst)
-        begin
-            // keyboard_val = 2'b0;
-            keybd_i_low <= 0;
-            modeCtrl <= 0;
-        end
-        else
-            if (key_pressed_flag)
-            begin
-                case ({col_val, row_val})
-                    8'b1110_1110 :
-                    begin
-                        // keyboard_val = 1;
-                        keybd_i_low <= 1;
-                    end
-                    8'b1101_1110 :
-                    begin
-                        // keyboard_val = 2;
-                        keybd_i_low <= 2;
-                    end
-                    8'b1011_1110 :
-                    begin
-                        // keyboard_val = 3;
-                        keybd_i_low <= 3;
-                    end
-                    8'b0111_1110:
-                    begin
-                        if(modeCtrl[3] == 0)
-                        begin
-                            modeCtrl <= 8'b0000_1000;
-                        end
-                        else
-                        begin
-                            modeCtrl <= 8'b0000_0000;
-                        end
-                        keybd_i_low <= 0;
-                    end
-                    8'b1110_1101:
-                    begin
-                        // keyboard_val = 4;
-                        keybd_i_low <= 4;
-                    end
-                    8'b1101_1101:
-                    begin
-                        // keyboard_val = 5;
-                        keybd_i_low <= 5;
-                    end
-                    8'b1011_1101:
-                    begin
-                        // keyboard_val = 6;
-                        keybd_i_low <= 6;
-                    end
-                    8'b0111_1101:
-                    begin
-                        modeCtrl[7:5] <= 3'b001;
-                        keybd_i_low <= 0;
-                    end
-                    8'b1110_1011:
-                    begin
-                        // keyboard_val = 7;
-                        keybd_i_low <= 7;
-                    end
-                    8'b1101_1011:
-                    begin
-                        // keyboard_val = 8;
-                        keybd_i_low <= 8;
-                    end
-                    8'b1011_1011:
-                    begin
-                        // keyboard_val = 9;
-                        keybd_i_low <= 9;
-                    end
-                    8'b0111_1011:
-                    begin
-                        modeCtrl[7:5] <= 3'b010;
-                    end
-                    8'b1110_0111:
-                    begin
-                        modeCtrl[7:5] <=3'b100;
-                    end
-                    8'b1101_0111 :
-                    begin
-                        // keyboard_val = 0;
-                        keybd_i_low <= 0;
-                    end
-                    8'b1011_0111:
-                    begin
-                        modeCtrl[7:5] <=3'b101;
-                    end
-                    8'b0111_0111:
-                    begin
-                        modeCtrl[7:5] <=3'b011;
-                    end
-                    default:
-                    begin
-                        // keyboard_val = 0;
-                        keybd_i_low <= 0;
-                    end
-                endcase
-            end
-            else
-            begin
-                // keyboard_val = 2'b00;
-                // keybd_i_low <= 0;
-            end
-    assign keybd_i = {modeCtrl,keybd_i_low};
+     //next_state是最后扫描的结果（到next_state发现row != 4'hF才停）
+ 
+reg       key_pressed_flag;             // 键盘按下标志
+reg [3:0] col_val, row_val;             // 列值、行值
+ 
+// 根据次态，给相应寄存器赋值
+always @ (posedge key_clk, posedge rst)
+  if (rst)
+  begin
+    col              <= 4'h0;
+    key_pressed_flag <=    0;
+  end
+  else
+    case (next_state)
+      NO_KEY_PRESSED :                  // 没有按键按下
+      begin
+        col              <= 4'h0;
+        key_pressed_flag <=    0;       // 清键盘按下标志
+      end
+      SCAN_COL0 :                       // 扫描第0列
+        col <= 4'b1110;
+      SCAN_COL1 :                       // 扫描第1列
+        col <= 4'b1101;
+      SCAN_COL2 :                       // 扫描第2列
+        col <= 4'b1011;
+      SCAN_COL3 :                       // 扫描第3列
+        col <= 4'b0111;
+      KEY_PRESSED :                     // 有按键按下
+      begin
+        col_val          <= col;        // 锁存列值
+        row_val          <= row;        // 锁存行值
+        key_pressed_flag <= 1;          // 置键盘按下标志  
+      end
+    endcase
+//--------------------------------------
+// 状态机部分 结束
+//--------------------------------------
+ 
+ 
+//++++++++++++++++++++++++++++++++++++++
+// 扫描行列值部分 开始
+//++++++++++++++++++++++++++++++++++++++
+always @ (posedge key_clk, posedge rst)
+  if (rst)
+    kbrdata <= 16'h0;
+  else
+    if (key_pressed_flag && kbcs)
+        case ({col_val, row_val})
+            8'b1110_1110 : kbrdata <= 4'h1;    //从右往左，从下往上扫描键盘
+            8'b1110_1101 : kbrdata <= 4'h4;
+            8'b1110_1011 : kbrdata <= 4'h7;
+            8'b1110_0111 : kbrdata <= 4'hE;
+            
+            8'b1101_1110 : kbrdata <= 4'h2;
+            8'b1101_1101 : kbrdata <= 4'h5;
+            8'b1101_1011 : kbrdata <= 4'h8;
+            8'b1101_0111 : kbrdata <= 4'h0;
+            
+            8'b1011_1110 : kbrdata <= 4'h3;
+            8'b1011_1101 : kbrdata <= 4'h6;
+            8'b1011_1011 : kbrdata <= 4'h9;
+            8'b1011_0111 : kbrdata <= 4'hF;
+
+            8'b0111_1110 : kbrdata <= 4'hA;
+            8'b0111_1101 : kbrdata <= 4'hB;
+            8'b0111_1011 : kbrdata <= 4'hC;
+            8'b0111_0111 : kbrdata <= 4'hD;
+
+            default: kbrdata <= kbrdata;        
+    endcase
 endmodule

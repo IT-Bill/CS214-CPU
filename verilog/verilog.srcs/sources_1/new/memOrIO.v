@@ -2,7 +2,7 @@
 
 module MemOrIO(
     mRead, mWrite, ioRead, ioWrite,addr_in,
-    addr_out, m_rdata, io_rdata, r_wdata, r_rdata, write_data, LEDCtrl, SwitchCtrl
+    addr_out, m_rdata, io_rdata, r_wdata, r_rdata, write_data, LEDCtrl, SwitchCtrl, KBCtrl
     );
 
     input mRead; // read memory, from control32
@@ -13,22 +13,25 @@ module MemOrIO(
     
     input[31:0] m_rdata; // data read from memory
     input[15:0] io_rdata; // data read from io,16 bits
+
     input[31:0] r_rdata; // data read from idecode32(register file)
 
     output[31:0] r_wdata; // data to idecode32(register file)
     output[31:0] addr_out; // address to memory
-    output reg[31:0] write_data; // data to memory or I/O（m_wdata, io_wdata）
+    output reg[31:0] write_data; // data to memory or I/O锟斤拷m_wdata, io_wdata锟斤拷
     output LEDCtrl; // LED Chip Select
     output SwitchCtrl; // Switch Chip Select
+    output KBCtrl; // keyboard
 
     assign addr_out= addr_in;
-
+    
     assign r_wdata=(ioRead==1'b1)?io_rdata:m_rdata;           //miss this one !!!
 
-    // The data wirte to register file may be from memory or io. // While the data is from io, it should be the lower 16bit of r_wdata. assign r_wdata = ？？？
+    // The data wirte to register file may be from memory or io. // While the data is from io, it should be the lower 16bit of r_wdata. assign r_wdata = 锟斤拷锟斤拷锟斤拷
     // Chip select signal of Led and Switch are all active high;
-    assign LEDCtrl= (ioWrite == 1'b1)?1'b1:1'b0; // led 模块的片选信号，高电平有效; 
-    assign SwitchCtrl= (ioRead == 1'b1)?1'b1:1'b0; //switch 模块的片选信号，高电平有效;
+    assign LEDCtrl= (ioWrite == 1'b1)?1'b1:1'b0; // led 
+    assign SwitchCtrl= (ioRead == 1'b1)?1'b1:1'b0; //switch  
+    assign KBCtrl = (ioRead == 1'b1)?1'b1:1'b0;
     always @* begin
         if((mWrite==1)||(ioWrite==1))
             //wirte_data could go to either memory or IO. where is it from?
