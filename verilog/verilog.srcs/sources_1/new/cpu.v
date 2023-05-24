@@ -6,7 +6,7 @@ module cpu (
     input [3:0] row, 
     input [23:0] switch,
     output [23:0] led,
-    output reg [3:0] col,
+    output [3:0] col,
     output [7:0] seg_en,
     output [7:0] seg_out,
     
@@ -218,11 +218,14 @@ module cpu (
     //input
     wire[15:0] iodata;
     wire[15:0] switchrdata; //data from switchio
-    assign iodata = switchrdata;
+    wire[4:0] kbrdata;
+    wire kb_enable = (switch[23] == 1);
+    assign iodata = kb_enable ? kbrdata : switchrdata;
     
     //output of memorio
     wire LEDCtrl; // LED Chip Select
     wire SwitchCtrl; // Switch Chip Select
+    wire KBCtrl;  // Keyboard Chip Select
 
     MemOrIO memio(
         .mRead(MemRead),    // read memory, from control32
@@ -238,7 +241,8 @@ module cpu (
         .addr_out(addr_out),    //output and follows are they
         .write_data(write_data),    //io_wdata, output
         .LEDCtrl(LEDCtrl),
-        .SwitchCtrl(SwitchCtrl)
+        .SwitchCtrl(SwitchCtrl),
+        .KBCtrl(KBCtrl)
     );
 
     leds ledoutput(
@@ -254,11 +258,20 @@ module cpu (
     switchs switchinput(
         .switclk(cpu_clk),
         .switrst(rst),
-        .switchcs(SwitchCtrl),
+        .switchcs(SwitchCtrl && ~kb_enable),
         .switchaddr(addr_out[1:0]), //
         .switchread(IORead),  //from controller (IORead)
         .switchrdata(switchrdata), //output
         .switch_i(switch[23:0])
+    );
+
+    keyboard kb(
+        .clk(fpga_clk),
+        .rst(rst),
+        .row(row),
+        .col(col),
+        .kbcs(KBCtrl && kb_enable),
+        .kbrdata(kbrdata)
     );
 
     show sst( 
@@ -269,10 +282,10 @@ module cpu (
         .seg_out(seg_out)
     );
     
-    beep buzzer(
-         .clk(fpga_clk),
-         .en(upg_wen_o),
-         .rst(rst),
-         .pwm(pwm)
-    );
+    // beep buzzer(
+    //      .clk(fpga_clk),
+    //      .en(~upg_wen_o),
+    //      .rst(rst),
+    //      .pwm(pwm)
+    // );
 endmodule

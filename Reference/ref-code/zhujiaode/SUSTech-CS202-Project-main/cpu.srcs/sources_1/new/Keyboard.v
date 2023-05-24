@@ -1,15 +1,15 @@
 module Keyboard(
   input            clk,
   input            rst,
-  input      [3:0] row,                 // ¾ØÕó¼üÅÌ ĞĞ
-  output reg [3:0] col,                 // ¾ØÕó¼üÅÌ ÁĞ
-  output reg [15:0] boarddata        // ¼üÅÌÖµ     
+  input      [3:0] row,                 // çŸ©é˜µé”®ç›˜ è¡Œ
+  output reg [3:0] col,                 // çŸ©é˜µé”®ç›˜ åˆ—
+  output reg [3:0] kb_data        // é”®ç›˜å€¼     
 );
  
 //++++++++++++++++++++++++++++++++++++++
-// ·ÖÆµ²¿·Ö ¿ªÊ¼
+// åˆ†é¢‘éƒ¨åˆ† å¼€å§‹
 //++++++++++++++++++++++++++++++++++++++
-reg [19:0] cnt;                         // ¼ÆÊı×Ó
+reg [19:0] cnt;                         // è®¡æ•°å­
  
 always @ (posedge clk, posedge rst)
   if (rst)
@@ -19,22 +19,22 @@ always @ (posedge clk, posedge rst)
  
 wire key_clk = cnt[19];                // (2^20/50M = 21)ms 
 //--------------------------------------
-// ·ÖÆµ²¿·Ö ½áÊø
+// åˆ†é¢‘éƒ¨åˆ† ç»“æŸ
 //--------------------------------------
  
  
 //++++++++++++++++++++++++++++++++++++++
-// ×´Ì¬»ú²¿·Ö ¿ªÊ¼
+// çŠ¶æ€æœºéƒ¨åˆ† å¼€å§‹
 //++++++++++++++++++++++++++++++++++++++
-// ×´Ì¬Êı½ÏÉÙ£¬¶ÀÈÈÂë±àÂë
-parameter NO_KEY_PRESSED = 6'b000_001;  // Ã»ÓĞ°´¼ü°´ÏÂ  
-parameter SCAN_COL0      = 6'b000_010;  // É¨ÃèµÚ0ÁĞ 
-parameter SCAN_COL1      = 6'b000_100;  // É¨ÃèµÚ1ÁĞ 
-parameter SCAN_COL2      = 6'b001_000;  // É¨ÃèµÚ2ÁĞ 
-parameter SCAN_COL3      = 6'b010_000;  // É¨ÃèµÚ3ÁĞ 
-parameter KEY_PRESSED    = 6'b100_000;  // ÓĞ°´¼ü°´ÏÂ
+// çŠ¶æ€æ•°è¾ƒå°‘ï¼Œç‹¬çƒ­ç ç¼–ç 
+parameter NO_KEY_PRESSED = 6'b000_001;  // æ²¡æœ‰æŒ‰é”®æŒ‰ä¸‹  
+parameter SCAN_COL0      = 6'b000_010;  // æ‰«æç¬¬0åˆ— 
+parameter SCAN_COL1      = 6'b000_100;  // æ‰«æç¬¬1åˆ— 
+parameter SCAN_COL2      = 6'b001_000;  // æ‰«æç¬¬2åˆ— 
+parameter SCAN_COL3      = 6'b010_000;  // æ‰«æç¬¬3åˆ— 
+parameter KEY_PRESSED    = 6'b100_000;  // æœ‰æŒ‰é”®æŒ‰ä¸‹
 
-reg [5:0] current_state, next_state;    // ÏÖÌ¬¡¢´ÎÌ¬
+reg [5:0] current_state, next_state;    // ç°æ€ã€æ¬¡æ€
  
 always @ (posedge key_clk, posedge rst)
   if (rst)
@@ -42,46 +42,46 @@ always @ (posedge key_clk, posedge rst)
   else
     current_state <= next_state;
 
-// ¸ù¾İÌõ¼ş×ªÒÆ×´Ì¬
+// æ ¹æ®æ¡ä»¶è½¬ç§»çŠ¶æ€
 always @ (*)
-  case (current_state)    //ÈôÓĞ°´¼ü°´ÏÂ£¬row != 4h'F,´Ócol0¿ªÊ¼Ò»ÁĞÒ»ÁĞÉ¨Ãè
-            NO_KEY_PRESSED :                    // Ã»ÓĞ°´¼ü°´ÏÂ
+  case (current_state)    //è‹¥æœ‰æŒ‰é”®æŒ‰ä¸‹ï¼Œrow != 4h'F,ä»col0å¼€å§‹ä¸€åˆ—ä¸€åˆ—æ‰«æ
+            NO_KEY_PRESSED :                    // æ²¡æœ‰æŒ‰é”®æŒ‰ä¸‹
                 if (row != 4'hF)
                 next_state = SCAN_COL0;
                 else
                 next_state = NO_KEY_PRESSED;
-            SCAN_COL0 :                         // É¨ÃèµÚ0ÁĞ 
+            SCAN_COL0 :                         // æ‰«æç¬¬0åˆ— 
                 if (row != 4'hF)
                 next_state = KEY_PRESSED;
                 else
                 next_state = SCAN_COL1;
-            SCAN_COL1 :                         // É¨ÃèµÚ1ÁĞ 
+            SCAN_COL1 :                         // æ‰«æç¬¬1åˆ— 
                 if (row != 4'hF)
                 next_state = KEY_PRESSED;
                 else
                 next_state = SCAN_COL2;    
-            SCAN_COL2 :                         // É¨ÃèµÚ2ÁĞ
+            SCAN_COL2 :                         // æ‰«æç¬¬2åˆ—
                 if (row != 4'hF)
                 next_state = KEY_PRESSED;
                 else
                 next_state = SCAN_COL3;
-            SCAN_COL3 :                         // É¨ÃèµÚ3ÁĞ
+            SCAN_COL3 :                         // æ‰«æç¬¬3åˆ—
                 if (row != 4'hF)
                 next_state = KEY_PRESSED;
                 else
                 next_state = NO_KEY_PRESSED;
-            KEY_PRESSED :                       // ÓĞ°´¼ü°´ÏÂ
+            KEY_PRESSED :                       // æœ‰æŒ‰é”®æŒ‰ä¸‹
                 if (row != 4'hF)
                 next_state = KEY_PRESSED;
                 else
                 next_state = NO_KEY_PRESSED;                      
     endcase
-     //next_stateÊÇ×îºóÉ¨ÃèµÄ½á¹û£¨µ½next_state·¢ÏÖrow != 4'hF²ÅÍ££©
+     //next_stateæ˜¯æœ€åæ‰«æçš„ç»“æœï¼ˆåˆ°next_stateå‘ç°row != 4'hFæ‰åœï¼‰
  
-reg       key_pressed_flag;             // ¼üÅÌ°´ÏÂ±êÖ¾
-reg [3:0] col_val, row_val;             // ÁĞÖµ¡¢ĞĞÖµ
+reg       key_pressed_flag;             // é”®ç›˜æŒ‰ä¸‹æ ‡å¿—
+reg [3:0] col_val, row_val;             // åˆ—å€¼ã€è¡Œå€¼
  
-// ¸ù¾İ´ÎÌ¬£¬¸øÏàÓ¦¼Ä´æÆ÷¸³Öµ
+// æ ¹æ®æ¬¡æ€ï¼Œç»™ç›¸åº”å¯„å­˜å™¨èµ‹å€¼
 always @ (posedge key_clk, posedge rst)
   if (rst)
   begin
@@ -90,79 +90,60 @@ always @ (posedge key_clk, posedge rst)
   end
   else
     case (next_state)
-      NO_KEY_PRESSED :                  // Ã»ÓĞ°´¼ü°´ÏÂ
+      NO_KEY_PRESSED :                  // æ²¡æœ‰æŒ‰é”®æŒ‰ä¸‹
       begin
         col              <= 4'h0;
-        key_pressed_flag <=    0;       // Çå¼üÅÌ°´ÏÂ±êÖ¾
+        key_pressed_flag <=    0;       // æ¸…é”®ç›˜æŒ‰ä¸‹æ ‡å¿—
       end
-      SCAN_COL0 :                       // É¨ÃèµÚ0ÁĞ
+      SCAN_COL0 :                       // æ‰«æç¬¬0åˆ—
         col <= 4'b1110;
-      SCAN_COL1 :                       // É¨ÃèµÚ1ÁĞ
+      SCAN_COL1 :                       // æ‰«æç¬¬1åˆ—
         col <= 4'b1101;
-      SCAN_COL2 :                       // É¨ÃèµÚ2ÁĞ
+      SCAN_COL2 :                       // æ‰«æç¬¬2åˆ—
         col <= 4'b1011;
-      SCAN_COL3 :                       // É¨ÃèµÚ3ÁĞ
+      SCAN_COL3 :                       // æ‰«æç¬¬3åˆ—
         col <= 4'b0111;
-      KEY_PRESSED :                     // ÓĞ°´¼ü°´ÏÂ
+      KEY_PRESSED :                     // æœ‰æŒ‰é”®æŒ‰ä¸‹
       begin
-        col_val          <= col;        // Ëø´æÁĞÖµ
-        row_val          <= row;        // Ëø´æĞĞÖµ
-        key_pressed_flag <= 1;          // ÖÃ¼üÅÌ°´ÏÂ±êÖ¾  
+        col_val          <= col;        // é”å­˜åˆ—å€¼
+        row_val          <= row;        // é”å­˜è¡Œå€¼
+        key_pressed_flag <= 1;          // ç½®é”®ç›˜æŒ‰ä¸‹æ ‡å¿—  
       end
     endcase
 //--------------------------------------
-// ×´Ì¬»ú²¿·Ö ½áÊø
+// çŠ¶æ€æœºéƒ¨åˆ† ç»“æŸ
 //--------------------------------------
  
  
 //++++++++++++++++++++++++++++++++++++++
-// É¨ÃèĞĞÁĞÖµ²¿·Ö ¿ªÊ¼
+// æ‰«æè¡Œåˆ—å€¼éƒ¨åˆ† å¼€å§‹
 //++++++++++++++++++++++++++++++++++++++
 always @ (posedge key_clk, posedge rst)
   if (rst)
-    boarddata <= 16'h0;
+    kb_data <= 16'h0;
   else
     if (key_pressed_flag)
         case ({col_val, row_val})
-        //   8'b1110_1110 : boarddata <= 16'h0;
-        //   8'b1110_1101 : boarddata <= 16'h4;
-        //   8'b1110_1011 : boarddata <= 16'h8;
-        //   8'b1110_0111 : boarddata <= 16'hC;
+            8'b1110_1110 : kb_data <= 4'h1;    //ä»å³å¾€å·¦ï¼Œä»ä¸‹å¾€ä¸Šæ‰«æé”®ç›˜
+            8'b1110_1101 : kb_data <= 4'h4;
+            8'b1110_1011 : kb_data <= 4'h7;
+            8'b1110_0111 : kb_data <= 4'hE;
             
-        //   8'b1101_1110 : boarddata <= 16'h1;
-        //   8'b1101_1101 : boarddata <= 16'h5;
-        //   8'b1101_1011 : boarddata <= 16'h9;
-        //   8'b1101_0111 : boarddata <= 16'hD;
+            8'b1101_1110 : kb_data <= 4'h2;
+            8'b1101_1101 : kb_data <= 4'h5;
+            8'b1101_1011 : kb_data <= 4'h8;
+            8'b1101_0111 : kb_data <= 4'h0;
             
-        //   8'b1011_1110 : boarddata <= 16'h2;
-        //   8'b1011_1101 : boarddata <= 16'h6;
-        //   8'b1011_1011 : boarddata <= 16'hA;
-        //   8'b1011_0111 : boarddata <= 16'hE;
-            
-        //   8'b0111_1110 : boarddata <= 16'h3; 
-        //   8'b0111_1101 : boarddata <= 16'h7;
-        //   8'b0111_1011 : boarddata <= 16'hB;
-        //   8'b0111_0111 : boarddata <= 16'hF;
-            8'b1110_1110 : boarddata <= 4'h1;    //´ÓÓÒÍù×ó£¬´ÓÏÂÍùÉÏÉ¨Ãè¼üÅÌ
-            8'b1110_1101 : boarddata <= 4'h4;
-            8'b1110_1011 : boarddata <= 4'h7;
-            8'b1110_0111 : boarddata <= 4'hE;
-            
-            8'b1101_1110 : boarddata <= 4'h2;
-            8'b1101_1101 : boarddata <= 4'h5;
-            8'b1101_1011 : boarddata <= 4'h8;
-            8'b1101_0111 : boarddata <= 4'h0;
-            
-            8'b1011_1110 : boarddata <= 4'h3;
-            8'b1011_1101 : boarddata <= 4'h6;
-            8'b1011_1011 : boarddata <= 4'h9;
-            8'b1011_0111 : boarddata <= 4'hF;
+            8'b1011_1110 : kb_data <= 4'h3;
+            8'b1011_1101 : kb_data <= 4'h6;
+            8'b1011_1011 : kb_data <= 4'h9;
+            8'b1011_0111 : kb_data <= 4'hF;
 
-            8'b0111_1110 : boarddata <= 4'hA;
-            8'b0111_1101 : boarddata <= 4'hB;
-            8'b0111_1011 : boarddata <= 4'hC;
-            8'b0111_0111 : boarddata <= 4'hD;
+            8'b0111_1110 : kb_data <= 4'hA;
+            8'b0111_1101 : kb_data <= 4'hB;
+            8'b0111_1011 : kb_data <= 4'hC;
+            8'b0111_0111 : kb_data <= 4'hD;
 
-            // default: boarddata <= boarddata;        
+            default: kb_data <= kb_data;        
     endcase
 endmodule
