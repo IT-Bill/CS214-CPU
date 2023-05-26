@@ -17,7 +17,7 @@ module leds(led_clk, ledrst, ledwrite, ledcs, ledaddr,ledwdata, ledout);
   
     reg [23:0] ledout;
     
-    always@(posedge led_clk or posedge ledrst) begin
+    always@(negedge led_clk or posedge ledrst) begin
         if(ledrst) begin
             ledout <= 24'h000000;
         end

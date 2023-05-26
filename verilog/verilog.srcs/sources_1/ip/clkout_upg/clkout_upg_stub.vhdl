@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Wed May 24 21:40:10 2023
+-- Date        : Fri May 26 14:37:31 2023
 -- Host        : Bill running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               P:/CS214-Computer-Organization/CS214-Computer-Organization-Project/verilog/verilog.srcs/sources_1/ip/clkout_upg/clkout_upg_stub.vhdl

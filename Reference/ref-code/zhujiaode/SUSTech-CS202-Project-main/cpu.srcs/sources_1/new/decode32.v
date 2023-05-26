@@ -22,24 +22,24 @@
 
 module decode32(read_data_1,read_data_2,Instruction,mem_data,ALU_result,
                  Jal,RegWrite,MemtoReg,RegDst,Sign_extend,clock,reset,opcplus4);
-    output[31:0] read_data_1;               // 输出的第�?操作�?
+    output[31:0] read_data_1;               // 输出的第�?操作�?
      output[31:0] read_data_2;               // 输出的第二操作数
      input[31:0]  Instruction;               // 取指单元来的指令
-     input[31:0]  mem_data;                   //  从DATA RAM or I/O port取出的数�?
+     input[31:0]  mem_data;                   //  从DATA RAM or I/O port取出的数�?
      input[31:0]  ALU_result;                   // 从执行单元来的运算的结果
      input        Jal;                       //  来自控制单元，说明是JAL指令 
      input        RegWrite;                  // 来自控制单元
      input        MemtoReg;              // 来自控制单元
      input        RegDst;             
      output[31:0] Sign_extend;               // 扩展后的32位立即数
-     input         clock,reset;                // 时钟和复�?
+     input         clock,reset;                // 时钟和复�?
      input[31:0]  opcplus4;                 // 来自取指单元，JAL中用
      
-     reg[31:0] register[0:31]; //寄存�?
+     reg[31:0] register[0:31]; //寄存�?
      
      wire[5:0] opcode; 
-     wire[4:0] rs;//rs的地�?
-     wire[4:0] rt;//rt的地�?
+     wire[4:0] rs;//rs的地�?
+     wire[4:0] rt;//rt的地�?
      reg[4:0] write_adr;
      reg[31:0] write_data;
      wire[4:0] rd;//
@@ -70,17 +70,17 @@ module decode32(read_data_1,read_data_2,Instruction,mem_data,ALU_result,
          end
      end
      
-     always@* begin
-         if(MemtoReg==1'b0&&Jal==1'b0) begin
-             write_data = ALU_result;
-         end
-         else if(Jal==1'b1)begin
-             write_data =opcplus4 ;
-         end
-         else begin
-             write_data = mem_data;
-         end
-     end
+    always@* begin
+        if(MemtoReg==1'b0&&Jal==1'b0) begin
+            write_data = ALU_result;
+        end
+        else if(Jal==1'b1)begin
+            write_data =opcplus4 ;
+        end
+        else begin
+            write_data = mem_data;
+        end
+    end
      
      always@* begin
          if(RegWrite==1'b1)begin

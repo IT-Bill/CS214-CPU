@@ -26,12 +26,12 @@ inout rst,
 output reg clk_out
     );
     reg [31:0]cnt;
-    parameter period = 200000;
-    always@(posedge clk,negedge rst)
+    parameter period = 10;
+    always@(posedge clk,posedge rst)
     begin
-    if(rst)
-    begin
-        cnt<=0;
+    if(rst) begin
+        cnt <= 0;
+        clk_out <= 0;
     end
     else if(cnt==(period>>1)-1) 
     begin

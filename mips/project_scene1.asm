@@ -1,15 +1,10 @@
 .data
 
 .text
-#���ڼ�����Ҫ��ƫ������ַ��
-#0xC60($28)����16λled
-#0xC62($28)����8λled
-#0xC70($28)����16λ����
-#0xC72($28)����8λ����
-main: 
+main:   
 	lui $1,0xFFFF			
 	ori $28,$1,0xF000
-    
+	
 	addi $17, $0, 0
 	addi $18, $0, 1
 	addi $19, $0, 2
@@ -21,14 +16,15 @@ main:
     
 loop:
 	lw $1, 0xC72($28)	#left-8 switch in $1
+
 	beq $1,$17,parity1	#000 0
 	beq $1,$18,parity2	#001 1
 	beq $1,$19,bitNor	#010 2
 	beq $1,$20, bitOr	#011 3
-	beq $1,$21, addition	#100 4
-	beq $1,$22, subtraction		#101 5
-	beq $1,$23, multiplication	#110 6
-	beq $1,$24, division	#111 7
+	beq $1,$21, bitXor	#100 4
+	beq $1,$22, uCompare		#101 5
+	beq $1,$23, Compare	#110 6
+	beq $1,$24, loadAndShow	#111 7
 
 parity1:
 	lw   $2,0xC70($28)	
@@ -191,16 +187,9 @@ Compare:
 	andi $3,$3,0x00FF	#b
 	jal sign_extend
 	slt $4,$2,$3
-	beq $4,$18,Yes
-	addi $25,$0,0
-	sw $25, 0xC62($28)
+	sw $4, 0xC62($28)
 	j loop
-	addi $1,$1,0	#filler
-Yes:	
-	addi $25,$0,1
-	sw $25, 0xC62($28)
-	j loop
-	addi $1,$1,0	#filler
+
 	
 sign_extend:
 	# param $2,$3, which stores a,b

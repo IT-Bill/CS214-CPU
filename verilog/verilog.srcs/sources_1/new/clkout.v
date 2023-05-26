@@ -27,7 +27,7 @@ output reg clk_out
     );
     reg [31:0]cnt;
     parameter period = 200000;
-    always@(posedge clk,negedge rst)
+    always@(posedge clk,posedge rst)
     begin
     if(rst)
     begin

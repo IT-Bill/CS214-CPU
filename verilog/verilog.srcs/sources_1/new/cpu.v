@@ -37,6 +37,7 @@ module cpu (
          .reset(fpga_rst),
          .clk_out1(upg_clk)
      );
+//    assign upg_clk = cpu_clk;
 
     wire spg_bufg;
     BUFG bufg(.I(start_pg), .O(spg_bufg));
@@ -65,7 +66,7 @@ module cpu (
     // input of ifetch
     wire [31:0] Addr_result;
     wire [31:0] Zero;  
-    wire [31:0] Read_data_1;
+    wire [31:0] read_data_1, read_data_2;
     wire [31:0] Instruction;
     wire Branch;
     wire nBranch;
@@ -83,7 +84,7 @@ module cpu (
         .clock(cpu_clk),
         .Instruction_i(Instruction),
         .Addr_result(Addr_result),
-        .Read_data_1(Read_data_1),
+        .Read_data_1(read_data_1),
         .Branch(Branch),
         .nBranch(nBranch),
         .Jmp(Jmp),
@@ -111,7 +112,9 @@ module cpu (
     wire [31:0] ALU_result;
     wire RegWrite, MemtoReg, RegDst;
     // output of decoder
-    wire [31:0] read_data_1, read_data_2;
+    // move to upper
+    // ! btw, the lower case and upper case are wrong
+    // wire [31:0] read_data_1, read_data_2;
     wire [31:0] imme_extend;
 
     decode32 idecode(

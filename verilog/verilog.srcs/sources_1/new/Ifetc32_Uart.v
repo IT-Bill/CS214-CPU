@@ -32,18 +32,24 @@ reg[31:0] PC, Next_PC;
 //    .douta(Instruction_o) // output wire [31 : 0] douta
 //);
 
-always @* begin
-    if(((Branch == 1) && (Zero == 1 )) || ((nBranch == 1) && (Zero == 0))) // beq, bne
-        Next_PC = Addr_result; // the calculated new value for PC 
-    else if(Jr == 1)
-        Next_PC = Read_data_1; // the value of $31 register
-    else 
-        Next_PC = PC+32'd4; // PC+4
+always @(*) begin
+    // if (reset)
+    //     Next_PC = 32'h0000_0000;
+    // else
+        if(((Branch == 1) && (Zero == 1 )) || ((nBranch == 1) && (Zero == 0))) // beq, bne
+            Next_PC = Addr_result; // the calculated new value for PC 
+        else if(Jr == 1)
+            Next_PC = Read_data_1; // the value of $31 register
+        else if (Jal == 1 || Jmp == 1)
+            Next_PC = {PC[31:28], Instruction_i[25:0],2'b00};
+        else 
+            Next_PC = PC+32'd4; // PC+4
 end
 
-always @(posedge clock) begin
-    if(reset==1)
+always @(negedge clock or posedge reset) begin
+    if(reset) begin
         PC <= 32'h0000_0000;
+    end
     else if(Jmp == 1) begin  //[����]ָ����Ҫ�������л�ȡҪ��ת���ĵ�ַ��Ȼ��ֻ��26λ��������Ҫƴ��
         PC <= {PC[31:28], Instruction_i[25:0],2'b00};
     end
@@ -51,8 +57,8 @@ always @(posedge clock) begin
         PC <= {PC[31:28], Instruction_i[25:0],2'b00};
         link_addr <= PC + 32'h4;
     end
-   else PC <= Next_PC;
-   end
+    else PC <= Next_PC;
+end
 
 assign branch_base_addr = PC+32'd4;
 assign rom_adr_o = PC[15:2];

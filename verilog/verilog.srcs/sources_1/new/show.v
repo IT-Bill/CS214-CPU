@@ -31,7 +31,7 @@ output [7:0] seg_out
     reg [6:0] Y_r;
     assign seg_out = {1'b1,(~Y_r[6:0])};
     
-    always@(posedge clk,negedge rst)
+    always@(posedge clk,posedge rst)
     begin
     if(rst)
     begin
