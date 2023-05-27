@@ -1,12 +1,38 @@
 module keyboard(
   input            kbcs,
+  input      [1:0] kbrps,
   input            clk,
   input            rst,
   input      [3:0] row,                 // 矩阵键盘 行
   output reg [3:0] col,                 // 矩阵键盘 列
-  output reg [3:0] kbrdata        // 键盘值     
+  output reg [15:0] kbrdata_16bit        // 键盘值     
 );
  
+reg       key_pressed_flag;             // 键盘按下标志
+reg [3:0] col_val, row_val;             // 列�?��?�行�?
+
+
+reg [3:0] kbrdata;
+always @(posedge clk or negedge rst) begin
+    if (rst)
+        kbrdata_16bit <= 16'b0;
+    else if (key_pressed_flag)
+        if (kbrps == 2'b00) 
+            kbrdata_16bit <= {kbrdata_16bit[15:4], kbrdata};
+        else if (kbrps == 2'b01)
+            kbrdata_16bit <= {kbrdata_16bit[15:8], kbrdata, kbrdata_16bit[3:0]};
+        else if (kbrps == 2'b10)
+            kbrdata_16bit <= {kbrdata_16bit[15:12], kbrdata, kbrdata_16bit[7:0]};
+        else if (kbrps == 2'b11)
+            kbrdata_16bit <= {kbrdata, kbrdata_16bit[11:0]};
+        else
+            kbrdata_16bit <= kbrdata;
+    else
+        kbrdata_16bit <= kbrdata_16bit;
+end
+
+
+
 //++++++++++++++++++++++++++++++++++++++
 // 分频部分 开始
 //++++++++++++++++++++++++++++++++++++++
@@ -79,8 +105,6 @@ always @ (*)
     endcase
      //next_state是最后扫描的结果（到next_state发现row != 4'hF才停）
  
-reg       key_pressed_flag;             // 键盘按下标志
-reg [3:0] col_val, row_val;             // 列值、行值
  
 // 根据次态，给相应寄存器赋值
 always @ (posedge key_clk, posedge rst)

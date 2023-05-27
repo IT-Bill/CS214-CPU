@@ -36,11 +36,11 @@ module cpu_sim(
             #10 fpga_rst = 1;
             #10 fpga_rst = 0;
             
-            #100 switch = 24'h00F000;
+            #100 switch = 24'h000400;
             
-            #1000 switch = 24'h0000F0;
+//            #2000 switch = 24'h000800;
             
-            #2000 fpga_rst = 1;
+            #200000;
         end
     end
     

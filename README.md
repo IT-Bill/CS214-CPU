@@ -1,17 +1,6 @@
-2023.5.17 （copy）verilog完成：
+2023.5.28
 
-- IFetch
-- control
-- dmemory
-- executs
-- memOrIO
-
-2023.5.23 完成
-
-- 所有基本CPU模块
-- Uart通信模块
-- 测试场景1的前7项
-- 测试场景2的后4项
+- 完成所有测试场景
 
 ### 推荐工作流
 

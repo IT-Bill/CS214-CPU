@@ -17,6 +17,7 @@ module cpu (
 );
 
     wire cpu_clk;
+    wire show_clk;
     
    //UART
    wire upg_clk;
@@ -27,26 +28,25 @@ module cpu (
    wire [14:0] upg_adr_o;//data to which memory unit of program_rom/dmemory32
    wire [31:0] upg_dat_o;//data to program_rom or dmemory32
    
-     clkout_cpu cc (
-         .clk(fpga_clk),
-         .rst(fpga_rst),
-         .clk_out(cpu_clk)
-     );
-     clkout_upg cu(
-         .clk_in1(fpga_clk),
-         .reset(fpga_rst),
-         .clk_out1(upg_clk)
-     );
-//    assign upg_clk = cpu_clk;
+    clk_wiz cw (
+        .clk_in(fpga_clk),
+        .cpu_clk(cpu_clk),
+        .upg_clk(upg_clk)
+    );
 
+    divider divider_show(
+        .clk(fpga_clk),
+        .rst(fpga_rst),
+        .frequency(500),
+        .clk_out(show_clk)
+    );
+     
     wire spg_bufg;
     BUFG bufg(.I(start_pg), .O(spg_bufg));
     
     always @ (posedge fpga_clk) begin
         if (spg_bufg) upg_rst = 0;
-
-        if (fpga_rst)
-            upg_rst = 1;
+        if (fpga_rst) upg_rst = 1;
     end
        
     wire rst = fpga_rst | !upg_rst;
@@ -219,9 +219,9 @@ module cpu (
            .upg_done_i(upg_done_o));
 
     //input
-    wire[15:0] iodata;
-    wire[15:0] switchrdata; //data from switchio
-    wire[4:0] kbrdata;
+    wire [15:0] iodata;
+    wire [15:0] switchrdata; //data from switchio
+    wire [15:0] kbrdata;
     wire kb_enable = (switch[23] == 1);
     assign iodata = kb_enable ? kbrdata : switchrdata;
     
@@ -273,14 +273,16 @@ module cpu (
         .rst(rst),
         .row(row),
         .col(col),
+        
+        .kbrps(switch[22:21]),
         .kbcs(KBCtrl && kb_enable),
-        .kbrdata(kbrdata)
+        .kbrdata_16bit(kbrdata)
     );
 
     show sst( 
-        .clk(cpu_clk),
+        .clk(show_clk),
         .rst(rst),
-        .ledwdata(led[16:0]),
+        .ledwdata(led[23:0]),
         .seg_en(seg_en),
         .seg_out(seg_out)
     );

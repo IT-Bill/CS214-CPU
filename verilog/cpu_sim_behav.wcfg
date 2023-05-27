@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1000000001fs"></ZoomEndTime>
-      <Cursor1Time time="127473000fs"></Cursor1Time>
+      <ZoomStartTime time="2461700000fs"></ZoomStartTime>
+      <ZoomEndTime time="2888700001fs"></ZoomEndTime>
+      <Cursor1Time time="2579000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="106"></ValueColumnWidth>
+      <ValueColumnWidth column_width="98"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="11" />
    <wvobject fp_name="/cpu_sim/fpga_clk" type="logic">
@@ -64,21 +64,33 @@
          <obj_property name="ElementShortName">reset</obj_property>
          <obj_property name="ObjectShortName">reset</obj_property>
       </wvobject>
-      <wvobject fp_name="/cpu_sim/CPU/idecode/register[1]" type="array">
-         <obj_property name="ElementShortName">[1][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-      </wvobject>
       <wvobject fp_name="/cpu_sim/CPU/idecode/register[2]" type="array">
          <obj_property name="ElementShortName">[2][31:0]</obj_property>
          <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject fp_name="/cpu_sim/CPU/idecode/register[3]" type="array">
          <obj_property name="ElementShortName">[3][31:0]</obj_property>
          <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_sim/CPU/idecode/register[4]" type="array">
+         <obj_property name="ElementShortName">[4][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_sim/CPU/idecode/register[6]" type="array">
+         <obj_property name="ElementShortName">[6][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][31:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/cpu_sim/CPU/idecode/register[25]" type="array">
          <obj_property name="ElementShortName">[25][31:0]</obj_property>
          <obj_property name="ObjectShortName">[25][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_sim/CPU/idecode/register[31]" type="array">
+         <obj_property name="ElementShortName">[31][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[31][31:0]</obj_property>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group132" type="group">
@@ -104,6 +116,18 @@
       <wvobject fp_name="/cpu_sim/CPU/Uifetc32/nBranch" type="logic">
          <obj_property name="ElementShortName">nBranch</obj_property>
          <obj_property name="ObjectShortName">nBranch</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_sim/CPU/Uifetc32/Jal" type="logic">
+         <obj_property name="ElementShortName">Jal</obj_property>
+         <obj_property name="ObjectShortName">Jal</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_sim/CPU/Uifetc32/Jr" type="logic">
+         <obj_property name="ElementShortName">Jr</obj_property>
+         <obj_property name="ObjectShortName">Jr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cpu_sim/CPU/Uifetc32/Read_data_1" type="array">
+         <obj_property name="ElementShortName">Read_data_1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">Read_data_1[31:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/cpu_sim/CPU/Uifetc32/Instruction_i" type="array">
          <obj_property name="ElementShortName">Instruction_i[31:0]</obj_property>

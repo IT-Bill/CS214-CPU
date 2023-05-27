@@ -100,22 +100,7 @@ module decode32(read_data_1,read_data_2,Instruction,mem_data,ALU_result,
         end
      end
 
-    //write data
-    // always@(*)
-    // begin
-    //     if(Jal)
-    //     begin
-    //         write_data=opcplus4;
-    //     end
-    //     else if(MemtoReg)
-    //     begin
-    //         write_data=mem_data;
-    //     end
-    //     else
-    //     begin
-    //         write_data=ALU_result;
-    //     end
-    // end
+
 
     always@* begin
         if(MemtoReg==1'b0&&Jal==1'b0) begin
