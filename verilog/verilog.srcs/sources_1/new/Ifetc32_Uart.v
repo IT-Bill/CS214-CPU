@@ -26,11 +26,6 @@ output [13:0] rom_adr_o
 
 reg[31:0] PC, Next_PC;
 
-//prgrom instmem(
-//    .clka(clock), // input wire clka
-//    .addra(PC[15:2]), // input wire [13 : 0] addra
-//    .douta(Instruction_o) // output wire [31 : 0] douta
-//);
 
 always @(*) begin
     if(((Branch == 1) && (Zero == 1 )) || ((nBranch == 1) && (Zero == 0))) // beq, bne

@@ -158,3 +158,6 @@ set_property PACKAGE_PIN P1 [get_ports start_pg]
 
 set_property IOSTANDARD LVCMOS33 [get_ports pwm]
 set_property PACKAGE_PIN A19 [get_ports pwm]
+
+set_property IOSTANDARD LVCMOS33 [get_ports play]
+set_property PACKAGE_PIN P5 [get_ports play]

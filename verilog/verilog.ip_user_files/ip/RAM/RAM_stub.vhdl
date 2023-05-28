@@ -1,18 +1,18 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Sun May 28 02:21:56 2023
+-- Date        : Sun May 28 19:50:49 2023
 -- Host        : Bill running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
---               P:/CS214-Computer-Organization/Project-scene1/verilog/verilog.srcs/sources_1/ip/prgrom/prgrom_stub.vhdl
--- Design      : prgrom
+--               P:/CS214-Computer-Organization/Project/verilog/verilog.srcs/sources_1/ip/RAM/RAM_stub.vhdl
+-- Design      : RAM
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a100tfgg484-1
 -- --------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity prgrom is
+entity RAM is
   Port ( 
     clka : in STD_LOGIC;
     wea : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -21,9 +21,9 @@ entity prgrom is
     douta : out STD_LOGIC_VECTOR ( 31 downto 0 )
   );
 
-end prgrom;
+end RAM;
 
-architecture stub of prgrom is
+architecture stub of RAM is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;

@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Sun May 28 02:21:56 2023
+-- Date        : Sun May 28 18:06:45 2023
 -- Host        : Bill running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               P:/CS214-Computer-Organization/Project-scene1/verilog/verilog.srcs/sources_1/ip/prgrom/prgrom_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top prgrom -prefix
+--               prgrom_ prgrom_sim_netlist.vhdl
 -- Design      : prgrom
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -19,8 +19,6 @@ entity prgrom_bindec is
     ena_array : out STD_LOGIC_VECTOR ( 1 downto 0 );
     addra : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of prgrom_bindec : entity is "bindec";
 end prgrom_bindec;
 
 architecture STRUCTURE of prgrom_bindec is
@@ -78,8 +76,6 @@ entity prgrom_blk_mem_gen_mux is
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_19\ : in STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_20\ : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of prgrom_blk_mem_gen_mux : entity is "blk_mem_gen_mux";
 end prgrom_blk_mem_gen_mux;
 
 architecture STRUCTURE of prgrom_blk_mem_gen_mux is
@@ -463,7 +459,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity prgrom_blk_mem_gen_prim_wrapper_init is
+entity prgrom_blk_mem_gen_prim_wrapper is
   port (
     douta : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
@@ -471,11 +467,9 @@ entity prgrom_blk_mem_gen_prim_wrapper_init is
     dina : in STD_LOGIC_VECTOR ( 0 to 0 );
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of prgrom_blk_mem_gen_prim_wrapper_init : entity is "blk_mem_gen_prim_wrapper_init";
-end prgrom_blk_mem_gen_prim_wrapper_init;
+end prgrom_blk_mem_gen_prim_wrapper;
 
-architecture STRUCTURE of prgrom_blk_mem_gen_prim_wrapper_init is
+architecture STRUCTURE of prgrom_blk_mem_gen_prim_wrapper is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_DOADO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 15 downto 1 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_DOBDO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_DOPADOP_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -495,8 +489,8 @@ begin
       INITP_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_06 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_07 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_00 => X"1414B180205BB3804400E2230002B00802B000300800C0020000C000480AE6A9",
-      INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000028",
+      INIT_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -617,7 +611,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized0\ is
+entity \prgrom_blk_mem_gen_prim_wrapper__parameterized0\ is
   port (
     douta : out STD_LOGIC_VECTOR ( 1 downto 0 );
     clka : in STD_LOGIC;
@@ -626,10 +620,10 @@ entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized0\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized0\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \prgrom_blk_mem_gen_prim_wrapper_init__parameterized0\;
+  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper__parameterized0\ : entity is "blk_mem_gen_prim_wrapper";
+end \prgrom_blk_mem_gen_prim_wrapper__parameterized0\;
 
-architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized0\ is
+architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper__parameterized0\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -665,9 +659,9 @@ begin
       INITP_0D => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_0E => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_0F => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_00 => X"274CC74040008B05218104087050021410510408F052111130841B65BD3FA503",
-      INIT_01 => X"164A02388D081048100073CCD371D010440801043BD191874045274CD7404505",
-      INIT_02 => X"000000000000000000000000000000000000000000000000000000000000592A",
+      INIT_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -867,7 +861,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized1\ is
+entity \prgrom_blk_mem_gen_prim_wrapper__parameterized1\ is
   port (
     douta : out STD_LOGIC_VECTOR ( 1 downto 0 );
     clka : in STD_LOGIC;
@@ -876,10 +870,10 @@ entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized1\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized1\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \prgrom_blk_mem_gen_prim_wrapper_init__parameterized1\;
+  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper__parameterized1\ : entity is "blk_mem_gen_prim_wrapper";
+end \prgrom_blk_mem_gen_prim_wrapper__parameterized1\;
 
-architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized1\ is
+architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper__parameterized1\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -915,9 +909,9 @@ begin
       INITP_0D => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_0E => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_0F => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_00 => X"044CC70211000F510DC02110351000D0021021103510D001000084B102300003",
-      INIT_01 => X"730F94300C1804000400638C000DC08740010104008000070204154CC7020404",
-      INIT_02 => X"000000000000000000000000000000000000000000000000000000000001CC3C",
+      INIT_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -1117,7 +1111,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized10\ is
+entity \prgrom_blk_mem_gen_prim_wrapper__parameterized10\ is
   port (
     \douta[30]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[31]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -1128,10 +1122,10 @@ entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized10\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized10\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \prgrom_blk_mem_gen_prim_wrapper_init__parameterized10\;
+  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper__parameterized10\ : entity is "blk_mem_gen_prim_wrapper";
+end \prgrom_blk_mem_gen_prim_wrapper__parameterized10\;
 
-architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized10\ is
+architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper__parameterized10\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -1151,7 +1145,7 @@ begin
       DOB_REG => 0,
       EN_ECC_READ => false,
       EN_ECC_WRITE => false,
-      INITP_00 => X"000000000024000C0009000019010191010181C0C06300701A63031680C01000",
+      INITP_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -1167,15 +1161,15 @@ begin
       INITP_0D => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_0E => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_0F => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_00 => X"5F180000286000601F5F2020202020202020601F6F7840404040404040406878",
-      INIT_01 => X"0000601F5F105F00601F5F0701471F1F1841074721015F5F4710185F185F5F10",
-      INIT_02 => X"5F5F471018000000601F5F0701471F1F1841074721010018005F5F5F47101800",
-      INIT_03 => X"402101210040405F610018600060001F5F0701470018005F1F1F184107472101",
-      INIT_04 => X"0060001F5F40105F402101210040405F610018600060001F5F40105F4040105F",
-      INIT_05 => X"0242000000210440000040105F40105F42022101180021000000210000401860",
-      INIT_06 => X"620240000000004010185F62185F62420221420221011818600060001F5F072A",
-      INIT_07 => X"072B032E06404040400707006A782260006A782260072A424200104200022400",
-      INIT_08 => X"0000000000000000000000000000000000000000000000072B032E0640404040",
+      INIT_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_06 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_07 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_08 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_09 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_0A => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_0B => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -1371,7 +1365,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized11\ is
+entity \prgrom_blk_mem_gen_prim_wrapper__parameterized11\ is
   port (
     \douta[30]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[31]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -1382,10 +1376,10 @@ entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized11\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized11\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \prgrom_blk_mem_gen_prim_wrapper_init__parameterized11\;
+  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper__parameterized11\ : entity is "blk_mem_gen_prim_wrapper";
+end \prgrom_blk_mem_gen_prim_wrapper__parameterized11\;
 
-architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized11\ is
+architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper__parameterized11\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -1625,7 +1619,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized12\ is
+entity \prgrom_blk_mem_gen_prim_wrapper__parameterized12\ is
   port (
     DOADO : out STD_LOGIC_VECTOR ( 7 downto 0 );
     DOPADOP : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -1636,10 +1630,10 @@ entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized12\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized12\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \prgrom_blk_mem_gen_prim_wrapper_init__parameterized12\;
+  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper__parameterized12\ : entity is "blk_mem_gen_prim_wrapper";
+end \prgrom_blk_mem_gen_prim_wrapper__parameterized12\;
 
-architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized12\ is
+architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper__parameterized12\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -1879,7 +1873,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized13\ is
+entity \prgrom_blk_mem_gen_prim_wrapper__parameterized13\ is
   port (
     \douta[30]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[31]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -1890,10 +1884,10 @@ entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized13\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized13\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \prgrom_blk_mem_gen_prim_wrapper_init__parameterized13\;
+  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper__parameterized13\ : entity is "blk_mem_gen_prim_wrapper";
+end \prgrom_blk_mem_gen_prim_wrapper__parameterized13\;
 
-architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized13\ is
+architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper__parameterized13\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -2133,7 +2127,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized2\ is
+entity \prgrom_blk_mem_gen_prim_wrapper__parameterized2\ is
   port (
     \douta[12]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[13]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -2144,10 +2138,10 @@ entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized2\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized2\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \prgrom_blk_mem_gen_prim_wrapper_init__parameterized2\;
+  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper__parameterized2\ : entity is "blk_mem_gen_prim_wrapper";
+end \prgrom_blk_mem_gen_prim_wrapper__parameterized2\;
 
-architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized2\ is
+architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper__parameterized2\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -2167,8 +2161,8 @@ begin
       DOB_REG => 0,
       EN_ECC_READ => false,
       EN_ECC_WRITE => false,
-      INITP_00 => X"708C62000000042102001198407C44002C442A1126884689A088448031000C03",
-      INITP_01 => X"00000000000000000000000000000000000000000000000000000000000000E0",
+      INITP_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INITP_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -2183,15 +2177,15 @@ begin
       INITP_0D => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_0E => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_0F => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_00 => X"63018101000490F8636305040302020101000063E0FF000000000000000080FF",
-      INIT_01 => X"0190F8636300638CF86363008100000001FF000000410000FF00086308636300",
-      INIT_02 => X"0000FF0002810190F86363008100000002FF00000041C108C1630000FF000281",
-      INIT_03 => X"0000810081FC03630701070790F8C16363008100C108C163000002FF00000041",
-      INIT_04 => X"90F8C1636300006300FF81FF81FC03630701070790F8C1636300006300000063",
-      INIT_05 => X"C100C2820100C10081010000630000630001000105C1008E8181004E41040707",
-      INIT_06 => X"004100810141D000000763070763070041000001000106070790F8C1636300FF",
-      INIT_07 => X"00FFC1FF41002E2E380000C1F8FF000481F8FF000400FF0000C20700C2410002",
-      INIT_08 => X"000000000000000000000000000000000000000000000000FFC1FF41002E2E4E",
+      INIT_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_06 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_07 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_08 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_09 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_0A => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_0B => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -2387,7 +2381,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized3\ is
+entity \prgrom_blk_mem_gen_prim_wrapper__parameterized3\ is
   port (
     \douta[12]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[13]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -2398,10 +2392,10 @@ entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized3\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized3\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \prgrom_blk_mem_gen_prim_wrapper_init__parameterized3\;
+  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper__parameterized3\ : entity is "blk_mem_gen_prim_wrapper";
+end \prgrom_blk_mem_gen_prim_wrapper__parameterized3\;
 
-architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized3\ is
+architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper__parameterized3\ is
   signal \^device_7series.no_bmm_info.sp.simple_prim36.ram_0\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
@@ -2652,7 +2646,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized4\ is
+entity \prgrom_blk_mem_gen_prim_wrapper__parameterized4\ is
   port (
     \douta[12]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[13]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -2663,10 +2657,10 @@ entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized4\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized4\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \prgrom_blk_mem_gen_prim_wrapper_init__parameterized4\;
+  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper__parameterized4\ : entity is "blk_mem_gen_prim_wrapper";
+end \prgrom_blk_mem_gen_prim_wrapper__parameterized4\;
 
-architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized4\ is
+architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper__parameterized4\ is
   signal \^device_7series.no_bmm_info.sp.simple_prim36.ram_0\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
@@ -2917,7 +2911,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized5\ is
+entity \prgrom_blk_mem_gen_prim_wrapper__parameterized5\ is
   port (
     \douta[12]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[13]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -2928,10 +2922,10 @@ entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized5\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized5\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \prgrom_blk_mem_gen_prim_wrapper_init__parameterized5\;
+  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper__parameterized5\ : entity is "blk_mem_gen_prim_wrapper";
+end \prgrom_blk_mem_gen_prim_wrapper__parameterized5\;
 
-architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized5\ is
+architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper__parameterized5\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -3171,7 +3165,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized6\ is
+entity \prgrom_blk_mem_gen_prim_wrapper__parameterized6\ is
   port (
     \douta[21]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[22]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -3182,10 +3176,10 @@ entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized6\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized6\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \prgrom_blk_mem_gen_prim_wrapper_init__parameterized6\;
+  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper__parameterized6\ : entity is "blk_mem_gen_prim_wrapper";
+end \prgrom_blk_mem_gen_prim_wrapper__parameterized6\;
 
-architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized6\ is
+architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper__parameterized6\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -3205,8 +3199,8 @@ begin
       DOB_REG => 0,
       EN_ECC_READ => false,
       EN_ECC_WRITE => false,
-      INITP_00 => X"E0718F00040000A3CE000289405854005854400802902000A09020001D000000",
-      INITP_01 => X"00000000000000000000000000000000000000000000000000000000000001C0",
+      INITP_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INITP_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -3221,15 +3215,15 @@ begin
       INITP_0D => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_0E => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_0F => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_00 => X"18000000800C080B0800E0DCD8D4D0CCC8C48404F777605C5854504C4844F307",
-      INIT_01 => X"00080B08000008080B08008018F4FC90001380F4804890FCF700000000480000",
-      INIT_02 => X"90FCF700000000080B08008018F4FC90001380F480481F007C1090FCF7000000",
-      INIT_03 => X"64480C48100F0814140C008C080B0808008018F41F007C10FC90001380F48048",
-      INIT_04 => X"080B080800840064644B0C4B100F0814140C008C080B08080084006464840064",
-      INIT_05 => X"25280C0821800C24010184002084002020210098000C0018900880141010008C",
-      INIT_06 => X"C28D1C0101010C84000024A4002020A4A5802021009800008C080B0808008083",
-      INIT_07 => X"8083B583B73464643C8080A4A72780A424A7278024801F28200C00200C8D0021",
-      INIT_08 => X"00000000000000000000000000000000000000000000008083B583B73464643C",
+      INIT_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_06 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_07 => X"0000000000000000000000000000000000000000000000000000000000000000",
+      INIT_08 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_09 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_0A => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_0B => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -3425,7 +3419,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized7\ is
+entity \prgrom_blk_mem_gen_prim_wrapper__parameterized7\ is
   port (
     \douta[21]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[22]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -3436,10 +3430,10 @@ entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized7\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized7\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \prgrom_blk_mem_gen_prim_wrapper_init__parameterized7\;
+  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper__parameterized7\ : entity is "blk_mem_gen_prim_wrapper";
+end \prgrom_blk_mem_gen_prim_wrapper__parameterized7\;
 
-architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized7\ is
+architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper__parameterized7\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -3679,7 +3673,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized8\ is
+entity \prgrom_blk_mem_gen_prim_wrapper__parameterized8\ is
   port (
     \douta[21]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[22]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -3690,10 +3684,10 @@ entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized8\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized8\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \prgrom_blk_mem_gen_prim_wrapper_init__parameterized8\;
+  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper__parameterized8\ : entity is "blk_mem_gen_prim_wrapper";
+end \prgrom_blk_mem_gen_prim_wrapper__parameterized8\;
 
-architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized8\ is
+architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper__parameterized8\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -3933,7 +3927,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized9\ is
+entity \prgrom_blk_mem_gen_prim_wrapper__parameterized9\ is
   port (
     \douta[21]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \douta[22]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -3944,10 +3938,10 @@ entity \prgrom_blk_mem_gen_prim_wrapper_init__parameterized9\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized9\ : entity is "blk_mem_gen_prim_wrapper_init";
-end \prgrom_blk_mem_gen_prim_wrapper_init__parameterized9\;
+  attribute ORIG_REF_NAME of \prgrom_blk_mem_gen_prim_wrapper__parameterized9\ : entity is "blk_mem_gen_prim_wrapper";
+end \prgrom_blk_mem_gen_prim_wrapper__parameterized9\;
 
-architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper_init__parameterized9\ is
+architecture STRUCTURE of \prgrom_blk_mem_gen_prim_wrapper__parameterized9\ is
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -4195,13 +4189,11 @@ entity prgrom_blk_mem_gen_prim_width is
     dina : in STD_LOGIC_VECTOR ( 0 to 0 );
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of prgrom_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
 end prgrom_blk_mem_gen_prim_width;
 
 architecture STRUCTURE of prgrom_blk_mem_gen_prim_width is
 begin
-\prim_init.ram\: entity work.prgrom_blk_mem_gen_prim_wrapper_init
+\prim_noinit.ram\: entity work.prgrom_blk_mem_gen_prim_wrapper
      port map (
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
@@ -4228,7 +4220,7 @@ end \prgrom_blk_mem_gen_prim_width__parameterized0\;
 
 architecture STRUCTURE of \prgrom_blk_mem_gen_prim_width__parameterized0\ is
 begin
-\prim_init.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper_init__parameterized0\
+\prim_noinit.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper__parameterized0\
      port map (
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
@@ -4255,7 +4247,7 @@ end \prgrom_blk_mem_gen_prim_width__parameterized1\;
 
 architecture STRUCTURE of \prgrom_blk_mem_gen_prim_width__parameterized1\ is
 begin
-\prim_init.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper_init__parameterized1\
+\prim_noinit.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper__parameterized1\
      port map (
       addra(13 downto 0) => addra(13 downto 0),
       clka => clka,
@@ -4284,7 +4276,7 @@ end \prgrom_blk_mem_gen_prim_width__parameterized10\;
 
 architecture STRUCTURE of \prgrom_blk_mem_gen_prim_width__parameterized10\ is
 begin
-\prim_init.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper_init__parameterized10\
+\prim_noinit.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper__parameterized10\
      port map (
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
@@ -4315,7 +4307,7 @@ end \prgrom_blk_mem_gen_prim_width__parameterized11\;
 
 architecture STRUCTURE of \prgrom_blk_mem_gen_prim_width__parameterized11\ is
 begin
-\prim_init.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper_init__parameterized11\
+\prim_noinit.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper__parameterized11\
      port map (
       addra(11 downto 0) => addra(11 downto 0),
       \addra[13]\ => \addra[13]\,
@@ -4346,7 +4338,7 @@ end \prgrom_blk_mem_gen_prim_width__parameterized12\;
 
 architecture STRUCTURE of \prgrom_blk_mem_gen_prim_width__parameterized12\ is
 begin
-\prim_init.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper_init__parameterized12\
+\prim_noinit.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper__parameterized12\
      port map (
       DOADO(7 downto 0) => DOADO(7 downto 0),
       DOPADOP(0) => DOPADOP(0),
@@ -4377,7 +4369,7 @@ end \prgrom_blk_mem_gen_prim_width__parameterized13\;
 
 architecture STRUCTURE of \prgrom_blk_mem_gen_prim_width__parameterized13\ is
 begin
-\prim_init.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper_init__parameterized13\
+\prim_noinit.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper__parameterized13\
      port map (
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
@@ -4408,7 +4400,7 @@ end \prgrom_blk_mem_gen_prim_width__parameterized2\;
 
 architecture STRUCTURE of \prgrom_blk_mem_gen_prim_width__parameterized2\ is
 begin
-\prim_init.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper_init__parameterized2\
+\prim_noinit.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper__parameterized2\
      port map (
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
@@ -4439,7 +4431,7 @@ end \prgrom_blk_mem_gen_prim_width__parameterized3\;
 
 architecture STRUCTURE of \prgrom_blk_mem_gen_prim_width__parameterized3\ is
 begin
-\prim_init.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper_init__parameterized3\
+\prim_noinit.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper__parameterized3\
      port map (
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram\,
       addra(13 downto 0) => addra(13 downto 0),
@@ -4470,7 +4462,7 @@ end \prgrom_blk_mem_gen_prim_width__parameterized4\;
 
 architecture STRUCTURE of \prgrom_blk_mem_gen_prim_width__parameterized4\ is
 begin
-\prim_init.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper_init__parameterized4\
+\prim_noinit.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper__parameterized4\
      port map (
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram\,
       addra(13 downto 0) => addra(13 downto 0),
@@ -4501,7 +4493,7 @@ end \prgrom_blk_mem_gen_prim_width__parameterized5\;
 
 architecture STRUCTURE of \prgrom_blk_mem_gen_prim_width__parameterized5\ is
 begin
-\prim_init.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper_init__parameterized5\
+\prim_noinit.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper__parameterized5\
      port map (
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
@@ -4532,7 +4524,7 @@ end \prgrom_blk_mem_gen_prim_width__parameterized6\;
 
 architecture STRUCTURE of \prgrom_blk_mem_gen_prim_width__parameterized6\ is
 begin
-\prim_init.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper_init__parameterized6\
+\prim_noinit.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper__parameterized6\
      port map (
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
@@ -4563,7 +4555,7 @@ end \prgrom_blk_mem_gen_prim_width__parameterized7\;
 
 architecture STRUCTURE of \prgrom_blk_mem_gen_prim_width__parameterized7\ is
 begin
-\prim_init.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper_init__parameterized7\
+\prim_noinit.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper__parameterized7\
      port map (
       addra(11 downto 0) => addra(11 downto 0),
       \addra[13]\ => \addra[13]\,
@@ -4594,7 +4586,7 @@ end \prgrom_blk_mem_gen_prim_width__parameterized8\;
 
 architecture STRUCTURE of \prgrom_blk_mem_gen_prim_width__parameterized8\ is
 begin
-\prim_init.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper_init__parameterized8\
+\prim_noinit.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper__parameterized8\
      port map (
       addra(11 downto 0) => addra(11 downto 0),
       \addra[12]\ => \addra[12]\,
@@ -4625,7 +4617,7 @@ end \prgrom_blk_mem_gen_prim_width__parameterized9\;
 
 architecture STRUCTURE of \prgrom_blk_mem_gen_prim_width__parameterized9\ is
 begin
-\prim_init.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper_init__parameterized9\
+\prim_noinit.ram\: entity work.\prgrom_blk_mem_gen_prim_wrapper__parameterized9\
      port map (
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
@@ -4648,8 +4640,6 @@ entity prgrom_blk_mem_gen_generic_cstr is
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of prgrom_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
 end prgrom_blk_mem_gen_generic_cstr;
 
 architecture STRUCTURE of prgrom_blk_mem_gen_generic_cstr is
@@ -5126,8 +5116,6 @@ entity prgrom_blk_mem_gen_top is
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of prgrom_blk_mem_gen_top : entity is "blk_mem_gen_top";
 end prgrom_blk_mem_gen_top;
 
 architecture STRUCTURE of prgrom_blk_mem_gen_top is
@@ -5153,8 +5141,6 @@ entity prgrom_blk_mem_gen_v8_4_1_synth is
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of prgrom_blk_mem_gen_v8_4_1_synth : entity is "blk_mem_gen_v8_4_1_synth";
 end prgrom_blk_mem_gen_v8_4_1_synth;
 
 architecture STRUCTURE of prgrom_blk_mem_gen_v8_4_1_synth is
@@ -5323,11 +5309,11 @@ entity prgrom_blk_mem_gen_v8_4_1 is
   attribute C_INIT_FILE : string;
   attribute C_INIT_FILE of prgrom_blk_mem_gen_v8_4_1 : entity is "prgrom.mem";
   attribute C_INIT_FILE_NAME : string;
-  attribute C_INIT_FILE_NAME of prgrom_blk_mem_gen_v8_4_1 : entity is "prgrom.mif";
+  attribute C_INIT_FILE_NAME of prgrom_blk_mem_gen_v8_4_1 : entity is "no_coe_file_loaded";
   attribute C_INTERFACE_TYPE : integer;
   attribute C_INTERFACE_TYPE of prgrom_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_LOAD_INIT_FILE : integer;
-  attribute C_LOAD_INIT_FILE of prgrom_blk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_LOAD_INIT_FILE of prgrom_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_MEM_TYPE : integer;
   attribute C_MEM_TYPE of prgrom_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_MUX_PIPELINE_STAGES : integer;
@@ -5384,8 +5370,6 @@ entity prgrom_blk_mem_gen_v8_4_1 is
   attribute C_WRITE_WIDTH_B of prgrom_blk_mem_gen_v8_4_1 : entity is 32;
   attribute C_XDEVICEFAMILY : string;
   attribute C_XDEVICEFAMILY of prgrom_blk_mem_gen_v8_4_1 : entity is "artix7";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of prgrom_blk_mem_gen_v8_4_1 : entity is "blk_mem_gen_v8_4_1";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of prgrom_blk_mem_gen_v8_4_1 : entity is "yes";
 end prgrom_blk_mem_gen_v8_4_1;
@@ -5650,11 +5634,11 @@ architecture STRUCTURE of prgrom is
   attribute C_INIT_FILE : string;
   attribute C_INIT_FILE of U0 : label is "prgrom.mem";
   attribute C_INIT_FILE_NAME : string;
-  attribute C_INIT_FILE_NAME of U0 : label is "prgrom.mif";
+  attribute C_INIT_FILE_NAME of U0 : label is "no_coe_file_loaded";
   attribute C_INTERFACE_TYPE : integer;
   attribute C_INTERFACE_TYPE of U0 : label is 0;
   attribute C_LOAD_INIT_FILE : integer;
-  attribute C_LOAD_INIT_FILE of U0 : label is 1;
+  attribute C_LOAD_INIT_FILE of U0 : label is 0;
   attribute C_MEM_TYPE : integer;
   attribute C_MEM_TYPE of U0 : label is 0;
   attribute C_MUX_PIPELINE_STAGES : integer;

@@ -27,6 +27,8 @@ module control32(Opcode, Function_opcode, Jr, RegDST, ALUSrc, MemtoReg, RegWrite
     output MemRead;     // 1 indicates that the instruction needs to read from the memory
     output IORead ;     // 1 indicates I/O read
     output IOWrite;    // 1 indicates I/O write
+
+    // output MusicRead; // 1 indicates Music read
     input [21:0] Alu_resultHigh;    // From the execution unit Alu_Result[31..10]
         
     wire R_format;
@@ -55,6 +57,7 @@ module control32(Opcode, Function_opcode, Jr, RegDST, ALUSrc, MemtoReg, RegWrite
     assign MemRead = ((Lw==1) && (Alu_resultHigh[21:0] != 22'h3FFFFF)) ? 1'b1:1'b0;  // Read memory
     assign IORead = ((Lw==1) && (Alu_resultHigh[21:0] == 22'h3FFFFF)) ? 1'b1:1'b0;  // Read input port
     assign IOWrite = ((Sw==1) && (Alu_resultHigh[21:0] == 22'h3FFFFF)) ? 1'b1:1'b0;  // Write output port
+
     
         
     assign MemorIOtoReg = IORead || MemRead;

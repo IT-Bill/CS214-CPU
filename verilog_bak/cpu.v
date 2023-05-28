@@ -3,6 +3,7 @@
 module cpu (
     input fpga_clk,
     input fpga_rst, // Active High
+    input play,
     input [3:0] row, 
     input [23:0] switch,
     output [23:0] led,
@@ -17,6 +18,7 @@ module cpu (
 );
 
     wire cpu_clk;
+    wire show_clk;
     
    //UART
    wire upg_clk;
@@ -27,35 +29,25 @@ module cpu (
    wire [14:0] upg_adr_o;//data to which memory unit of program_rom/dmemory32
    wire [31:0] upg_dat_o;//data to program_rom or dmemory32
    
-     clkout_cpu cc (
-         .clk(fpga_clk),
-         .rst(fpga_rst),
-         .clk_out(cpu_clk)
-     );
-     clkout_upg cu(
-         .clk_in1(fpga_clk),
-         .reset(fpga_rst),
-         .clk_out1(upg_clk)
-     );
-     
-     wire show_clk;
-     divider divider_show(
-             .clk(fpga_clk),
-             .rst(fpga_rst),
-             .frequency(500),
-             .clk_out(show_clk)
+    clk_wiz cw (
+        .clk_in(fpga_clk),
+        .cpu_clk(cpu_clk),
+        .upg_clk(upg_clk)
+    );
+
+    divider divider_show(
+        .clk(fpga_clk),
+        .rst(fpga_rst),
+        .frequency(500),
+        .clk_out(show_clk)
     );
      
-//    assign upg_clk = cpu_clk;
-
     wire spg_bufg;
     BUFG bufg(.I(start_pg), .O(spg_bufg));
     
     always @ (posedge fpga_clk) begin
         if (spg_bufg) upg_rst = 0;
-
-        if (fpga_rst)
-            upg_rst = 1;
+        if (fpga_rst) upg_rst = 1;
     end
        
     wire rst = fpga_rst | !upg_rst;
@@ -125,6 +117,7 @@ module cpu (
     // ! btw, the lower case and upper case are wrong
     // wire [31:0] read_data_1, read_data_2;
     wire [31:0] imme_extend;
+    wire [31:0] music_data;
 
     decode32 idecode(
         .Instruction(Instruction),
@@ -140,7 +133,9 @@ module cpu (
 
         .read_data_1(read_data_1), 
         .read_data_2(read_data_2), 
-        .Sign_extend(imme_extend)  
+        .Sign_extend(imme_extend),
+        // ! for music
+        .music_data_reg(music_data)
     );
 
     // input of control32
@@ -228,16 +223,18 @@ module cpu (
            .upg_done_i(upg_done_o));
 
     //input
-    wire[15:0] iodata;
-    wire[15:0] switchrdata; //data from switchio
-    wire[4:0] kbrdata;
+    wire [15:0] iodata;
+    wire [15:0] switchrdata; //data from switchio
+    wire [15:0] kbrdata;
     wire kb_enable = (switch[23] == 1);
+    
     assign iodata = kb_enable ? kbrdata : switchrdata;
     
     //output of memorio
     wire LEDCtrl; // LED Chip Select
     wire SwitchCtrl; // Switch Chip Select
     wire KBCtrl;  // Keyboard Chip Select
+    wire MusicCtrl;
 
     MemOrIO memio(
         .mRead(MemRead),    // read memory, from control32
@@ -254,7 +251,8 @@ module cpu (
         .write_data(write_data),    //io_wdata, output
         .LEDCtrl(LEDCtrl),
         .SwitchCtrl(SwitchCtrl),
-        .KBCtrl(KBCtrl)
+        .KBCtrl(KBCtrl),
+        .MusicCtrl(MusicCtrl)
     );
 
     leds ledoutput(
@@ -282,22 +280,40 @@ module cpu (
         .rst(rst),
         .row(row),
         .col(col),
+        
+        .kbrps(switch[22:21]),
         .kbcs(KBCtrl && kb_enable),
-        .kbrdata(kbrdata)
+        .kbrdata(kbrdata),
+        .switch_i(switch[23:0]),
+        .low_addr(addr_out[1:0])
     );
 
     show sst( 
         .clk(show_clk),
         .rst(rst),
-        .ledwdata(led[16:0]),
+        .ledwdata(led[23:0]),
         .seg_en(seg_en),
         .seg_out(seg_out)
     );
     
-    // beep buzzer(
-    //      .clk(fpga_clk),
-    //      .en(~upg_wen_o),
-    //      .rst(rst),
-    //      .pwm(pwm)
-    // );
+    wire music_uart_enable = (switch[20] == 1);
+    reg music_play = 0;
+    wire play_bufg = play;
+    // BUFG pb(.I(play), .O(play_bufg));
+    always @(posedge fpga_clk) begin
+        if (rst) music_play = 0;
+        else if (play_bufg) music_play = ~music_play;
+    end
+
+    music musicplayer(
+        .clk(cpu_clk),
+        .rst(~music_play),
+        // .musiccs(MusicCtrl & music_uart_enable),
+        // .music_play(music_play),
+        .musiccs(music_play),
+        .music_uart_enable(music_uart_enable),
+        .music_data(music_data[4:0]),
+
+        .beep(pwm)
+    );
 endmodule

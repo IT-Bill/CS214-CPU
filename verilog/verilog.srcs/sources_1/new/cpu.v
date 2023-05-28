@@ -3,6 +3,7 @@
 module cpu (
     input fpga_clk,
     input fpga_rst, // Active High
+    input play,
     input [3:0] row, 
     input [23:0] switch,
     output [23:0] led,
@@ -116,6 +117,7 @@ module cpu (
     // ! btw, the lower case and upper case are wrong
     // wire [31:0] read_data_1, read_data_2;
     wire [31:0] imme_extend;
+    wire [31:0] music_data;
 
     decode32 idecode(
         .Instruction(Instruction),
@@ -131,7 +133,9 @@ module cpu (
 
         .read_data_1(read_data_1), 
         .read_data_2(read_data_2), 
-        .Sign_extend(imme_extend)  
+        .Sign_extend(imme_extend),
+        // ! for music
+        .music_data_reg(music_data)
     );
 
     // input of control32
@@ -223,12 +227,14 @@ module cpu (
     wire [15:0] switchrdata; //data from switchio
     wire [15:0] kbrdata;
     wire kb_enable = (switch[23] == 1);
+    
     assign iodata = kb_enable ? kbrdata : switchrdata;
     
     //output of memorio
     wire LEDCtrl; // LED Chip Select
     wire SwitchCtrl; // Switch Chip Select
     wire KBCtrl;  // Keyboard Chip Select
+    wire MusicCtrl;
 
     MemOrIO memio(
         .mRead(MemRead),    // read memory, from control32
@@ -245,7 +251,8 @@ module cpu (
         .write_data(write_data),    //io_wdata, output
         .LEDCtrl(LEDCtrl),
         .SwitchCtrl(SwitchCtrl),
-        .KBCtrl(KBCtrl)
+        .KBCtrl(KBCtrl),
+        .MusicCtrl(MusicCtrl)
     );
 
     leds ledoutput(
@@ -276,7 +283,9 @@ module cpu (
         
         .kbrps(switch[22:21]),
         .kbcs(KBCtrl && kb_enable),
-        .kbrdata_16bit(kbrdata)
+        .kbrdata(kbrdata),
+        .switch_i(switch[23:0]),
+        .low_addr(addr_out[1:0])
     );
 
     show sst( 
@@ -287,10 +296,24 @@ module cpu (
         .seg_out(seg_out)
     );
     
-    // beep buzzer(
-    //      .clk(fpga_clk),
-    //      .en(~upg_wen_o),
-    //      .rst(rst),
-    //      .pwm(pwm)
-    // );
+    wire music_uart_enable = (switch[20] == 1);
+    reg music_play = 0;
+    wire play_bufg;
+    BUFG pb(.I(play), .O(play_bufg));
+    always @(posedge fpga_clk) begin
+        if (rst) music_play = 0;
+        else if (play_bufg) music_play = ~music_play;
+    end
+
+    music musicplayer(
+        .clk(cpu_clk),
+        .rst(~music_play),
+        // .musiccs(MusicCtrl & music_uart_enable),
+        // .music_play(music_play),
+        .musiccs(music_play),
+        .music_uart_enable(music_uart_enable),
+        .music_data(music_data[4:0]),
+
+        .beep(pwm)
+    );
 endmodule

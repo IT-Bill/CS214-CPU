@@ -2,7 +2,8 @@
 
 module MemOrIO(
     mRead, mWrite, ioRead, ioWrite,addr_in,
-    addr_out, m_rdata, io_rdata, r_wdata, r_rdata, write_data, LEDCtrl, SwitchCtrl, KBCtrl
+    addr_out, m_rdata, io_rdata, r_wdata, r_rdata, write_data, 
+    LEDCtrl, SwitchCtrl, KBCtrl, MusicCtrl
     );
 
     input mRead; // read memory, from control32
@@ -23,6 +24,8 @@ module MemOrIO(
     output SwitchCtrl; // Switch Chip Select
     output KBCtrl; // keyboard
 
+    output MusicCtrl;
+
     assign addr_out= addr_in;
     
     assign r_wdata=(ioRead==1'b1)?io_rdata:m_rdata;           //miss this one !!!
@@ -31,7 +34,8 @@ module MemOrIO(
     // Chip select signal of Led and Switch are all active high;
     assign LEDCtrl= (ioWrite == 1'b1)?1'b1:1'b0; // led 
     assign SwitchCtrl= (ioRead == 1'b1)?1'b1:1'b0; //switch  
-    assign KBCtrl = (ioRead == 1'b1)?1'b1:1'b0;
+    assign KBCtrl = (ioRead == 1'b1)?1'b1:1'b0;  // switch
+    assign MusicCtrl = (ioRead == 1'b1) ? 1'b1:1'b0;
     always @* begin
         if((mWrite==1)||(ioWrite==1))
             //wirte_data could go to either memory or IO. where is it from?

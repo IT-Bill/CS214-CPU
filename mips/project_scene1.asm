@@ -16,6 +16,7 @@ main:
     
 loop:
 	lw $1, 0xC72($28)	#left-8 switch in $1
+	andi $1, $1, 7
 
 	beq $1,$17,parity1	#000 0
 	beq $1,$18,parity2	#001 1
@@ -123,7 +124,8 @@ bitNor:
 	andi $3,$3,0x00FF	#b
 	
 	nor $4,$2,$3
-	sw $4,0xC60($28)
+	andi $5, $4, 0x00FF
+	sw $5,0xC60($28)
 	j loop
 	addi $1,$1,0	#filler
 	

@@ -7,9 +7,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module decode32(read_data_1,read_data_2,Instruction,mem_data,ALU_result,
-                 Jal,RegWrite,MemtoReg,RegDst,Sign_extend,clock,reset,opcplus4);
-       output[31:0] read_data_1;               // ����ĵ�һ������??
-       output[31:0] read_data_2;               // ����ĵڶ�������??
+                 Jal,RegWrite,MemtoReg,RegDst,Sign_extend,clock,reset,opcplus4, music_data_reg);
+       output[31:0] read_data_1;               // ����ĵ�һ������???
+       output[31:0] read_data_2;               // ����ĵڶ�������???
        input[31:0]  Instruction;               // ȡָ��Ԫ����ָ��
        input[31:0]  mem_data;                  //  ��DATA RAM or I/O portȡ��������
        input[31:0]  ALU_result;                 // ��ִ�е�Ԫ��������Ľ��
@@ -17,9 +17,12 @@ module decode32(read_data_1,read_data_2,Instruction,mem_data,ALU_result,
        input        RegWrite;                  // ���Կ��Ƶ�Ԫ
        input        MemtoReg;                  // ���Կ��Ƶ�Ԫ
        input        RegDst;             
-       output[31:0] Sign_extend;               // ��չ���??32λ������
+       output[31:0] Sign_extend;               // ��չ���???32λ������
        input         clock,reset;              // ʱ�Ӻ͸�λ
        input[31:0]  opcplus4;                 // ����ȡָ��Ԫ��JAL����
+
+       // for music, No.27 register
+       output [31:0] music_data_reg;
     
     wire[5:0] opcode;
     wire[4:0] rs;
@@ -40,6 +43,9 @@ module decode32(read_data_1,read_data_2,Instruction,mem_data,ALU_result,
      ? {{16{1'b0}}, immediate} : {{16{Instruction[15]}}, immediate};
     assign read_data_1 = register[rs];
     assign read_data_2 = register[rt];
+
+    // for music
+    assign music_data_reg = register[27];
 
     //update register 
     always @(posedge clock or posedge reset) begin
