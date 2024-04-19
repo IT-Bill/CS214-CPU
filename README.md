@@ -1,13 +1,10 @@
-
-
 [toc]
 
 ## Part1-项目需求及开发者说明
 
 ### 1.1）项目需求
 
-本次项目我们实现了一个CPU，支持Minisys的基本32条指令，可以解析传入的coe文件，并通过Minisys开
-发板与用户完成交互，接受用户输入并将结果显示在开发板上。
+本次项目我们实现了一个CPU，支持Minisys的基本32条指令，可以解析传入的coe文件，并通过Minisys开发板与用户完成交互，接受用户输入并将结果显示在开发板上。
 
 ### 1.2）开发者说明
 
@@ -66,19 +63,19 @@ https://github.com/ITBillZ/CS214-Computer-Organization-Project.git
 
 ### 3.3）CPU内部结构
 
-![image-20230602153136520](cpu架构.png)
+![image-20230602153136520](image/cpu架构.png)
 
 
 
-![image-20230602163158914](架构1.png)
+<img src="image/架构1.png" alt="image-20230602163158914" style="zoom: 33%;" />
 
-![image-20230602163229117](架构2.png)
+<img src="image/架构2.png" alt="image-20230602163229117" style="zoom: 67%;" />
 
-![image-20230602163255175](架构3.png)
+<img src="image/架构3.png" alt="image-20230602163255175" style="zoom: 50%;" />
 
-![image-20230602163331153](架构4.png)
+<img src="image/架构4.png" alt="image-20230602163331153" style="zoom:50%;" />
 
-![image-20230602163421688](架构5.png)
+![image-20230602163421688](image/架构5.png)
 
 
 
@@ -542,4 +539,10 @@ loope:
 
 - 上升和下降沿的理解：Verilog中的时钟边沿对于设计的正确性至关重要。对于时钟边沿的理解不够透彻可能导致设计中的错误或奇怪的行为。
 
-面对Verilog编写过程中遇到的挑战，重要的是保持耐心和冷静。充分利用现有的工具、资源，与同学们进行交流和讨论。
+
+
+## Part7-视频
+
+<video width="1280" height="600" controls>
+    <source src="image/video.mp4" type="video/mp4">
+</video>
