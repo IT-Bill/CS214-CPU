@@ -1,8 +1,0 @@
-**/verilog.cache
-**/verilog.runs
-
-verilog/vivado.jou
-verilog/vivado.log
-verilog/vivado_56000.backup.jou
-verilog/vivado_56000.backup.log
-verilog/*.str

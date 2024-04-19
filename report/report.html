@@ -1,0 +1,690 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>report</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p>&nbsp;</p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3"><a class="md-toc-inner" href="#part1-项目需求及开发者说明">Part1-项目需求及开发者说明</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n5"><a class="md-toc-inner" href="#11）项目需求">1.1）项目需求</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n7"><a class="md-toc-inner" href="#12）开发者说明">1.2）开发者说明</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n25"><a class="md-toc-inner" href="#part2-版本更迭记录">Part2-版本更迭记录</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n28"><a class="md-toc-inner" href="#part3-cpu架构设计说明">Part3-CPU架构设计说明</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n29"><a class="md-toc-inner" href="#31）cpu特性">3.1）CPU特性</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n49"><a class="md-toc-inner" href="#32）cpu接口">3.2）CPU接口</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n50"><a class="md-toc-inner" href="#时钟">时钟</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n52"><a class="md-toc-inner" href="#复位">复位</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n54"><a class="md-toc-inner" href="#uart接口">UART接口</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n56"><a class="md-toc-inner" href="#数据输入输出接口">数据输入&amp;输出接口</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n70"><a class="md-toc-inner" href="#33）cpu内部结构">3.3）CPU内部结构</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n201"><a class="md-toc-inner" href="#34）cpu内部子模块的设计说明模块名称模块功能及功能说明）">3.4）CPU内部子模块的设计说明（模块名称、模块功能及功能说明）</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n80"><a class="md-toc-inner" href="#part4-测试情况">Part4-测试情况</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n81"><a class="md-toc-inner" href="#41）测试总览">4.1）测试总览</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n82"><a class="md-toc-inner" href="#411-仿真测试">4.1.1) 仿真测试</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n346"><a class="md-toc-inner" href="#412-上板测试">4.1.2) 上板测试</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n140"><a class="md-toc-inner" href="#42）asm文件详细描述">4.2）asm文件详细描述</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n141"><a class="md-toc-inner" href="#421测试场景1">4.2.1)测试场景1</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n150"><a class="md-toc-inner" href="#422测试场景2">4.2.2)测试场景2</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n84"><a class="md-toc-inner" href="#part5-bonus">Part5-bonus</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n85"><a class="md-toc-inner" href="#51）实现对复杂外设接口的支持在我们的project中为对小键盘七段数码管复杂外设接口的支持">5.1）实现对复杂外设接口的支持，在我们的Project中为对小键盘、七段数码管复杂外设接口的支持  </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n110"><a class="md-toc-inner" href="#52）实现了音乐播放器功能可以通过调整pwm使蜂鸣器播放音乐以及通过uart传入乐谱播放音乐">5.2）实现了音乐播放器功能，可以通过调整PWM，使蜂鸣器播放音乐；以及通过UART传入乐谱播放音乐  </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n121"><a class="md-toc-inner" href="#53）基于cpu的软硬件协同的应用">5.3）基于CPU的软硬件协同的应用  </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n128"><a class="md-toc-inner" href="#part6-开发过程中遇到的问题思考总结">Part6-开发过程中遇到的问题、思考、总结</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n129"><a class="md-toc-inner" href="#61）小组成员刘圣鼎">6.1）小组成员：刘圣鼎</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n130"><a class="md-toc-inner" href="#62）小组成员谢嘉楠">6.2）小组成员：谢嘉楠</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n133"><a class="md-toc-inner" href="#63）小组成员张展玮">6.3）小组成员：张展玮</a></span></p></div><h2 id='part1-项目需求及开发者说明'><span>Part1-项目需求及开发者说明</span></h2><h3 id='11）项目需求'><span>1.1）项目需求</span></h3><p><span>本次项目我们实现了一个CPU，支持Minisys的基本32条指令，可以解析传入的coe文件，并通过Minisys开</span>
+<span>发板与用户完成交互，接受用户输入并将结果显示在开发板上。</span></p><h3 id='12）开发者说明'><span>1.2）开发者说明</span></h3><figure><table><thead><tr><th>&nbsp;</th><th style='text-align:left;' ><span>12110817 张展玮</span></th><th style='text-align:left;' ><span>12110813 刘圣鼎</span></th><th style='text-align:left;' ><span>12110714 谢嘉楠</span></th></tr></thead><tbody><tr><td><span>负责任务</span></td><td style='text-align:left;' ><span>CPU模块和MIPS场景二的前四部分、音乐播放器</span></td><td style='text-align:left;' ><span>MIPS场景一、场景二的后四部分和键盘I/O</span></td><td style='text-align:left;' ><span>CPU模块、UART、音乐播放器</span></td></tr><tr><td><span>贡献占比</span></td><td style='text-align:left;' ><span>33.3%</span></td><td style='text-align:left;' ><span>33.3%</span></td><td style='text-align:left;' ><span>33.3%</span></td></tr></tbody></table></figure><p>&nbsp;</p><h2 id='part2-版本更迭记录'><span>Part2-版本更迭记录</span></h2><p><a href='https://github.com/ITBillZ/CS214-Computer-Organization-Project.git' target='_blank' class='url'>https://github.com/ITBillZ/CS214-Computer-Organization-Project.git</a></p><p>&nbsp;</p><h2 id='part3-cpu架构设计说明'><span>Part3-CPU架构设计说明</span></h2><h3 id='31）cpu特性'><span>3.1）CPU特性</span></h3><figure><table><thead><tr><th>&nbsp;</th><th>&nbsp;</th></tr></thead><tbody><tr><td><span>所支持的ISA</span></td><td><span>参考了Minisys的指令集（共31条），提供了32个32位的寄存器</span></td></tr><tr><td><span>寻址空间设计</span></td><td><span>在此CPU中采用了哈佛结构，即指令储存与数据储存分开的方式。指令空间起始地址为prgrom的0x00000000, 数据空间起始地址为dmem的0x00000000, 它们的读写宽度都为32bits, 读写深度均为16384bits，外设IO的寻址范围为 0xFFFFFC00 至 0xFFFFFFFF，寻址单位均为一个字即4个字节。</span></td></tr><tr><td><span>对外设IO的支持</span></td><td><span>采用MMIO以及轮询的方式访问IO。使用switch和keyboard作为输入设备，led、七段数码管和蜂鸣器作为输出设备。输入的内存首地址是0xFFFFFC70，输出的内存首地址是0xFFFFFC60</span></td></tr><tr><td><span>CPI</span></td><td><span>单周期CPU，不支持pipeline，CPI接近1</span></td></tr><tr><td><span>栈空间方案</span></td><td><span>栈空间的位置（基地址）为0XFFFFFC00</span></td></tr></tbody></table></figure><h3 id='32）cpu接口'><span>3.2）CPU接口</span></h3><h4 id='时钟'><span>时钟</span></h4><p><span>在本CPU中使用到了开发板提供的100MHz时钟（Y18），通过IP核分别转化成为了10MHz（供单周期CPU使用）以及10MHz（供UART接口使用），占空比为50%的周期时钟信号。</span></p><h4 id='复位'><span>复位</span></h4><p><span>在本CPU中，我们通过高电位信号来判断复位信号，并通过开发板的按钮外设来控制复位信号的输入。在按下复位按钮（P4）之后，CPU将会重新回到初始状态，之前的所有状态将会被清空。</span></p><h4 id='uart接口'><span>UART接口</span></h4><p><span>我们实现并提供了UART接口，该接口可以支持将生成好的COE文件发送给CPU。使用该接口需要按下CPU中设定好的用来控制通信状态的按钮（P1）来使CPU进入通信状态（此时，七段数码显示管第一位高亮来提示已经进入通信状态）。在此状态下之后，使用串口调试助手将指定文件发送给CPU，当显示发送完成的字样后，再次按下控制按钮（P4）来使CPU回到普通工作模式即可。在此还用到了Y19以及V18端口来分别作为数据的接受和发送端。</span></p><h4 id='数据输入输出接口'><span>数据输入&amp;输出接口</span></h4><ul><li><span>控制输入方式接口：由于我们同时实现了键盘输入以及开关输入的方式，因此另实现一个控制接口来控制输入的方式。该接口绑定在开关Y9上，当置为高电平时为键盘输入，为低电平时为开关输入。</span></li><li><span>小键盘接口：实现了小键盘的输入，可以通过小键盘来输入对应数据（十六进制数）。其中，输入上限为4个十六进制数，通过两个开关W9和Y7分别控制键盘输入的数的位置。</span></li><li><span>七段数码显示管：在实现小键盘的基础上，为了输入的可视性，我们另实现了七段数码显示管接口，可以实时展示此时小键盘的输入数据和结果。</span></li><li><span>开关输入接口：sw16至sw18用来控制测试样例编号的输入，支持编号0-7的输入。sw0-sw15来控制16位立即数的输入），能够支持16位二进制数的输入。</span></li><li><span>LED灯输出：我们使用了0-15号LED灯来作为数据输入时的指示以及计算结果的显示，当输入数据后，LED灯便会显示对应数据的二进制数，若为1则亮灯，反之不亮。同时使用sw16来作为奇偶校验、溢出检测等信号的指示灯。</span></li><li><span>蜂鸣器播放：我们使用按钮P5控制音乐的播放与暂停，通过拨码开关Y8控制音乐播放的模式（UART模式和内置模式）。蜂鸣器与管脚A19绑定。</span></li></ul><h3 id='33）cpu内部结构'><span>3.3）CPU内部结构</span></h3><p><img src="cpu架构.png" referrerpolicy="no-referrer" alt="image-20230602153136520"></p><p>&nbsp;</p><p><img src="架构1.png" referrerpolicy="no-referrer" alt="image-20230602163158914"></p><p><img src="架构2.png" referrerpolicy="no-referrer" alt="image-20230602163229117"></p><p><img src="架构3.png" referrerpolicy="no-referrer" alt="image-20230602163255175"></p><p><img src="架构4.png" referrerpolicy="no-referrer" alt="image-20230602163331153"></p><p><img src="架构5.png" referrerpolicy="no-referrer" alt="image-20230602163421688"></p><p>&nbsp;</p><h3 id='34）cpu内部子模块的设计说明模块名称模块功能及功能说明）'><span>3.4）CPU内部子模块的设计说明（模块名称、模块功能及功能说明）</span></h3><figure><table><thead><tr><th><span>模块名称</span></th><th><span>模块功能</span></th><th><span>功能说明</span></th></tr></thead><tbody><tr><td><span>clk_wiz</span></td><td><span>将开发板的时钟信号调至10MHZ后输出</span></td><td><span>输入开发板时钟信号，输出调整后的CPU clock以及供uart接口使用的时钟信号</span></td></tr><tr><td><span>divider</span></td><td><span>有一个周期参数值，可以通过传入参数，进行不同的时钟分频</span></td><td><span>主要用于产生用于晶体管显示的时钟</span></td></tr><tr><td><span>BUFG</span></td><td><span>消除外设抖动</span></td><td><span>对通信模式按钮和音乐播放按钮进行防抖处理，提高操作灵敏度</span></td></tr><tr><td><span>uart_bmpg_0</span></td><td><span>uart接口模块</span></td><td><span>连接CPU和uart外设</span></td></tr><tr><td><span>Ifetc32_Uart</span></td><td><span>通过传入的指令来计算并存储PC与Next_PC值</span></td><td><span>通过分析指令的编码来判断PC与Next_PC值</span></td></tr><tr><td><span>ProgramROM_UART</span></td><td><span>从指令存储中获取指令</span></td><td><span>通过ip核根据给予的参数来获取指令</span></td></tr><tr><td><span>decode32</span></td><td><span>含有32个32位寄存器用来存储数据，同时根据传入的参数计算出目标寄存器以及目标数据</span></td><td><span>通过传入的控制信号来判断目标寄存器以及目标数据</span></td></tr><tr><td><span>control32</span></td><td><span>通过传入的参数产生各个控制信号给到下游模块作为指示</span></td><td><span>通过解析传入的opcode和function_code来给出控制信号</span></td></tr><tr><td><span>executs32</span></td><td><span>计算单元，根据参数计算出地址以及数学计算结果</span></td><td><span>通过控制信号计算出相应结果</span></td></tr><tr><td><span>dmem32_uart</span></td><td><span>通过给予的参数从数据存储中获得数据</span></td><td><span>包含ip核，同时与uart接口有关，接受uart的写入</span></td></tr><tr><td><span>MemOrIO</span></td><td><span>外设接口模块，控制数据输入输出流向</span></td><td><span>通过控制信号判断流向，给出外设指定的IO数据地址</span></td></tr><tr><td><span>leds</span></td><td><span>输出外设模块</span></td><td><span>与MemOrIO交互，输出存储在输出内存空间的数据</span></td></tr><tr><td><span>switchs</span></td><td><span>输入外设模块</span></td><td><span>与MemOrIO交互，数据存储到输入内存空间</span></td></tr><tr><td><span>keyboard</span></td><td><span>输入外设模块</span></td><td><span>与MemOrIO交互，利用片选信号实现输入外设的切换，数据存储到输入内存空间</span></td></tr><tr><td><span>show</span></td><td><span>输出外设模块</span></td><td><span>与MemOrIO交互，输出存储在输出内存空间的数据</span></td></tr><tr><td><span>music</span></td><td><span>输出外设模块</span></td><td><span>与MemOrIO交互，读取记录在内存空间的“乐谱”，并在系列操作后得到pwm实现音乐播放</span></td></tr></tbody></table></figure><p>&nbsp;</p><p>&nbsp;</p><h2 id='part4-测试情况'><span>Part4-测试情况</span></h2><h3 id='41）测试总览'><span>4.1）测试总览</span></h3><h4 id='411-仿真测试'><span>4.1.1) 仿真测试</span></h4><figure><table><thead><tr><th><span>测试内容</span></th><th><span>测试结果</span></th><th><span>结论</span></th><th><span>修改</span></th><th>&nbsp;</th></tr></thead><tbody><tr><td><span>Next_PC与PC的正确性</span></td><td><span>错误</span></td><td><span>更新Next_PC与PC的上升沿和下降沿设置错误，导致两者在信号为稳定时更新</span></td><td><span>Next_PC的敏感信号设置为*，PC设置为下降沿</span></td><td>&nbsp;</td></tr><tr><td><span>同上</span></td><td><span>正确</span></td><td><span>-</span></td><td><span>-</span></td><td>&nbsp;</td></tr><tr><td><span>jr的正确性</span></td><td><span>错误</span></td><td><span>read_data_1的typo，导致此信号无法正常传递，jr跑飞</span></td><td><span>更正typo</span></td><td>&nbsp;</td></tr><tr><td><span>同上</span></td><td><span>正确</span></td><td><span>-</span></td><td><span>-</span></td><td>&nbsp;</td></tr><tr><td><span>其他基本指令的正确性</span></td><td><span>正确</span></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>蜂鸣器的正确性</span></td><td><span>正确</span></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></figure><p>&nbsp;</p><h4 id='412-上板测试'><span>4.1.2) 上板测试</span></h4><figure><table><thead><tr><th><span>测试内容</span></th><th><span>测试结果</span></th><th><span>结论</span></th><th><span>修改</span></th><th>&nbsp;</th></tr></thead><tbody><tr><td><span>根据用户拨码开关输入的测试用例，直接通过LED灯执行输出</span></td><td><span>正确</span></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>uart的正确性</span></td><td><span>错误</span></td><td><span>uart写入时地址偏移错误</span></td><td><span>修改写入时的地址偏移</span></td><td>&nbsp;</td></tr><tr><td><span>同上</span></td><td><span>正确</span></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>根据用户输入的测试用例，进入不同的功能模块。包括奇偶校验、位运算、四则运算、累加等。</span></td><td><span>正确</span></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>键盘输入的正确性</span></td><td><span>正确</span></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>蜂鸣器发声的正确性</span></td><td><span>正确</span></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></figure><p>&nbsp;</p><h3 id='42）asm文件详细描述'><span>4.2）asm文件详细描述</span></h3><h4 id='421测试场景1'><span>4.2.1)测试场景1</span></h4><p><span>1.如何实现IO模块，与用户交互</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="assembly" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="assembly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">##采用MMIO的方式访问IO设备，其中：</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">##0XFFFFFC70作为输入的首地址</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">##0XFFFFFC60作为输出的首地址</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">start:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">lui</span> $1,0xFFFF<span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">ori</span> $28,$1,0xF000</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">##通过轮询的方式访问IO，通过判断高八位的开关的状态选择进入哪一模块</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">loop:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">lw</span> $1, 0xC72($28)<span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-comment">#left-8 switch in $1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $1, $1, 7</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $1,$17,parity1<span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-comment">#000 0</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $1,$18,parity2<span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-comment">#001 1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $1,$19,bitNor<span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-comment">#010 2</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $1,$20, bitOr<span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-comment">#011 3</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $1,$21, bitXor<span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-comment">#100 4</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $1,$22, uCompare<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#101 5</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $1,$23, Compare<span class="cm-tab" role="presentation" cm-text="	"> </span><span class="cm-comment">#110 6</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $1,$24, loadAndShow<span class="cm-tab" role="presentation" cm-text="	"> </span><span class="cm-comment">#111 7</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">##读入数据</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">lw</span> &nbsp; $2,0xC70($28)<span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-comment">#2号寄存器存放测试用例</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">##输出数据</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $25, 0xC62($28) &nbsp;<span class="cm-comment">#此时25号寄存器存放奇偶校验位，溢出检验位等，最终显示在高八位的led灯和左侧七段数码管上</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $25, 0xC60($28)<span class="cm-tab" role="presentation" cm-text="	">  </span> <span class="cm-comment">#此时25号寄存器存放运算的结果，最终显示在低16位的led灯和右侧七段数码管上</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 622px;"></div><div class="CodeMirror-gutters" style="display: none; height: 622px;"></div></div></div></pre><p><span>我们通过轮询的方式等待读入信号，当我们在开发板上输入完数据后，1号寄存器通过当前的输入决定进入哪一个模块，同时2号寄存器存放测试用例，25号寄存器用来存放测试结果</span></p><p><span>2.测试场景（奇偶校验）</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="assembly" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="assembly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">parity1:</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">lw</span> &nbsp; $2,0xC70($28)<span class="cm-tab" role="presentation" cm-text="	">  </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#obtain the first number a, get the first 8 bits and shift right 8 bits</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $2,$2,0xFF00</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> &nbsp; $2,0xC60($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">srl</span> $2,$2,8<span class="cm-tab" role="presentation" cm-text="	"> </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#a</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $3,$0,1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">#test bit</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $5,$0,0<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment"># $5:save the cnt of 1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">loop1:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $6, $0, 128<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#128为低7位的奇偶校验，256为全部8位的奇偶校验</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $3,$6,Exit</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">and</span> $4,$2,$3</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $4,$3,isOne</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sll</span> $3,$3,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">j</span> <span class="cm-keyword">loop1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">isOne:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $5,$5,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sll</span> $3,$3,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">j</span> <span class="cm-keyword">loop1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">Exit:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $5,$5,1<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#check if the cnt of 1 is odd</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $6, $0, 1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $5,$6,off</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $25,$0,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $25, 0xC62($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">j</span> <span class="cm-keyword">loop</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $1,$1,0<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#filler</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">off:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $25,$0,0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $25, 0xC62($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">j</span> <span class="cm-keyword">loop</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 737px;"></div><div class="CodeMirror-gutters" style="display: none; height: 737px;"></div></div></div></pre><p><span>偶校验，通过与操作和移位操作统计1的数量，偶数个1输出为1，奇数个1输出为0</span></p><p><span>3.测试场景（有符号数比较）</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="assembly" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="assembly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">Compare:</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">lw</span> &nbsp; $2,0xC70($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> &nbsp; $2,0xC60($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">add</span> $3,$0,$2 </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $2,$2,0xFF00</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">srl</span> $2,$2,8<span class="cm-tab" role="presentation" cm-text="	"> </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#a</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $3,$3,0x00FF<span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-comment">#b</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jal</span> <span class="cm-keyword">sign_extend</span><span class="cm-tab" role="presentation" cm-text="	"> </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">slt</span> $4,$2,$3</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $4, 0xC62($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">j</span> <span class="cm-keyword">loop</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">###注意要对a,b两个数进行符号拓展</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">sign_extend:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment"># param $2,$3, which stores a,b</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $9, $2, 0x0080</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $9, $0, continue</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">lui</span> $9, 0xffff</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">ori</span> $9, $9, 0xff00</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">or</span> $2, $2, $9</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">continue:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $9, $3, 0x0080</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $9, $0, exit3</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">lui</span> $9, 0xffff</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">ori</span> $9, $9, 0xff00</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">or</span> $3, $3, $9</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jr</span> $ra</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">exit3:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jr</span> $ra</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 668px;"></div><div class="CodeMirror-gutters" style="display: none; height: 668px;"></div></div></div></pre><h4 id='422测试场景2'><span>4.2.2)测试场景2</span></h4><p><span>1.测试场景（如何闪烁）</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="assembly"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="assembly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $t7, $zero,2500</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $t9,$zero, 1500</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag">loop83:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $t9, $zero,1500 </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag">loop84:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $t5, $zero,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sub</span> $t9, $t9, $t5 </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">bne</span> $t9, $zero, loop84</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sub</span> $t7,$t7,$t5</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">bne</span> $t7 ,$zero, loop83</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jr</span>  $31</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 276px;"></div><div class="CodeMirror-gutters" style="display: none; height: 276px;"></div></div></div></pre><p><span>这里我们采用的方式是塞一堆无用的指令让CPU运算，经过调整，发现该规模的二重循环符合要求</span></p><p><span>2.测试场景（检验溢出）</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="assembly" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="assembly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">addition:</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $0,0xC62($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">lw</span> $2,0xC70($28)<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#right-16 switch in $2</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">add</span> $3,$0,$2 </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $2,$2,0xFF00</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">srl</span> $2,$2,8<span class="cm-tab" role="presentation" cm-text="	"> </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#a</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $3,$3,0x00FF<span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-comment">#b</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jal</span> &nbsp;<span class="cm-keyword">sign_extend</span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">##首先符号拓展，因为有符号数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">add</span> $4,$2,$3</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $5, $4, 0x00FF</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $5,0xC60($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#判断最终的结果是否在-2^7~2^7-1  -128~127</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $2, $0, 127</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $3, $0, -128</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">slt</span> $6, $2, $4</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $6,$18,overflow</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">slt</span> $6,$4,$3</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $6,$18,overflow</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $25,$0,0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span>  $25,0xC62($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">j</span> <span class="cm-keyword">loop</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $1,$1,0<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#filler</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">overflow:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $25,$0,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span>  $25,0xC62($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">j</span> <span class="cm-keyword">loop</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $1,$1,0<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#filler</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 622px;"></div><div class="CodeMirror-gutters" style="display: none; height: 622px;"></div></div></div></pre><p><span>对于8位有符号数的加法与减法的溢出检测，只需判断最终的结果是否在-128~127以内。以上代码为检验8位有符号数的加法以及是否溢出的操作，减法的操作同理</span></p><p><span>3.情景测试(8位有符号数的乘法)</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="assembly" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="assembly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">multiplication:</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $0,0xC62($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">lw</span> $2,0xC70($28)<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#right-16 switch in $2</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">add</span> $3,$0,$2 </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $2,$2,0xFF00</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">srl</span> $2,$2,8<span class="cm-tab" role="presentation" cm-text="	"> </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#a</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $3,$3,0x00FF<span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-comment">#b</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jal</span> &nbsp;<span class="cm-keyword">sign_extend</span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">##首先符号拓展</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $4, $0, 0x80</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#判断符号位</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">and</span> $5,$2,$4</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">srl</span> $5,$5,7 </span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $5,$0,label</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sub</span> $2,$0,$2</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag">label:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">and</span> $6,$3,$4</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">srl</span> $6,$6,7 </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $6,$0,label2</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sub</span> $3,$0,$3</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag">label2:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jal</span> <span class="cm-keyword">multi</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#判断乘积的正负</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">xor</span> $4,$5,$6</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $4,$zero,exit6</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">nor</span> $8,$8,$8</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $8,$8,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $8,0xC60($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">j</span> <span class="cm-keyword">loop</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $1,$1,0<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#filler</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tag">exit6:</span><span class="cm-tab" role="presentation" cm-text="	">  </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $8,0xC60($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">j</span> <span class="cm-keyword">loop</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $1,$1,0<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#filler</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 783px;"></div><div class="CodeMirror-gutters" style="display: none; height: 783px;"></div></div></div></pre><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="assembly" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="assembly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">multi:</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#$8: store the product</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">add</span> $8,$0,$0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">add</span> $10,$0,$0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $9,$0,8<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#8 is the length in binary</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag">loopp:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">and</span> $7,$18,$3 <span class="cm-comment">#to determine the lowest bit of $s1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $7, $0, jumpAdd</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">add</span> $8, $2, $8</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag">jumpAdd:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sll</span> $2,$2,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">srl</span> $3,$3,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $10,$10,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">slt</span> $11, $10, $9</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">bne</span> $11, $0, loopp</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment"># add $a0,$0,$8</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jr</span> $ra</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 438px;"></div><div class="CodeMirror-gutters" style="display: none; height: 438px;"></div></div></div></pre><p><span>对于8位有符号数的乘法，我们通过软件实现。首先，对两个8位的有符号数（所以记得符号拓展）取符号位，通过符号位的异或操作来决定最终乘积的正负。然后对两个有符号数取绝对值，接着利用无符号数的朴素乘法计算出乘积的绝对值，最后结合符号位，给出最终的结果，如果为负数，给出负数的补码形式。</span></p><p><span>4.情景测试(8位有符号数的除法)</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="assembly" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="assembly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">division:</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $0,0xC62($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">lw</span> $2,0xC70($28)<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#right-16 switch in $2</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">add</span> $3,$0,$2 </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $2,$2,0xFF00</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">srl</span> $2,$2,8<span class="cm-tab" role="presentation" cm-text="	"> </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#a</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $3,$3,0x00FF<span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-comment">#b</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jal</span> &nbsp;<span class="cm-keyword">sign_extend</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $4, $0, 0x80</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#取出两个数的最高位,对两个数取绝对值</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">and</span> $5,$2,$4</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">srl</span> $5,$5,7 </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $5,$0,labe3</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sub</span> $2,$0,$2</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag">labe3:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">and</span> $6,$3,$4</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">srl</span> $6,$6,7 </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $6,$0,label4</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sub</span> $3,$0,$3</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag">label4:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jal</span> &nbsp;<span class="cm-keyword">divi</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#判断最后的商为正还是负</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">xor</span> $4,$5,$6</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $4,$zero,next</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#如果商为负数，对商取补码</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">nor</span> $8,$8,$8</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $8,$8,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#余数的符号要与被除数保持一致</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">next:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $5,$zero,fuck</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">nor</span> $9,$9,$9</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $9,$9,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#得到最终结果的商和余数，分别存在寄存器$8,$9中</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-comment">########<span class="cm-tab" role="presentation" cm-text="	">    </span>#############################################################</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">##########如何实现商和余数的交替显示，每个持续5s###########################</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">fuck:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $8,$8,0xff</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $8,0xC60($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jal</span> <span class="cm-keyword">show5s</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $9,$9,0xff</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $9,0xC60($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jal</span> <span class="cm-keyword">show5s</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">j</span> <span class="cm-keyword">loop</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $1,$1,0<span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">#filler</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 1083px;"></div><div class="CodeMirror-gutters" style="display: none; height: 1083px;"></div></div></div></pre><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="assembly" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="assembly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">divi:</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#$8: store the quotient $9:store the reminder</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sll</span> $3,$3,8 <span class="cm-comment"># $3 : dividor</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">add</span> $9,$2,$zero &nbsp;<span class="cm-comment"># $9 store the remainder</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">add</span> $8,$0,$0 <span class="cm-comment"># $8: Quot</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">add</span> $10,$0,$0 <span class="cm-comment"># $10: loop cnt</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $7,$zero,9 <span class="cm-comment">#$7:: looptimes</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">loopb:</span> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># $2: dividend, $3: divisor, $9: remainder, $8: quot</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># $10:cnt of loops $7: 9</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sub</span> $9,$9,$3 <span class="cm-comment">#dividend - dividor</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $s0,$9,0x8000 <span class="cm-comment"># get the higest bit of rem to check if rem&lt;0</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sll</span> $8,$8,1 <span class="cm-comment"># shift left quot with 1bit</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">beq</span> $s0,$0, SdrUq <span class="cm-comment"># if rem&gt;=0, shift Div right</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">add</span> $9,$9,$3 <span class="cm-comment"># if rem&lt;0, rem=rem+div</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">srl</span> $3,$3,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $8,$8,0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">j</span> <span class="cm-keyword">loope</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">SdrUq:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">srl</span> $3,$3,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $8,$8,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">loope:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $10,$10,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">bne</span> $10,$7,loopb</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jr</span>  $31</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 576px;"></div><div class="CodeMirror-gutters" style="display: none; height: 576px;"></div></div></div></pre><p><span>5.情景测试(如何实现商和余数的5s交替显示)</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="assembly" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="assembly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $8,$8,0xff</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $8,0xC60($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jal</span> <span class="cm-keyword">show5s</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">andi</span> $9,$9,0xff</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sw</span> $9,0xC60($28)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag">show5s:</span><span class="cm-tab" role="presentation" cm-text="	"> </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $t7, $zero,10000</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $t9,$zero, 1500</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag">loop73:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $t9, $zero,1500</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag">loop74:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">addi</span> $t5, $zero,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sub</span> $t9, $t9, $t5</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">bne</span> $t9, $zero, loop74</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">sub</span> $t7,$t7,$t5</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">bne</span> $t7 ,$zero, loop73</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">jr</span>  $31</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 438px;"></div><div class="CodeMirror-gutters" style="display: none; height: 438px;"></div></div></div></pre><p><span>对于8位有符号数的除法，我们依旧通过软件实现，只不过除法的实现相对比较复杂。</span></p><p><span>首先，对输入的两个8位的有符号数进行符号拓展</span></p><p><span>其次，对两个8位的有符号数取其绝对值</span></p><p><span>然后，利用无符号数的朴素除法计算出商和余数的绝对值</span></p><p><span>最后，对两个8位的有符号数取符号位，通过符号位的异或操作来决定最终商的正负，注意余数的符号应该与被除数保持一致。结合符号位，给出最终的结果，如果为负数，给出负数的补码形式。</span></p><p>&nbsp;</p><h2 id='part5-bonus'><span>Part5-bonus</span></h2><h4 id='51）实现对复杂外设接口的支持在我们的project中为对小键盘七段数码管复杂外设接口的支持'><span>5.1）实现对复杂外设接口的支持，在我们的Project中为对小键盘、七段数码管复杂外设接口的支持  </span></h4><ul><li><p><span>为了在我们的项目中支持小键盘和七段数码管这两个复杂外设接口，我们采用了以下方案。</span></p><ul><li><span>首先，我们定义了输入和输出的内存地址，以便与这些外设进行通信。对于小键盘，我们将输入的内存首地址设置为0xFFFFFC70。当用户按下键盘上的按键时，相应的键值将被存储在这个内存地址中，供我们的程序读取。</span></li><li><span>对于七段数码管，我们将输出的内存首地址设置为0xFFFFFC60。我们的程序可以将需要显示的数字或字符写入这个内存地址，然后七段数码管将根据这些数据进行相应的显示。</span></li><li><span>此外，我们还定义了I/O的起始地址为0XFFFFFC00。这个起始地址用于与外设进行交互。我们可以通过读写这个地址来与外设进行数据的传输和控制。  </span></li></ul></li><li><p><span>为了确保这些外设接口的正确性和可靠性，我们小组提供了详细的测试用例。</span></p><ul><li><span>针对小键盘，我们编写了测试代码，模拟用户按下不同的按键，并验证相应的键值是否正确地存储在指定的内存地址中。</span></li><li><span>对于七段数码管，我们编写了测试代码，将不同的数字和字符写入指定的内存地址，并验证七段数码管是否正确地显示了这些数据。</span></li></ul></li><li><p><strong><span>遇到的问题、总结、思考</span></strong></p><ul><li><span>两个输入设备的内存地址的分配：原本我们想对小键盘和拨码开关定义特定的内存地址，以便与其进行通信。但是在设计过程中，我们发现共用一块内存地址即可，通过一个特定的用于控制的拨码开关来控制是拨码开关输入还是小键盘输入。这样在加入键盘之后，可以不用修改MIPS代码。</span></li><li><span>控制小键盘输入的位置：由于小键盘一次只能够输入4-bit的数据，然而有些测试场景可能需要输入16-bit的数据，所以我们需要思考怎样用键盘输入16-bit的数据。我们最后采用的方案是通过两个拨码开关进行片选，控制输入1,2,3,4个位置的数据。此外，我们还了解到一些其他的方法，如使用按键确定、使用按键移位、删除等功能。但是由于时间不足，只完成了通过按键片选的功能。</span></li></ul></li></ul><h4 id='52）实现了音乐播放器功能可以通过调整pwm使蜂鸣器播放音乐以及通过uart传入乐谱播放音乐'><span>5.2）实现了音乐播放器功能，可以通过调整PWM，使蜂鸣器播放音乐；以及通过UART传入乐谱播放音乐  </span></h4><ul><li><p><span>我们采用了两种方式来实现音乐播放：通过调整PWM信号和通过UART传入乐谱。  </span></p><ul><li><span>我们利用PWM（脉冲宽度调制）信号来控制蜂鸣器的音调和音量。通过调整PWM信号的频率和占空比，我们可以生成不同音高和音量的声音。我们的程序可以根据输入的音乐信息，计算出相应的PWM参数，并将其应用于蜂鸣器控制信号。这样，蜂鸣器就能按照乐曲的要求播放相应的音乐。  </span></li><li><span>我们还支持通过UART接口传入乐谱来播放音乐。用户可以将乐谱数据通过UART串口发送给我们的系统。我们的程序将解析接收到的乐谱信息，并根据其中的音符、音长和节奏等参数生成相应的PWM参数，以便蜂鸣器能够按照乐谱正确地演奏音乐。通过这种方式，用户可以通过拨码开关和按钮与CPU进行通信，实现音乐的播放控制。  </span></li></ul></li><li><p><span>为了确保音乐播放器功能的正确性，我们提供了相应的测试用例。我们编写了测试代码，模拟输入不同的音乐信息，包括音符、音长、节奏等参数，并验证蜂鸣器是否能够按照预期的方式播放相应的音乐。我们还测试通过UART接口发送乐谱数据，并验证系统是否能够正确解析和播放这些乐谱。通过这些测试用例，我们可以验证音乐播放器功能的可靠性和正确性。</span></p></li><li><p><strong><span>遇到的问题、总结、思考</span></strong></p><ul><li><span>输出特定旋律、节奏的音频：在查阅资料后，我们得到了低八度到高八度的21个音调的近似频率，在music_mem模块中我们预设提供这21个音调所需的分频比，从而实现了单音符的音频模拟输出。而基于此，我们添加music_ctrl模块用于控制每个音符之间输出的间隔时间，从而实现节奏控制。最后，我们将乐谱拆分成每个音符，按照我们设定的节奏，实现特定旋律、节奏音频播放。</span></li><li><span>软硬件协同实现UART下发乐谱：最初设想为实现music_mem模块与MemOrIO模块的交互，预先读取存储整个乐谱在music_mem模块之中，从而实现任意大小、节奏、旋律的乐谱下发，根据乐谱music各子模块协同配合输出音频。但在实现过程中有一点小bug短时间内解决不了，碍于时间关系，我们利用mips指令，通过循环特定次数实现音符间隔时间控制，即节奏控制。并将需要播放的音符存储到第27号寄存器，然后将这个寄存器的值传入music模块，实现单音符的音频模拟输出。但这种实现有个小问题在于不易精准计算得出音符间隔时间，不好设计mips代码实现复杂乐谱的下发。</span></li><li><span>自由切换软硬件音乐播放以及播放与暂停：利用片选信号实现选择输出硬件预存乐谱的音符还是软件下发乐谱的音符，并将此信号与开关绑定实现软硬件音乐播放的自由切换。利用复位信号控制音乐播放模块工作与否，并将此信号与按钮进行绑定实现单按钮控制音乐播放与暂停。</span></li></ul></li></ul><h4 id='53）基于cpu的软硬件协同的应用'><span>5.3）基于CPU的软硬件协同的应用  </span></h4><ul><li><span>我们实现了一种基于CPU的软硬件协同应用，通过指令中的地址信息（MMIO）来访问相关的复杂外设，从而实现了复杂外设接口的访问。具体而言，我们的系统可以通过在指令中指定特定的MMIO地址来进行对外设的读写操作。通过这种协同应用，我们能够更灵活地控制和操作外设。这样，我们可以实现对复杂外设的控制和管理，提供更多功能和扩展性。 </span></li><li><span>此外，我们还实现了通过UART下发乐谱的功能，使Minisys的蜂鸣器可以演奏对应的乐曲。通过UART接口，我们可以将乐谱数据发送给系统，然后通过软硬件协同应用来解析和处理这些乐谱数据。解析后的数据将被转换为相应的PWM参数，以控制蜂鸣器演奏出正确的音乐。</span></li></ul><p>&nbsp;</p><h2 id='part6-开发过程中遇到的问题思考总结'><span>Part6-开发过程中遇到的问题、思考、总结</span></h2><h4 id='61）小组成员刘圣鼎'><span>6.1）小组成员：刘圣鼎</span></h4><p><span>在MIPS编写asm文件的过程中，遇到的第一个问题是我在编写asm文件的时候该如何访问IO，由于刚开始对于MMIO的理解还不够，所以就比较困惑我该怎么去读入输入设备，从哪读入，以及最终我的结果应该怎么反应在输出设备上，输出到哪里。后来，在翻看Lab的PPT以及对MMIO理解进一步加强后，这个问题就迎刃而解了。</span></p><p><span>在测试场景1中，比较难一点的是有符号数的比较这一模块，对于它的debug也浪费了很长一段时间。当时的想法很简单，认为既然我Vivado已经给硬件编写好了有符号数的比较，那我直接compare不就行了，但是忽略了一点，因为两个有符号数都是8位，所以在之后的load和and操作以后，它们的高位其实都是补0的，所以如果不对其进行符号拓展的话，它们在后续的有符号比较肯定是会出错的，这时候就需要额外写一个符号拓展的方法去将其从8位有符号数拓展成32位的有符号数，然后去Compare。</span></p><p><span>在测试场景2中，难点有两方面。第一是如何实现led灯的闪烁和交替显示，它们的本质都是相同的，即通过一些列无用的操作去让输出的状态锁住，不同的是如何调整这些无用操作的数量，通过合理的调整这些无用的操作数量便可以实现对应时间的闪烁和交替显示。第二是在于有符号数的乘除法上面，刚刚开始没有一个特别好的思路去处理，后来想到了Lab课上无符号数的乘除法，从那上面获得了启发，那么我无非就是把有符号数转化成无符号数嘛，因此将两个操作数分别取绝对值，再对最终的结果按照符号位进行补码操作，因此测试场景2也迎刃而解。但是在寻找思路以及代码的实现细节方面还是蛮花费时间的。</span></p><p><span>然后一个很重要的体会就是软硬件一定要协同配合。因为一旦最终体现在板子上的结果出现了错误，那么我们就需要考虑到底是CPU的问题还是编写的MIPS的问题，如果是MIPS上面的问题倒是还好，因为这个bug是相对容易发现的，然而，如果不是MIPS的问题，而是CPU的问题，这时候硬件和软件都会很紧张，然后就会出现我MIPS在本地测试怎么测试都是对的，但是还是不自信反复的核对自己MIPS的代码是否出问题，虽然这些其实最后都是无用功。另外，UART的实现很重要，所以这也是前期我们进度比较慢的原因，由于不能下发coe文件，每次烧写都需要花费比较长的时间，后面UART的问题解决，速度直接翻倍。这些经验告诉我们软硬件任何一个方面出了问题都不行，最终一个Project的完成一定是需要一个robust的硬件和软件的同时实现。</span></p><p><span>同时，关于版本控制。由于我们出现了2次比较打击的事情都是修改着修改着发现改崩了的情况，其原因并不是我们没有git，大概是因为我们一次性做了较大的改动而没有及时上板测试CPU的功能或者进行仿真然后git或者是因为大家修改同一个文件然后git的时候发生了一些冲突。所以在以后的project中，特别是需要协调配合、环环相扣的部分，一定要稳扎稳打，不可操之过急，同时要与队友沟通好改动的部分，以免出现冲突。</span></p><h4 id='62）小组成员谢嘉楠'><span>6.2）小组成员：谢嘉楠</span></h4><p><span>在开发过程中最痛苦的就是debug的环节。vivado没有其他IDE那样提供足够友善的debug工具，当上板测试后发现没有达到预期效果时，必须从头仔细看一遍代码并在心里模拟模块运行过程。在后续发现了仿真的强大之处，但可惜的是并没有在一开始就将仿真测试与烧写测试结合在一起，导致前面浪费了很多时间。此外在实现uart通信接口时无法进行仿真模拟，debug成为一个黑箱操作，在当时实在让人迷茫了许久，直到彻底完全理解uart的ip核运行机制后才解决了问题。有了这些惨痛教训后，在设计外设模块时，我们都将这些外设模块合并成一个顶层模块并提供接口供CPU使用，这保证了单外设的崩溃不会导致cpu的崩溃，而我们只需要仿真测试单接口即可，这为debug的过程节省了不少时间。</span></p><h4 id='63）小组成员张展玮'><span>6.3）小组成员：张展玮</span></h4><p><span>虽然之前已经被数字逻辑使用verilog折磨过，我本以为这次verilog写得会顺利一些。然而现实是，verilog仍然是我们在做project面临的最大困难之一。难以debug，烧写时间长，对各模块之间的关系不够熟悉，对上升下降沿的理解不够透彻等，这些问题，都是可以让我debug一整天的存在。在这个过程中，我总结了一些经验：</span></p><ul><li><span>调试困难：Verilog编写的调试确实可能会很具有挑战性。对于复杂的设计，特别是在涉及多个模块和时序问题时，调试变得尤为困难。重要的是要运用有效的调试技巧，如使用仿真工具进行逐步调试、添加调试输出语句以跟踪信号值、通过波形查看器进行信号分析等。此外，建立良好的代码结构和注释也有助于提高可读性和可维护性。</span></li><li><span>模块关系和时序问题：对于复杂的设计，深入了解各个模块之间的关系和时序约束非常重要。这包括正确理解信号的传输路径、时钟边沿触发的影响以及确保时序约束的满足等。在编写Verilog代码之前，建议进行详细的设计规划和时序分析，并使用专业的时序约束语言来确保正确的时序行为。</span></li></ul><ul><li><span>上升和下降沿的理解：Verilog中的时钟边沿对于设计的正确性至关重要。对于时钟边沿的理解不够透彻可能导致设计中的错误或奇怪的行为。</span></li></ul><p><span>面对Verilog编写过程中遇到的挑战，重要的是保持耐心和冷静。充分利用现有的工具、资源，与同学们进行交流和讨论。</span></p></div></div>
+</body>
+</html>
