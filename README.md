@@ -17,7 +17,7 @@
 
 ## Part2-版本更迭记录
 
-https://github.com/ITBillZ/CS214-Computer-Organization-Project.git
+https://github.com/ITBillZ/CS214-CPU.git
 
 
 
